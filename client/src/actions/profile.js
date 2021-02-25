@@ -3,7 +3,8 @@ import { setAlert } from './alert';
 import {
     GET_PROFILE,
     PROFILE_ERROR,
-    UPDATE_PROFILE
+    UPDATE_PROFILE,
+    CLEAR_PROFILE
 } from './types';
 
 //Get current user profile
@@ -24,6 +25,24 @@ export const getCurrentProfile = () => async dispatch => {
             type: PROFILE_ERROR,
             payload: { msg: err.response.statusText, status: err.response.status }
         });
+    }
+};
+
+//Get  profile by id
+export const getProfileById = (userId) => async dispatch => {
+dispatch({type: CLEAR_PROFILE});
+    try {
+    const res = await axios.get(`/api/profile/user/${userId}`);
+
+    dispatch({
+        type: GET_PROFILE,
+        payload: res.data
+    })
+    } catch (err) {
+    dispatch({
+        type: PROFILE_ERROR,
+        payload: { msg: err.response.statusText, status: err.response.status }
+    });
     }
 };
 
