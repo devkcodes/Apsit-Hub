@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { setAlert } from '../../actions/alert';
 import { register } from '../../actions/auth';
+import Navbar from '../layout/Navbar';
+
 
 import PropTypes from 'prop-types'
 
@@ -35,6 +37,7 @@ export const Register = ({ setAlert, register, isAuthenticated }) => {
     return (
         <Fragment>
             <section className="container">
+
                 <h1 className="large text-primary">Sign Up</h1>
                 <p className="lead"><i className="fas fa-user"></i> Create Your Account</p>
                 <form className="form" onSubmit={e => onSubmit(e)}>

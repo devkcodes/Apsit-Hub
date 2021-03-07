@@ -1,9 +1,11 @@
 import React, { Fragment, useState } from 'react';
+import '../../App.css';
 import axios from 'axios';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { login } from '../../actions/auth';
 import PropTypes from 'prop-types';
+import Navbar from '../layout/Navbar';
 export const Login = ({ login, isAuthenticated }) => {
     const [formData, setFormData] = useState({
 
@@ -21,11 +23,14 @@ export const Login = ({ login, isAuthenticated }) => {
     };
 
     if (isAuthenticated) {
-        return <Redirect to="/dashboard" />
+        return <Redirect to="/posts" />
     }
     return (
         <Fragment>
+
+
             <section className="container">
+
                 <h1 className="large text-primary">Sign In</h1>
                 <p className="lead"><i className="fas fa-user"></i> Sign into your account</p>
                 <form className="form" onSubmit={e => onSubmit(e)}>
