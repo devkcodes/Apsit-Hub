@@ -5,24 +5,29 @@ import Spinner from '../layout/Spinner';
 import { getPosts } from '../../actions/post';
 import PostItem from './PostItem';
 import PostForm from './PostForm';
+import Navbar from '../layout/Navbar';
 const Posts = ({ getPosts, post: { posts, loading } }) => {
     useEffect(() => {
         getPosts();
     }, [getPosts]);
 
 
-    return loading ? <Spinner /> : (
-        <Fragment>
-            <h1 class="large text-primary">Posts</h1>
-            <p className="lead">
-                <i class="fas fa-user"></i>Welcome to the community</p>
-            <PostForm />
-            <div className="posts">
-                {posts.map(post => (<PostItem key={post._id} post={post} />
-                ))}
+    return (
 
-            </div>
-        </Fragment>
+        loading ? <Spinner /> : (
+            <Fragment>
+                <h1 class="large text-primary">Posts</h1>
+                <p className="lead">
+                    <i class="fas fa-user"></i>Welcome to the community</p>
+                <PostForm />
+                <div className="posts">
+                    {posts.map(post => (<PostItem key={post._id} post={post} />
+                    ))}
+
+                </div>
+            </Fragment>
+        )
+
     )
 }
 

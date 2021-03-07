@@ -1,5 +1,4 @@
 import './App.css';
-import './template/template/assets/css/style.css';
 import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
@@ -25,14 +24,16 @@ import setAuthToken from './utils/setAuthToken';
 const App = () => {
     useEffect(() => {
         store.dispatch(loadUser());
-    }, []);
+    }, [loadUser]);
     return (
         <Provider store={store}>
             <Router >
                 <Fragment >
                     <Navbar />
                     <Route exact path="/" component={Landing} />
+
                     <section className="container">
+
                         <Alert />
                         <Switch>
                             <Route exact path="/register" component={Register} />
@@ -53,4 +54,4 @@ const App = () => {
                 </Fragment > </Router></Provider>
     )
 };
-export default App;  
+export default App;

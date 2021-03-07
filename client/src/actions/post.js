@@ -9,6 +9,7 @@ export const getPosts = () => async dispatch => {
 
         dispatch({ type: GET_POSTS, payload: res.data });
     } catch (err) {
+        console.log(err)
         dispatch({
             type: POST_ERROR,
             payload: { msg: err.response.statusText, status: err.response.status }
