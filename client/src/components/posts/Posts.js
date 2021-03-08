@@ -5,8 +5,40 @@ import Spinner from '../layout/Spinner';
 import { getPosts } from '../../actions/post';
 import PostItem from './PostItem';
 import PostForm from './PostForm';
-import Navbar from '../layout/Navbar';
+import Navbar from '../layout/Navbar'
+import {Grid,makeStyles} from '@material-ui/core'
+
+const styles ={
+    containerRoot:{
+        
+        border:'gray solid 0.01px',
+        borderTop:'none',
+        marginLeft:'20%',
+        marginRight:'20%',
+        ['@media (max-width:1000px)']:{
+            
+            margin:'0',
+            padding:'0'
+        },
+        ['@media (max-width:600px)']:{
+            margin:'0',
+            padding:'0'
+        }
+
+    },
+    gridItem:{
+        width:'65%',
+        ['@media (max-width:600px)']:{
+            width:'80%',
+            margin:'0',
+            
+        }
+    }
+}
+const useStyles = makeStyles(styles)
+
 const Posts = ({ getPosts, post: { posts, loading } }) => {
+    const classes = useStyles()
     useEffect(() => {
         getPosts();
     }, [getPosts]);
@@ -16,15 +48,30 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
 
         loading ? <Spinner /> : (
             <Fragment>
-                <h1 class="large text-primary">Posts</h1>
-                <p className="lead">
-                    <i class="fas fa-user"></i>Welcome to the community</p>
-                <PostForm />
-                <div className="posts">
-                    {posts.map(post => (<PostItem key={post._id} post={post} />
+
+                <Grid
+    container
+    direction="column"
+    justify="flex-start"
+    alignItems="center"
+    className={classes.containerRoot}
+>
+    <Grid item xs={12} >
+        <p>Recent Activity</p>
+    </Grid>
+    <Grid item className={classes.gridItem}>
+            <PostForm />
+    </Grid>
+            
+    
+                    {posts.map(post => (<Grid item xs className={classes.gridItem}><PostItem key={post._id} post={post} /></Grid>
                     ))}
 
-                </div>
+
+</Grid>
+
+                
+                
             </Fragment>
         )
 

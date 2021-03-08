@@ -5,8 +5,10 @@ import { ADD_COMMENT, REMOVE_COMMENT, GET_POST, GET_POSTS, ADD_POST, POST_ERROR,
 //Get Posts
 export const getPosts = () => async dispatch => {
     try {
+         console.log('i worked okkkkkkkk ')
         const res = await axios.get('/api/posts');
-
+        console.log('i worked ok ')
+        console.log(res)
         dispatch({ type: GET_POSTS, payload: res.data });
     } catch (err) {
         console.log(err)
