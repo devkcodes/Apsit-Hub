@@ -2,20 +2,25 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addPost } from '../../actions/post';
+import "../../styles/PostForm.css"
+import Card from '@material-ui/core/Card'
 
 const PostForm = ({ addPost }) => {
     const [text, setText] = useState('');
     return (
-        <div class="post-form">
+        <div class="post-form-container">
+           
             <div class="bg-primary p">
                 <h3>Say Something...</h3>
             </div>
+            <div className="post-form">
             <form class="form my-1" onSubmit={e => {
                 e.preventDefault();
                 addPost({ text });
                 setText(' ');
             }}>
                 <textarea
+                    className="post-text"
                     name="text"
                     cols="30"
                     rows="5"
@@ -23,8 +28,10 @@ const PostForm = ({ addPost }) => {
                     value={text} onChange={e => setText(e.target.value)}
                     required
                 ></textarea>
-                <input type="submit" class="btn btn-dark my-1" value="Submit" />
+                <input type="submit" class="inputbtn" value="Submit" />
             </form>
+            </div>
+            
         </div>
     )
 }
