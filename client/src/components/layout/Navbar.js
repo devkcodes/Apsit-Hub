@@ -3,56 +3,56 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
-import { Grid, Button, AppBar, Toolbar, Typography, MenuItem, Menu, Avatar} from "@material-ui/core"
+import { Grid, Button, AppBar, Toolbar, Typography, MenuItem, Menu, Avatar } from "@material-ui/core"
 import { makeStyles } from '@material-ui/core/styles';
 
 const styles = ({
 
-  row:{
-    flexGrow:1
+  row: {
+    flexGrow: 1
   },
-  grow:{
-    flexGrow:1
+  grow: {
+    flexGrow: 1
   },
-  container:{
-    width:1170,
-    margin:"auto"
+  container: {
+    width: 1170,
+    margin: "auto"
   },
-  buttonFontSize:{
-    fontSize:"16px",
-    color:"#a1a1a1"
+  buttonFontSize: {
+    fontSize: "16px",
+    color: "#a1a1a1"
   },
 
-  AppBar:{
+  AppBar: {
     //height:400,
     //background: `url("http://lorempixel.com/1920/1080/nature") no-repeat center center`,
-    backgroundColor:"rgb(22, 27, 34)",
-    backgroundSize:"cover",
-    marginBottom:"-20px"
+    backgroundColor: "rgb(22, 27, 34)",
+    backgroundSize: "cover",
+    marginBottom: "-20px"
   },
-  mainLogo:{
+  mainLogo: {
     color: "#a1a1a1",
 
-    justifyContent:"left",
-    '&:hover':{
-      background:"transparent"
+    justifyContent: "left",
+    '&:hover': {
+      background: "transparent"
     }
   },
 
-  avatar:{
-    height:"100%",
-    borderRadius:0,
+  avatar: {
+    height: "100%",
+    borderRadius: 0,
 
 
   },
 
-  loginButton:{
-    background:"#e91e63",
-    color:"#fff",
-    borderRadius:"25px",
-    padding:"0px 25px",
+  loginButton: {
+    background: "#e91e63",
+    color: "#fff",
+    borderRadius: "25px",
+    padding: "0px 25px",
 
-    '&:hover':{
+    '&:hover': {
       background: 'blue',
       boxShadow: "0px 2px 10px #888888"
     }
@@ -96,27 +96,27 @@ export const NavbarComponent = ({ auth: { isAuthenticated, loading }, logout }) 
 
   return (
     <Fragment>
-      {!loading && isAuthenticated &&
-    
-             <AppBar position="static" color="default" className={classes.AppBar}>
-          <Grid item sm={12} xs={12} className={classes.container}>
-            <Toolbar>
-              <Grid className={classes.grow}>
-                <Button className={[classes.mainLogo]}>
-                  <h2>ApsitHub</h2>
-                </Button>
-              </Grid>
-              <Button color="inherit" className={classes.buttonFontSize}>Feed</Button>
-              <Button color="inherit" className={classes.buttonFontSize}>Students</Button>
-              <Button color="inherit" className={classes.buttonFontSize}>Dashboad</Button>
-              <Button color="inherit" className={classes.buttonFontSize}>Logout</Button>
-              
-            </Toolbar>
-          </Grid>
-        </AppBar>
-    
+      {!loading && isAuthenticated && authLinks
+
+        //      <AppBar position="static" color="default" className={classes.AppBar}>
+        //   <Grid item sm={12} xs={12} className={classes.container}>
+        //     <Toolbar>
+        //       <Grid className={classes.grow}>
+        //         <Button className={[classes.mainLogo]}>
+        //           <h2>ApsitHub</h2>
+        //         </Button>
+        //       </Grid>
+        //       <Button color="inherit" className={classes.buttonFontSize}>Feed</Button>
+        //       <Button color="inherit" className={classes.buttonFontSize}>Students</Button>
+        //       <Button color="inherit" className={classes.buttonFontSize}>Dashboad</Button>
+        //       <Button color="inherit" className={classes.buttonFontSize}>Logout</Button>
+
+        //     </Toolbar>
+        //   </Grid>
+        // </AppBar>
 
       }
+
     </Fragment>
 
   )
