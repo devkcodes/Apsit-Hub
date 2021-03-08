@@ -106,8 +106,8 @@ export const NavbarComponent = ({ auth: { isAuthenticated, loading }, logout }) 
                   <h2>ApsitHub</h2>
                 </Button>
               </Grid>
-              <Button color="inherit" className={classes.buttonFontSize}>Feed</Button>
-              <Button color="inherit" className={classes.buttonFontSize}>Students</Button>
+              <Button color="inherit" className={classes.buttonFontSize}><Link to="/posts">Feed</Link></Button>
+              <Button color="inherit" className={classes.buttonFontSize}><Link to="/profiles">Students</Link></Button>
               <Button color="inherit" className={classes.buttonFontSize}>Dashboad</Button>
               <Button color="inherit" className={classes.buttonFontSize}>Logout</Button>
               
