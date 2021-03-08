@@ -4,7 +4,12 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types'
 import '../../landing.css'
 
-import { Button } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
+import Container from '@material-ui/core/Container'
+import Paper from '@material-ui/core/Paper'
+
+
+
 
 export const Landing = ({ isAuthenticated }) => {
 
@@ -15,7 +20,18 @@ export const Landing = ({ isAuthenticated }) => {
 
   return (
     <div>
-      <Button variant="contained">Default</Button>    </div>
+      <Container maxWidth='sm'>
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+        >
+          <Paper />
+        </Grid>
+
+      </Container>
+    </div>
 
   )
 }
