@@ -6,13 +6,15 @@ import { logout } from '../../actions/auth';
 import { Grid, Button, AppBar, Toolbar, Typography, MenuItem, Menu, Avatar } from "@material-ui/core"
 import { makeStyles } from '@material-ui/core/styles';
 
+
 const styles = ({
 
   row: {
     flexGrow: 1
   },
   grow: {
-    flexGrow: 1
+    flexGrow: 1,
+    padding: '0px',
   },
   container: {
     width: 1170,
@@ -20,20 +22,25 @@ const styles = ({
   },
   buttonFontSize: {
     fontSize: "16px",
-    color: "#a1a1a1"
-  },
 
+  },
+  links: {
+    color: 'white',
+    textDecoration: 'none'
+  },
   AppBar: {
     //height:400,
     //background: `url("http://lorempixel.com/1920/1080/nature") no-repeat center center`,
-    backgroundColor: "rgb(22, 27, 34)",
+    backgroundColor: "#2D3548",
     backgroundSize: "cover",
-    marginBottom: "-20px"
+    padding: "0px",
+    marginBottom: "5px",
+    textDecoration: 'none'
+
   },
   mainLogo: {
     color: "#a1a1a1",
 
-    justifyContent: "left",
     '&:hover': {
       background: "transparent"
     }
@@ -63,31 +70,35 @@ const useStyles = makeStyles(styles);
 
 export const NavbarComponent = ({ auth: { isAuthenticated, loading }, logout }) => {
   const classes = useStyles();
-  const authLinks = (
-    <ul>
+  // const authLinks = (
+  //     <ul>
 
-      <li><a onClick={logout} href="http://localhost:3000">
-        <i className="fas fa-sign-out-alt"></i>{' '}
-        <span className="hide-sm">Logout</span></a></li>
 
-      <li><Link to="/profiles"><i className="mdi mdi-account-check
-"></i><span className="hide-sm">Developers</span></Link></li>
-      <li><Link to="/posts"><i className="fas fa-user"></i><span className="hide-sm">Posts</span></Link></li>
-      <li><Link to="/dashboard"><i className="fas fa-user"></i><span className="hide-sm">Dashboard</span></Link></li>
 
-      <li><a onClick={logout} href="http://localhost:3000">
-        <i className="fas fa-sign-out-alt"></i>{' '}
-        <span className="hide-sm">Logout</span></a></li>
+  //       <li><Link to="/profiles"><i className="mdi mdi-account-check
+  // "></i><span className="hide-sm">Developers</span></Link></li>
+  //       <li><Link to="/posts"><i className="fas fa-user"></i><span className="hide-sm">Posts</span></Link></li>
+  //       <li><Link to="/dashboard"><i className="fas fa-user"></i><span className="hide-sm">Dashboard</span></Link></li>
 
-    </ul>
-  );
+  //       <li><a onClick={logout} href="http://localhost:3000">
+  //         <i className="fas fa-sign-out-alt"></i>{' '}
+  //         <span className="hide-sm">Logout</span></a></li>
 
-  const guestLinks = (
-    <ul>
+  //     </ul>
+  // );
+
+  const guestLinks = (<Fragment>
+    {/* <ul>
       <li><Link to="/profiles">Developers</Link></li>
       <li><Link to="/register">Register</Link></li>
       <li><Link to="/login">Login</Link></li>
-    </ul>
+    </ul> */}
+    <Button color="inherit" className={classes.buttonFontSize}><li><Link to="/profiles" >Developers</Link></li></Button>
+    <Button color="inherit" className={classes.buttonFontSize}> <Link className={classes.links} to="/register">Register</Link>
+    </Button>
+    <Button color="inherit" className={classes.buttonFontSize}>      <li><Link to="/login">Login</Link></li>
+    </Button>
+  </Fragment >
   );
 
 
@@ -96,24 +107,28 @@ export const NavbarComponent = ({ auth: { isAuthenticated, loading }, logout }) 
 
   return (
     <Fragment>
-      {!loading && isAuthenticated && authLinks
+      {!loading && isAuthenticated &&
 
-        //      <AppBar position="static" color="default" className={classes.AppBar}>
-        //   <Grid item sm={12} xs={12} className={classes.container}>
-        //     <Toolbar>
-        //       <Grid className={classes.grow}>
-        //         <Button className={[classes.mainLogo]}>
-        //           <h2>ApsitHub</h2>
-        //         </Button>
-        //       </Grid>
-        //       <Button color="inherit" className={classes.buttonFontSize}>Feed</Button>
-        //       <Button color="inherit" className={classes.buttonFontSize}>Students</Button>
-        //       <Button color="inherit" className={classes.buttonFontSize}>Dashboad</Button>
-        //       <Button color="inherit" className={classes.buttonFontSize}>Logout</Button>
+        <AppBar position="fixed" color="#2D3548" className={classes.AppBar}>
+          <Grid item sm={12} xs={12} className={classes.container}>
+            <Toolbar>
+              <Grid className={classes.grow}>
+                <Button className={[classes.mainLogo]}>
+                  <h2>ApsitHub</h2>
+                </Button>
+              </Grid>
+              <Button color="inherit" className={classes.buttonFontSize}><Link to="/dashboard" className={classes.links}>Dashboard</Link></Button>
+              <Button color="inherit" component={Link} className={classes.buttonFontSize}><Link to="/profiles" className={classes.links}>Students</Link></Button>
+              <Button color="inherit" className={classes.buttonFontSize}><Link to="/posts" className={classes.links}>Posts</Link></Button>
+              <Button color="inherit" className={classes.buttonFontSize} >
+                <a className={classes.links} onClick={logout} href="http://localhost:3000/login">
 
-        //     </Toolbar>
-        //   </Grid>
-        // </AppBar>
+                  Logout</a>
+              </Button>
+
+            </Toolbar>
+          </Grid>
+        </AppBar>
 
       }
 

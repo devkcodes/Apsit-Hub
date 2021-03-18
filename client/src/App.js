@@ -35,7 +35,7 @@ const App = () => {
             <Router >
                 <Fragment >
                     <Navbar />
-                    <Route exact path="/" component={Landing} />
+                    <Route exact path="/" component={Login} />
 
                     <section className="container">
 
