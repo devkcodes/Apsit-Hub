@@ -278,7 +278,7 @@ const useStyles = makeStyles((theme) => ({
         color: 'white'
     },
     image: {
-        backgroundImage: 'url(https://res.cloudinary.com/dsph4eptm/image/upload/v1615197642/photomania-24ef4102c2f9ea86ea75f3ecfa7c11bc_sfbwij.jpg)',
+        backgroundImage: 'url(https://res.cloudinary.com/dsph4eptm/image/upload/v1615197642/photomania-24ef4102c2f9ea86ea75f3ecfa7c11bc_sfbwij.jpg)', 
         backgroundRepeat: 'no-repeat',
         backgroundColor:
             theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
