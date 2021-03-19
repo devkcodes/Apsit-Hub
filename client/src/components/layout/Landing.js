@@ -20,13 +20,15 @@ export const Landing = ({ isAuthenticated }) => {
 
   return (
     <div>
-      <Container maxWidth='sm'>
+      <Container maxWidth='lg'>
         <Grid
           container
           direction="row"
           justify="center"
           alignItems="center"
         >
+          <Paper />
+          <Paper />
           <Paper />
         </Grid>
 
