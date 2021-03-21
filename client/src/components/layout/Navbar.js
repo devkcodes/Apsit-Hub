@@ -68,41 +68,8 @@ const styles = ({
 });
 const useStyles = makeStyles(styles);
 
-export const NavbarComponent = ({ auth: { isAuthenticated, loading }, logout }) => {
+export const NavbarComponent = ({ auth: { isAuthenticated, loading ,user}, logout }) => {
   const classes = useStyles();
-  // const authLinks = (
-  //     <ul>
-
-
-
-  //       <li><Link to="/profiles"><i className="mdi mdi-account-check
-  // "></i><span className="hide-sm">Developers</span></Link></li>
-  //       <li><Link to="/posts"><i className="fas fa-user"></i><span className="hide-sm">Posts</span></Link></li>
-  //       <li><Link to="/dashboard"><i className="fas fa-user"></i><span className="hide-sm">Dashboard</span></Link></li>
-
-  //       <li><a onClick={logout} href="http://localhost:3000">
-  //         <i className="fas fa-sign-out-alt"></i>{' '}
-  //         <span className="hide-sm">Logout</span></a></li>
-
-  //     </ul>
-  // );
-
-  const guestLinks = (<Fragment>
-    {/* <ul>
-      <li><Link to="/profiles">Developers</Link></li>
-      <li><Link to="/register">Register</Link></li>
-      <li><Link to="/login">Login</Link></li>
-    </ul> */}
-    <Button color="inherit" className={classes.buttonFontSize}><li><Link to="/profiles" >Developers</Link></li></Button>
-    <Button color="inherit" className={classes.buttonFontSize}> <Link className={classes.links} to="/register">Register</Link>
-    </Button>
-    <Button color="inherit" className={classes.buttonFontSize}>      <li><Link to="/login">Login</Link></li>
-    </Button>
-  </Fragment >
-  );
-
-
-
 
 
   return (
@@ -117,7 +84,7 @@ export const NavbarComponent = ({ auth: { isAuthenticated, loading }, logout }) 
                   <h2>ApsitHub</h2>
                 </Button>
               </Grid>
-              <Button color="inherit" className={classes.buttonFontSize}><Link to="/dashboard" className={classes.links}>Dashboard</Link></Button>
+              <Button color="inherit" className={classes.buttonFontSize}><Link  to={`/profile/${user._id}`} className={classes.links}>Dashboard</Link></Button>
               <Button color="inherit" component={Link} className={classes.buttonFontSize}><Link to="/profiles" className={classes.links}>Students</Link></Button>
               <Button color="inherit" className={classes.buttonFontSize}><Link to="/posts" className={classes.links}>Posts</Link></Button>
               <Button color="inherit" className={classes.buttonFontSize} >

@@ -23,6 +23,9 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import GridList from '@material-ui/core/GridList';
 
+//Geist
+import {AutoComplete} from '@geist-ui/react'
+
 //normal 
 import React, { Fragment, useEffect } from 'react'
 import PropTypes from 'prop-types'
@@ -39,7 +42,6 @@ const useStyles = makeStyles((theme) => ({
     },
     container: {
         marginTop: "80px",
-        backgroundColor: "blue"
     },
     paper: {
         width: '90%',
@@ -50,12 +52,11 @@ const useStyles = makeStyles((theme) => ({
         height: '20%',
 
         padding: "20px",
-        backgroundColor: 'pink',
+        
         padding: "20px"
     },
-    textGrid: {
-        width: '100%',
-        height: '100px',
+    TextGrid: {
+        padding:"50px"
     }
 
 
@@ -67,38 +68,31 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
         getProfiles();
     }, [getProfiles]);
     const classes = useStyles();
+    const options = [
+    { label: 'London', value: 'london' },
+    { label: 'Sydney', value: 'sydney' },
+    { label: 'Shanghai', value: 'shanghai' },
+    ]
 
     return <Fragment
 
     >
         {loading ? <Spinner /> :
-            //  <Fragment>
+                    <Grid container className={classes.container}>
 
-            //     <h1 className="large text-primary">Students</h1>
-            //     <p className="lead">
-            //         <i className="fab fa-connectdeveop"></i> Browse and connect with fellow students
-            //     </p>
-            //     <div className="profiles">
-            //         {profiles.length > 0 ? (
-            //             profiles.map(profile => (<ProfileItem key={profile._id} profile={profile} />))
-            //         ) : <h4>No profiles found...</h4>}
-            //     </div>
-
-            // </Fragment>
-            <Fragment>
-                <Container className={classes.container}>
-
-                    <Grid className={classes.TextGrid} >
-                        <h1>Browse and connect with fellow students</h1>
+                    <Grid container className={classes.TextGrid} >
+                        <AutoComplete size="large" placeholder="Search Users" options={options} />
                     </Grid>
-                    <Grid className={classes.gridProfile} direction="row" justify="space-evenly">
+
+                    <Grid container className={classes.gridProfile} direction="row" justify="flex-start">
                         {profiles.length > 0 ? (
                             profiles.map(profile => (<ProfileItem key={profile._id} profile={profile} />))
                         ) : <h4>No profiles found...</h4>}
                     </Grid>
+                    </Grid>
 
-                </Container>
-            </Fragment>
+              
+           
 
         }
     </Fragment >

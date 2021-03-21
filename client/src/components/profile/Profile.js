@@ -6,9 +6,38 @@ import Spinner from "../layout/Spinner";
 import ProfileTop from "./ProfileTop";
 import ProfileGithub from './ProfileGithub';
 import ProfileAbout from "./ProfileAbout";
+import ProfileLeft from "./ProfileLeft";
+import ProfileRight from "./ProfileRight";
 import { getProfileById } from "../../actions/profile";
 
+
+//Geist UI
+import {Card, Text, Divider,Code} from '@geist-ui/react' 
+
+//Material UI
+import { makeStyles } from '@material-ui/core/styles';
+import {Grid} from '@material-ui/core'
+
+
+
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        height: '100vh',
+        color: 'white'
+    },
+    containerRoot: {
+        marginTop:'10em',
+				width:'90vw'
+
+    }
+
+}));
+
 function Profile({ match, getProfileById, auth, profile: { profile, loading } }) {
+
+
+	const classes = useStyles();
 
 	useEffect(() => {
 		getProfileById(match.params.id)
@@ -22,25 +51,14 @@ function Profile({ match, getProfileById, auth, profile: { profile, loading } })
 					<Spinner />
 				) : (
 						<Fragment>
-							{/* <h1 className="large text-primary"> Dashboard </h1>
-
-							<p className="lead">
-								<i className="fa fa-user"></i> Welcome {auth.user && auth.user.name}
-							</p>
-
-							<Link to="/edit-profile">
-								Edit Profile
-					</Link> */}
-
-							<Link to="/profiles" className="btn btn-light">Back To Profiles</Link>
-							{auth.isAuthenticated && auth.loading === false && auth.user._id === profile.user._id && (
-								<Link to="/edit-profile" className="btn btn-light">Edit Profile</Link>
-							)}
-							<div className="profile-grid my-1">
-								<ProfileTop profile={profile} />
-								<ProfileAbout profile={profile} />
-								{profile.githubusername && (<ProfileGithub username={profile.githubusername} />)}
-
+							<div className={classes.root}>
+								<Grid container 
+								direction="row"
+  							  justify="space-between"
+								  className={classes.containerRoot}>
+									<ProfileLeft profile ={profile}/>
+									<ProfileRight profile ={profile}/>
+								</Grid>
 							</div>
 						</Fragment>
 					)}
