@@ -6,13 +6,18 @@ import Spinner from "../layout/Spinner";
 import ProfileTop from "./ProfileTop";
 import ProfileGithub from './ProfileGithub';
 import ProfileAbout from "./ProfileAbout";
+import ProfileLeft from "./ProfileLeft";
+import ProfileRight from "./ProfileRight";
 import { getProfileById } from "../../actions/profile";
+
 
 //Geist UI
 import {Card, Text, Divider,Code} from '@geist-ui/react' 
 
 //Material UI
 import { makeStyles } from '@material-ui/core/styles';
+import {Grid} from '@material-ui/core'
+
 
 
 
@@ -22,13 +27,10 @@ const useStyles = makeStyles((theme) => ({
         color: 'white'
     },
     containerRoot: {
-        marginTop:'10em'
-
-    },
-    welcome: {
+        marginTop:'10em',
+				width:'90vw'
 
     }
-
 
 }));
 
@@ -50,11 +52,13 @@ function Profile({ match, getProfileById, auth, profile: { profile, loading } })
 				) : (
 						<Fragment>
 							<div className={classes.root}>
-								<div className={classes.containerRoot}>
-									<ProfileTop profile={profile} />
-									<ProfileAbout profile={profile}/>
-									<ProfileGithub/>
-								</div>
+								<Grid container 
+								direction="row"
+  							  justify="space-between"
+								  className={classes.containerRoot}>
+									<ProfileLeft profile ={profile}/>
+									<ProfileRight profile ={profile}/>
+								</Grid>
 							</div>
 						</Fragment>
 					)}

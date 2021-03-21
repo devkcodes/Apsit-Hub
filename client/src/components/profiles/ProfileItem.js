@@ -80,8 +80,8 @@ const Profileitem = ({
     }
 }) => {
     const classes = useStyles();
-    var array = skills.toString().split(" ");
-    console.log(array)
+    var array = skills.toString().split(/[\s,]+/);
+
 
 
     return (
