@@ -28,7 +28,9 @@ const useStyles = makeStyles((theme) => ({
     },
     containerRoot: {
         marginTop:'10em',
-				width:'90vw'
+				width:'90vw',
+				display:'flex',
+
 
     }
 
@@ -55,9 +57,15 @@ function Profile({ match, getProfileById, auth, profile: { profile, loading } })
 								<Grid container 
 								direction="row"
   							  justify="space-between"
+									alignContent="center"
 								  className={classes.containerRoot}>
+										<Grid item xs={12} md={5}>
 									<ProfileLeft profile ={profile}/>
+									</Grid>
+									<Grid item xs={12} md={6}>
 									<ProfileRight profile ={profile}/>
+									</Grid>
+									
 								</Grid>
 							</div>
 						</Fragment>

@@ -64,7 +64,7 @@ function ProfileLeft({ profile: {
   const skillarray = skills.toString().split(/[\s,]+/);
 
   return (
-    <Grid item xs={12} md={4} >
+    <Grid item  >
       <Card  width="100%">
                         <Card.Content style={{display:'flex',justifyContent:'space-between'}}>
                           <span>Basic Profile</span>

@@ -1,11 +1,14 @@
 import React from 'react'
 import ProfileGithub from './ProfileGithub'
 
-function ProfileRight() {
+import {Grid} from '@material-ui/core'
+
+function ProfileRight({profile}) {
+  
   return (
-    <div>
-      <ProfileGithub/>
-    </div>
+    <Grid item> 
+      <ProfileGithub username={profile.githubusername}/>
+    </Grid>
   )
 }
 
