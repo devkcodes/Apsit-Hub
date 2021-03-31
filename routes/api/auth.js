@@ -35,6 +35,7 @@ router.post('/', [
     ],
     async(req, res) => {
         //console.log();
+        console.log(req)
         const errors = validationResult(req);
         // console.log({ errors: errors.array() });
         if (!errors.isEmpty()) {

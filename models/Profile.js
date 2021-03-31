@@ -5,8 +5,13 @@ const ProfileSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
     },
-
-
+    gender: {
+        type: String,
+        required: true
+    },
+    avatar: {
+    type: String
+    },
     company: {
         type: String
     },

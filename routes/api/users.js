@@ -2,7 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
-const gravatar = require('gravatar');
+
 
 const bcrypt = require('bcryptjs');
 
@@ -41,18 +41,11 @@ router.post('/', [
                 // res.send('Users registered');
             }
 
-            //get user gravatar
 
-            const avatar = gravatar.url(email, {
-                s: '200',
-                r: 'pg',
-                d: 'mm'
-            })
 
             user = new User({
                 name,
                 email,
-                avatar,
                 password
             });
             // encrypt the pw 

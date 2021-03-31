@@ -18,7 +18,7 @@ const config = require('config');
 
 router.get('/me', auth, async (req, res) => {
     try {
-        const profile = await Profile.findOne({ user: req.user.id }).populate('user', ['name', 'avatar']);
+        const profile = await Profile.findOne({ user: req.user.id }).populate('user', ['name']);
 
 
         if (!profile) {
@@ -39,7 +39,8 @@ router.post(
     '/', [
     auth, [
         check('status', 'Status is required').not().isEmpty(),
-        check('skills', 'skills is required').not().isEmpty()
+        check('skills', 'skills is required').not().isEmpty(),
+        check('gender', 'Gender is required').not().isEmpty()
     ]
 ],
     async (req, res) => {
@@ -50,6 +51,7 @@ router.post(
 
         // destructure the request
         const {
+            gender,
             company,
             website,
             location,
@@ -71,6 +73,7 @@ router.post(
 
         const profileFields = {};
         profileFields.user = req.user.id;
+        if(gender) profileFields.gender = gender;
         if (company) profileFields.company = company;
         if (website) profileFields.website = website;
         if (location) profileFields.location = location;
@@ -80,6 +83,14 @@ router.post(
         if (skills) {
             profileFields.skills = skills.toString().split(',').map(skill => ' ' + skill.trim()+ ' ');
         }
+        const user = await User.findById(req.user.id).select('-password');
+
+        if(gender==='female'||gender==='male')
+        profileFields.avatar = `https://avatars.dicebear.com/api/${gender}/${user._id}.svg?mood[]=happy`;
+        else
+            profileFields.avatar = `https://avatars.dicebear.com/api/human/${user._id}.svg?mood[]=happy`;
+
+
 
         //Build social object
         profileFields.social = {}
@@ -120,7 +131,7 @@ router.post(
 // @access   public
 router.get('/', async (req, res) => {
     try {
-        const profiles = await Profile.find().populate('user', ['name', 'avatar']);
+        const profiles = await Profile.find().populate('user', ['name']);
         res.json(profiles);
     } catch (err) {
         console.error(err.message);
@@ -135,7 +146,7 @@ router.get('/', async (req, res) => {
 // @access   public
 router.get('/user/:user_id', async (req, res) => {
     try {
-        const profile = await Profile.findOne({ user: req.params.user_id }).populate('user', ['name', 'avatar']);
+        const profile = await Profile.findOne({ user: req.params.user_id }).populate('user', ['name']);
         if (!profile) return res.status(400).json({ msg: 'Profile Not Found' });
 
         res.json(profile);
@@ -355,6 +366,19 @@ router.get('/github/:username', (req, res) => {
 
 
 
+})
+
+
+router.get('/search', async(req,res)=>{
+    try {
+        
+        const profiles = await Profile.find({ name: {$regex: req.query.name, $options:'i'} }).populate('user')
+        res.json(profiles);
+
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
 })
 
 module.exports = router;

@@ -72,7 +72,8 @@ const useStyles = makeStyles(() => ({
 
 const Profileitem = ({
     profile: {
-        user: { _id, name, avatar },
+        user: { _id, name },
+        avatar,
         status,
         company,
         location,
