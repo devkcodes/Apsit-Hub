@@ -46,10 +46,16 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
             facebook: '',
             linkedin: '',
             youtube: '',
-            instagram: ''
+            instagram: '',
+            kaggle: '',
+            codeforces: '',
+            codechef: '',
+            geeksforgeeks: '',
+            leetcode: ''
         });
 
     const [displaySocialInputs, toggleSocialInputs] = useState(false);
+    const [displayCodingInputs, toggleCodingInputs] = useState(false);
 
     useEffect(() => {
         getCurrentProfile();
@@ -67,6 +73,11 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
             linkedin: loading || !profile.social ? '' : profile.social.linkedin,
             youtube: loading || !profile.social ? '' : profile.social.youtube,
             instagram: loading || !profile.social ? '' : profile.social.instagram,
+            geeksforgeeks: loading || !profile.coding ? '' : profile.coding.geeksforgeeks,
+            codeforces: loading || !profile.coding ? '' : profile.coding.codeforces,
+            codechef: loading || !profile.coding ? '' : profile.coding.codechef,
+            leetcode: loading || !profile.coding ? '' : profile.coding.leetcode,
+            kaggle: loading || !profile.coding ? '' : profile.coding.kaggle,
         });
     }, [loading, getCurrentProfile]);
 
@@ -84,7 +95,12 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
         facebook,
         linkedin,
         youtube,
-        instagram
+        instagram,
+        kaggle,
+        codeforces,
+        codechef,
+        geeksforgeeks,
+        leetcode
     } = formData;
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -202,20 +218,7 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
                 <Grid className={classes.formGrid} direction="column">
                     <form className={classes.form} onSubmit={e => onSubmit(e)}>
                         <Paper className={classes.formPaper}>
-                            {/* <select name="status" value={status} onChange={e => onChange(e)}>
-                                <option value="0">* Select Professional Status</option>
-                                <option value="Developer">Developer</option>
-                                <option value="Junior Developer">Junior Developer</option>
-                                <option value="Senior Developer">Senior Developer</option>
-                                <option value="Manager">Manager</option>
-                                <option value="Student or Learning">Student or Learning</option>
-                                <option value="Instructor">Instructor or Teacher</option>
-                                <option value="Intern">Intern</option>
-                                <option value="Other">Other</option>
-                            </select>
-                            <small className="form-text"
-                            >Give us an idea of where you are at in your career</small
-                            > */}
+
                             <Grid item className={classes.formGrid1}>
                                 <TextField className={classes.textField}
                                     id="status"
@@ -276,6 +279,10 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
                                         <LanguageSharpIcon />Add Social Network Links
           </Button>
 
+                                    <Button color="primary" variant="outlined" onClick={() => toggleCodingInputs(!displayCodingInputs)} size="small" className={classes.buttonToggle}>
+                                        <LanguageSharpIcon />Add Coding Profile Links
+          </Button>
+
                                     <span>Optional</span>
                                 </div>
 
@@ -304,6 +311,37 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
                                     <div className="form-group social-input">
                                         <InstagramIcon fontSize="large" className={classes.Icons} />
                                         <TextField className={classes.textFieldSocial} placeholder="Instagram URL" name="instagram" value={instagram} onChange={e => onChange(e)} ></TextField>
+                                    </div></Fragment>
+
+                                }
+
+
+
+                                {displayCodingInputs && <Fragment>
+
+                                    <div className="form-group social-input">
+                                        <TwitterIcon fontSize="large" className={classes.Icons} />
+                                        <TextField className={classes.textFieldSocial} placeholder="geeksforgeeks URL" name="geeksforgeeks" value={geeksforgeeks} onChange={e => onChange(e)} ></TextField>
+                                    </div>
+
+                                    <div className="form-group social-input">
+                                        <FacebookIcon fontSize="large" className={classes.Icons} />
+                                        <TextField className={classes.textFieldSocial} placeholder="leetcode URL" name="leetcode" value={leetcode} onChange={e => onChange(e)} ></TextField>
+                                    </div>
+
+                                    <div className="form-group social-input">
+                                        <YouTubeIcon fontSize="large" className={classes.Icons} />
+                                        <TextField className={classes.textFieldSocial} placeholder="codeforces URL" name="codeforces" value={codeforces} onChange={e => onChange(e)} ></TextField>
+                                    </div>
+
+                                    <div className="form-group social-input">
+                                        <LinkedInIcon fontSize="large" className={classes.Icons} />
+                                        <TextField className={classes.textFieldSocial} placeholder="codechef URL" name="codechef" value={codechef} onChange={e => onChange(e)} ></TextField>
+                                    </div>
+
+                                    <div className="form-group social-input">
+                                        <InstagramIcon fontSize="large" className={classes.Icons} />
+                                        <TextField className={classes.textFieldSocial} placeholder="kaggle URL" name="kaggle" value={kaggle} onChange={e => onChange(e)} ></TextField>
                                     </div></Fragment>
 
                                 }
