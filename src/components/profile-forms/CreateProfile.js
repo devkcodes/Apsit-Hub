@@ -1,9 +1,19 @@
 
 //ui imports
-import {Avatar,Button,CssBaseline,Box,Grid,Paper,FormControl,TextField,MenuItem,InputLabel,makeStyles,Select} from '@material-ui/core'
-
-
-
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+// import Paper from '@material-ui/core/Paper';
+import Paper from '@material-ui/core/Paper';
+import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import MenuItem from '@material-ui/core/MenuItem'
 import LanguageSharpIcon from '@material-ui/icons/LanguageSharp';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
@@ -23,7 +33,6 @@ import { createProfile } from '../../actions/profile';
 const CreateProfile = ({ createProfile, history }) => {
     const [formData, setFormData] = useState(
         {
-            gender:'',
             company: '',
             website: '',
             location: '',
@@ -35,18 +44,12 @@ const CreateProfile = ({ createProfile, history }) => {
             facebook: '',
             linkedin: '',
             youtube: '',
-            instagram: '',
-            kaggle: '',
-            codeforces: '',
-            codechef: '',
-            geeksforgeeks: '',
-            leetcode: ''
+            instagram: ''
         });
 
     const [displaySocialInputs, toggleSocialInputs] = useState(false);
-    const [displayCodingInputs, toggleCodingInputs] = useState(false);
+
     const {
-        gender,
         company,
         website,
         location,
@@ -58,12 +61,7 @@ const CreateProfile = ({ createProfile, history }) => {
         facebook,
         linkedin,
         youtube,
-        instagram,
-        kaggle,
-        codeforces,
-        codechef,
-        geeksforgeeks,
-        leetcode
+        instagram
     } = formData;
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -167,20 +165,116 @@ const CreateProfile = ({ createProfile, history }) => {
             label: 'Fouth Year',
         },
     ];
-    const genderOpt =[
-        {
-            value: 'Male',
-            label: 'Male',
-        },
-        {
-            value: 'Female',
-            label: 'Female',
-        },
-    ]
 
 
     return (
-    
+        //     <Fragment>
+        //         <h1 className="large text-primary">
+        //             Create Your Profile
+        //   </h1>
+        //         <p className="lead">
+        //             <i className="fas fa-user"></i> 
+        //   </p>
+        //         <small>* = required field</small>
+        //         <form className="form" onSubmit={e => onSubmit(e)}>
+        //             <div className="form-group">
+        //                 <select name="status" value={status} onChange={e => onChange(e)}>
+        //                     <option value="0">* Select Professional Status</option>
+        //                     <option value="Developer">Developer</option>
+        //                     <option value="Junior Developer">Junior Developer</option>
+        //                     <option value="Senior Developer">Senior Developer</option>
+        //                     <option value="Manager">Manager</option>
+        //                     <option value="Student or Learning">Student or Learning</option>
+        //                     <option value="Instructor">Instructor or Teacher</option>
+        //                     <option value="Intern">Intern</option>
+        //                     <option value="Other">Other</option>
+        //                 </select>
+        //                 <small className="form-text"
+        //                 >Give us an idea of where you are at in your career</small
+        //                 >
+        //             </div>
+        //             <div className="form-group">
+        //                 <input type="text" placeholder="Company" name="company" value={company} onChange={e => onChange(e)} />
+        //                 <small className="form-text"
+        //                 >Could be your own company or one you work for</small
+        //                 >
+        //             </div>
+        //             <div className="form-group">
+        //                 <input type="text" placeholder="Website" name="website" value={website} onChange={e => onChange(e)} />
+        //                 <small className="form-text"
+        //                 >Could be your own or a company website</small
+        //                 >
+        //             </div>
+        //             <div className="form-group">
+        //                 <input type="text" placeholder="Location" name="location" value={location} onChange={e => onChange(e)} />
+        //                 <small className="form-text"
+        //                 >City & state suggested (eg. Boston, MA)</small
+        //                 >
+        //             </div>
+        //             <div className="form-group">
+        //                 <input type="text" placeholder="* Skills" name="skills" value={skills} onChange={e => onChange(e)} />
+        //                 <small className="form-text"
+        //                 >Please use comma separated values (eg.
+        //         HTML,CSS,JavaScript,PHP)</small
+        //                 >
+        //             </div>
+        //             <div className="form-group">
+        //                 <input
+        //                     type="text"
+        //                     placeholder="Github Username"
+        //                     name="githubusername" value={githubusername} onChange={e => onChange(e)} />
+
+        //                 <small className="form-text"
+        //                 >If you want your latest repos and a Github link, include your
+        //         username</small
+        //                 >
+        //             </div>
+        //             <div className="form-group">
+        //                 <textarea placeholder="A short bio of yourself" name="bio" value={bio} onChange={e => onChange(e)} ></textarea>
+        //                 <small className="form-text">Tell us a little about yourself</small>
+        //             </div>
+
+        //             <div className="my-2">
+        //                 <button type="button" onClick={() => toggleSocialInputs(!displaySocialInputs)} className="btn btn-light">
+        //                     Add Social Network Links
+        //       </button>
+        //                 <span>Optional</span>
+        //             </div>
+
+        //             {displaySocialInputs && <Fragment>
+
+        //                 <div className="form-group social-input">
+        //                     <i className="fab fa-twitter fa-2x"></i>
+        //                     <input type="text" placeholder="Twitter URL" name="twitter" value={twitter} onChange={e => onChange(e)} />
+        //                 </div>
+
+        //                 <div className="form-group social-input">
+        //                     <i className="fab fa-facebook fa-2x"></i>
+        //                     <input type="text" placeholder="Facebook URL" name="facebook" value={facebook} onChange={e => onChange(e)} />
+        //                 </div>
+
+        //                 <div className="form-group social-input">
+        //                     <i className="fab fa-youtube fa-2x"></i>
+        //                     <input type="text" placeholder="YouTube URL" name="youtube" value={youtube} onChange={e => onChange(e)} />
+        //                 </div>
+
+        //                 <div className="form-group social-input">
+        //                     <i className="fab fa-linkedin fa-2x"></i>
+        //                     <input type="text" placeholder="Linkedin URL" name="linkedin" value={linkedin} onChange={e => onChange(e)} />
+        //                 </div>
+
+        //                 <div className="form-group social-input">
+        //                     <i className="fab fa-instagram fa-2x"></i>
+        //                     <input type="text" placeholder="Instagram URL" name="instagram" value={instagram} onChange={e => onChange(e)} />
+        //                 </div>
+
+        //             </Fragment>}
+
+
+        //             <input type="submit" className="btn btn-primary my-1" />
+        //             <Link className="btn btn-light my-1" to="/dashboard">Go Back</Link>
+        //         </form>
+        //     </Fragment>
         <Fragment>
             <Fragment>
                 <Grid container direction="column" className={classes.containerRoot}>
@@ -194,44 +288,27 @@ const CreateProfile = ({ createProfile, history }) => {
                     <Grid className={classes.formGrid} direction="column">
                         <form className={classes.form} onSubmit={e => onSubmit(e)}>
                             <Paper className={classes.formPaper}>
-                    
+                                {/* <select name="status" value={status} onChange={e => onChange(e)}>
+                                <option value="0">* Select Professional Status</option>
+                                <option value="Developer">Developer</option>
+                                <option value="Junior Developer">Junior Developer</option>
+                                <option value="Senior Developer">Senior Developer</option>
+                                <option value="Manager">Manager</option>
+                                <option value="Student or Learning">Student or Learning</option>
+                                <option value="Instructor">Instructor or Teacher</option>
+                                <option value="Intern">Intern</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <small className="form-text"
+                            >Give us an idea of where you are at in your career</small
+                            > */}
                                 <Grid item className={classes.formGrid1}>
-
-
-
-                                <FormControl className={classes.formControl}>
-                                <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-                                    Gender
-                                </InputLabel>
-
-        
-        <Select
-            labelId="demo-simple-select-placeholder-label-label"
-            id="demo-simple-select-placeholder-label"
-          value={gender}
-          onChange={e => onChange(e)}
-          displayEmpty
-          name="gender"
-          className={classes.selectEmpty}
-        >
-          <MenuItem name="gender" value={gender}>
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value='male'>Male</MenuItem>
-          <MenuItem value='female'>Female</MenuItem>
-          <MenuItem value='others'>Others</MenuItem>
-
-         
-        </Select>
-        
-      </FormControl>
                                     <TextField className={classes.textField}
                                         id="status"
                                         select
                                         name="status"
                                         helperText='Currently in..'
                                         value={status}
-                                        label = "status"
                                         onChange={e => onChange(e)}
 
                                     >
@@ -285,10 +362,6 @@ const CreateProfile = ({ createProfile, history }) => {
                                             <LanguageSharpIcon />Add Social Network Links
           </Button>
 
-                                        <Button color="primary" variant="outlined" onClick={() => toggleCodingInputs(!displayCodingInputs)} size="small" className={classes.buttonToggle}>
-                                            <LanguageSharpIcon />Add Coding Profile Links
-          </Button>
-
                                         <span>Optional</span>
                                     </div>
 
@@ -317,35 +390,6 @@ const CreateProfile = ({ createProfile, history }) => {
                                         <div className="form-group social-input">
                                             <InstagramIcon fontSize="large" className={classes.Icons} />
                                             <TextField className={classes.textFieldSocial} placeholder="Instagram URL" name="instagram" value={instagram} onChange={e => onChange(e)} ></TextField>
-                                        </div></Fragment>
-
-                                    }
-
-                                    {displayCodingInputs && <Fragment>
-
-                                        <div className="form-group social-input">
-                                            <TwitterIcon fontSize="large" className={classes.Icons} />
-                                            <TextField className={classes.textFieldSocial} placeholder="geeksforgeeks URL" name="geeksforgeeks" value={geeksforgeeks} onChange={e => onChange(e)} ></TextField>
-                                        </div>
-
-                                        <div className="form-group social-input">
-                                            <FacebookIcon fontSize="large" className={classes.Icons} />
-                                            <TextField className={classes.textFieldSocial} placeholder="leetcode URL" name="leetcode" value={leetcode} onChange={e => onChange(e)} ></TextField>
-                                        </div>
-
-                                        <div className="form-group social-input">
-                                            <YouTubeIcon fontSize="large" className={classes.Icons} />
-                                            <TextField className={classes.textFieldSocial} placeholder="codeforces URL" name="codeforces" value={codeforces} onChange={e => onChange(e)} ></TextField>
-                                        </div>
-
-                                        <div className="form-group social-input">
-                                            <LinkedInIcon fontSize="large" className={classes.Icons} />
-                                            <TextField className={classes.textFieldSocial} placeholder="codechef URL" name="codechef" value={codechef} onChange={e => onChange(e)} ></TextField>
-                                        </div>
-
-                                        <div className="form-group social-input">
-                                            <InstagramIcon fontSize="large" className={classes.Icons} />
-                                            <TextField className={classes.textFieldSocial} placeholder="kaggle URL" name="kaggle" value={kaggle} onChange={e => onChange(e)} ></TextField>
                                         </div></Fragment>
 
                                     }

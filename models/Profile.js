@@ -115,6 +115,24 @@ const ProfileSchema = new mongoose.Schema({
             type: String
         }
     },
+    coding: {
+        codechef: {
+            type: String
+        },
+        codeforces: {
+            type: String
+        },
+        leetcode: {
+            type: String
+        },
+        geeksforgeeks: {
+            type: String
+        },
+        kaggle: {
+            type: String
+        }
+    }
+    ,
     date: {
         type: Date,
         default: Date.now

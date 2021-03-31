@@ -70,25 +70,6 @@ export const getProfileById = (userId) => async dispatch => {
     }
 };
 
-//Get  profile by search
-export const getProfileBySearch = (name) => async dispatch => {
-    dispatch({ type: CLEAR_PROFILE });
-    try {
-        const res = await axios.get(`/api/profile/search?name=${name}`);
-
-        dispatch({
-
-            type: GET_PROFILES,
-            payload: res.data
-        })
-    } catch (err) {
-        dispatch({
-            type: PROFILE_ERROR,
-            payload: { msg: err.response.statusText, status: err.response.status }
-        });
-    }
-};
-
 // Get github repos
 export const getGithubRepos = username => async dispatch => {
 
@@ -145,7 +126,73 @@ export const createProfile = (formData, history, edit = false) => async dispatch
     }
 };
 
+//add experience
+export const addExperience = (formData, history, edit = false) => async dispatch => {
 
+    try {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+        const res = await axios.put('/api/profile/experience', formData, config);
+
+        dispatch({
+            type: UPDATE_PROFILE,
+            payload: res.data
+        });
+
+        dispatch(setAlert('Experience Added', 'success'));
+
+
+        history.push('/dashboard');
+
+    } catch (err) {
+
+        const errors = err.response.data.errors;
+        if (errors) {
+            errors.forEach(error => dispatch(setAlert(error.msg, 'danger')))
+        }
+        dispatch({
+            type: PROFILE_ERROR,
+            payload: { msg: err.response.statusText, status: err.response.status }
+        });
+    }
+}
+
+//add education
+export const addEducation = (formData, history, edit = false) => async dispatch => {
+
+    try {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+        const res = await axios.put('/api/profile/education', formData, config);
+
+        dispatch({
+            type: UPDATE_PROFILE,
+            payload: res.data
+        });
+
+        dispatch(setAlert('Education Added', 'success'));
+
+
+        history.push('/dashboard');
+
+    } catch (err) {
+
+        const errors = err.response.data.errors;
+        if (errors) {
+            errors.forEach(error => dispatch(setAlert(error.msg, 'danger')))
+        }
+        dispatch({
+            type: PROFILE_ERROR,
+            payload: { msg: err.response.statusText, status: err.response.status }
+        });
+    }
+};
 
 //delete account
 export const deleteAccount = () => async dispatch => {
