@@ -17,6 +17,7 @@ import {Card, Text, Divider,Code} from '@geist-ui/react'
 //Material UI
 import { makeStyles } from '@material-ui/core/styles';
 import {Grid} from '@material-ui/core'
+import CreateProfile from "../profile-forms/CreateProfile";
 
 
 
@@ -36,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-function Profile({ match, getProfileById, auth, profile: { profile, loading } }) {
+function Profile({ match, getProfileById, profile: { profile,user, loading }, auth }) {
 
 
 	const classes = useStyles();
@@ -45,11 +46,22 @@ function Profile({ match, getProfileById, auth, profile: { profile, loading } })
 		getProfileById(match.params.id)
 	}, [getProfileById])
 
+	console.log('hellooooooooooo')
+	// const user_id = user._id;
+	console.log(user)
+
+const _id = 0;
+const user_id =0;
+console.log(auth)
+
+	console.log(_id)
 
 	return (
 		<div>
 			<Fragment>
-				{profile === null || loading ? (
+				{ ( profile===null)  ? <CreateProfile/> :
+				<Fragment>
+				{ profile === null || loading ? (
 					<Spinner />
 				) : (
 						<Fragment>
@@ -70,6 +82,8 @@ function Profile({ match, getProfileById, auth, profile: { profile, loading } })
 							</div>
 						</Fragment>
 					)}
+					</Fragment>
+}
 			</Fragment>
 		</div>
 	)

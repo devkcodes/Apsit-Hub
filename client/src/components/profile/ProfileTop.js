@@ -7,7 +7,8 @@ const ProfileTop = ({ profile: {
     location,
     website,
     social,
-    user: { name, avatar }
+    avatar,
+    user: { name }
 } }) => {
     return (
         <div class="profile-top bg-primary p-2">

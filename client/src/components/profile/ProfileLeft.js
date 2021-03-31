@@ -46,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
 
 function ProfileLeft({ profile: {
     status,
+    avatar,
     company,
     location,
     website,
@@ -57,9 +58,8 @@ function ProfileLeft({ profile: {
 
   const classes = useStyles();
 
-  console.log(_id)
+
   const name = user.name;
-  const avatar = user.avatar;
   const user_id = user._id;
   const skillarray = skills.toString().split(/[\s,]+/);
 

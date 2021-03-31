@@ -1,19 +1,9 @@
 
 //ui imports
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-// import Paper from '@material-ui/core/Paper';
-import Paper from '@material-ui/core/Paper';
-import Box from '@material-ui/core/Box';
-import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import MenuItem from '@material-ui/core/MenuItem'
+import {Avatar,Button,CssBaseline,Box,Grid,Paper,FormControl,TextField,MenuItem,InputLabel,makeStyles,Select} from '@material-ui/core'
+
+
+
 import LanguageSharpIcon from '@material-ui/icons/LanguageSharp';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
@@ -33,6 +23,7 @@ import { createProfile } from '../../actions/profile';
 const CreateProfile = ({ createProfile, history }) => {
     const [formData, setFormData] = useState(
         {
+            gender:'',
             company: '',
             website: '',
             location: '',
@@ -55,6 +46,7 @@ const CreateProfile = ({ createProfile, history }) => {
     const [displaySocialInputs, toggleSocialInputs] = useState(false);
     const [displayCodingInputs, toggleCodingInputs] = useState(false);
     const {
+        gender,
         company,
         website,
         location,
@@ -175,10 +167,20 @@ const CreateProfile = ({ createProfile, history }) => {
             label: 'Fouth Year',
         },
     ];
+    const genderOpt =[
+        {
+            value: 'Male',
+            label: 'Male',
+        },
+        {
+            value: 'Female',
+            label: 'Female',
+        },
+    ]
 
 
     return (
-
+    
         <Fragment>
             <Fragment>
                 <Grid container direction="column" className={classes.containerRoot}>
@@ -192,14 +194,44 @@ const CreateProfile = ({ createProfile, history }) => {
                     <Grid className={classes.formGrid} direction="column">
                         <form className={classes.form} onSubmit={e => onSubmit(e)}>
                             <Paper className={classes.formPaper}>
-
+                    
                                 <Grid item className={classes.formGrid1}>
+
+
+
+                                <FormControl className={classes.formControl}>
+                                <InputLabel shrink id="demo-simple-select-placeholder-label-label">
+                                    Gender
+                                </InputLabel>
+
+        
+        <Select
+            labelId="demo-simple-select-placeholder-label-label"
+            id="demo-simple-select-placeholder-label"
+          value={gender}
+          onChange={e => onChange(e)}
+          displayEmpty
+          name="gender"
+          className={classes.selectEmpty}
+        >
+          <MenuItem name="gender" value={gender}>
+            <em>None</em>
+          </MenuItem>
+          <MenuItem value='male'>Male</MenuItem>
+          <MenuItem value='female'>Female</MenuItem>
+          <MenuItem value='others'>Others</MenuItem>
+
+         
+        </Select>
+        
+      </FormControl>
                                     <TextField className={classes.textField}
                                         id="status"
                                         select
                                         name="status"
                                         helperText='Currently in..'
                                         value={status}
+                                        label = "status"
                                         onChange={e => onChange(e)}
 
                                     >
