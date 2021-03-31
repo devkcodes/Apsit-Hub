@@ -26,9 +26,11 @@ import GridListTile from '@material-ui/core/GridListTile'
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+//Geist
+import {Fieldset,Badge} from '@geist-ui/react'
 
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     root: {
         height: '100vh',
         color: 'white',
@@ -49,6 +51,20 @@ const useStyles = makeStyles((theme) => ({
         height: "70%",
         width: "70%",
         borderRadius: "50%"
+    },
+    profileCard:{
+        padding:'1em'
+    },
+    fieldset:{
+        color:'black'
+    },
+    NameAndAvatar:{
+        display:'flex',
+        justifyContent:'flex-start',
+    },
+    StatusAndSkills:{
+        display:'flex',flexDirection:'column',
+        fontWeight:'900'
     }
 
 
@@ -64,25 +80,34 @@ const Profileitem = ({
     }
 }) => {
     const classes = useStyles();
+    var array = skills.toString().split(/[\s,]+/);
+
 
 
     return (
-        // <div className="profile bg-light" >
-        //     <img src={avatar} alt=" " className="round-img" />
-        //     <div>
-        //         <h2>{name}</h2>
-        //         <p>{status} {company && <span> at {company}</span>}</p>
-        //         <p className="my-1" >{location && <span> at {location}</span>}</p>
-        //         <Link to={`/profile/${_id}`} className="btn btn-primary">View Profile</Link>
 
-
-        // </div>
-
-        // </div >
-        <Fragment>
-            {/* <Grid item className={classes.gridImage} justify="space-around"> */}
-            <Paper className={classes.paper} elevation={3}>
-                {/* <Grid direction="row" container className={classes.grid}> */}
+        <Grid item sm={3} xs={12} className ={classes.profileCard}>
+            <Fieldset className={classes.fieldset}>
+                <div className={classes.NameAndAvatar}>
+                    <Avatar src={avatar} size="medium" />
+                <Fieldset.Title style={{padding:'15px',marginTop:'-0.5em'}}>{name}</Fieldset.Title>
+                </div>
+                
+                <Fieldset.Subtitle className={classes.StatusAndSkills}>
+                    
+                        <span>{status}</span>
+                        <span>Skills:{array.map(x=> x!==""&&<Badge type="secondary" style={{margin:'0.1em'}}>{x}</Badge>)}</span>
+                
+                </Fieldset.Subtitle>
+                
+                <Fieldset.Footer>
+                    <Fieldset.Footer.Actions>
+                    <Button auto size="mini"><Link to={`/profile/${_id}`}> View</Link></Button>
+                    </Fieldset.Footer.Actions>
+                </Fieldset.Footer>
+            </Fieldset>
+        
+            {/* <Paper className={classes.paper} elevation={3}>
 
                 <img src={avatar} className={classes.img} />
                 <h2>{name}</h2>
@@ -96,17 +121,10 @@ const Profileitem = ({
                 </ul>
                 <Link to={`/profile/${_id}`} className="btn btn-primary">View Profile</Link>
 
-                {/* </Grid> */}
-                {/* <Grid item className={classes.gridDesc}>
-                        <h2>{status} Student</h2>
-                        <p> {company && <span> at {company}</span>}</p>
-                        <p className="my-1" >{location && <span> at {location}</span>}</p>
-                        <Link to={`/profile/${_id}`} className="btn btn-primary">View Profile</Link>
-                    </Grid> */}
 
-            </Paper>
-            {/* </Grid> */}
-        </Fragment >
+            </Paper> */}
+    
+        </Grid >
     )
 };
 
@@ -116,44 +134,3 @@ Profileitem.propTypes = {
 
 export default Profileitem
 
-{// import React from 'react';
-    // import { Link } from 'react-router-dom';
-    // import PropTypes from 'prop-types';
-
-    // const Profileitem = ({
-    //     profile: {
-    //         user: { _id, name, avatar },
-    //         status,
-    //         company,
-    //         location,
-    //         skills
-    //     }
-    // }) => {
-    //     return <div className="profile bg-light" >
-    //         <img src={avatar} alt=" " className="round-img" />
-    //         <div>
-    //             <h2>{name}</h2>
-    //             <p>{status} {company && <span> at {company}</span>}</p>
-    //             <p className="my-1" >{location && <span> at {location}</span>}</p>
-    //             <Link to={`/profile/${_id}`} className="btn btn-primary">View Profile</Link>
-
-
-    //         </div>
-    //         <ul>
-    //             {skills.slice(0, 4).map((skill, index) => (
-    //                 <li key={index} className='text-primary'>
-    //                     <i className="fas fa-check"></i>{skill}
-    //                 </li>
-    //             ))}
-    //         </ul>
-
-    //     </div >
-    // };
-
-    // Profileitem.propTypes = {
-
-    // }
-
-    // export default Profileitem
-    // 
-}

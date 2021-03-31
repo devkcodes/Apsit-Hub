@@ -25,13 +25,18 @@ import DashboardActions from "./DashboardActions";
 import CreateProfile from '../profile-forms/CreateProfile'
 
 
+//Geist UI
+import {Card, Text, Divider,Code} from '@geist-ui/react' 
+
+
 const useStyles = makeStyles((theme) => ({
     root: {
         height: '100vh',
         color: 'white'
     },
     containerRoot: {
-        marginTop: '80px',
+        marginTop:'10em'
+
     },
     welcome: {
 
@@ -67,29 +72,27 @@ const Dashboard = ({ deleteAccount, getCurrentProfile, auth: { user }, profile: 
         <Spinner />) : (
 
         <Fragment>
-            <Grid className={classes.containerRoot}>
-                <Grid item className={classes.welcome}>
-                    <h1 className='large text-primary'>Dashboard</h1>
-                    <p className='lead' >
-                        <i className='fas fa-user' />Welcome {user && user.name}
-                    </p>
-                </Grid>
-                {profile !== null ? (
-                    <Fragment>
-                        <DashboardActions />
-                        {/* <Education education={profile.education} /> */}
-                        <div className='my-2'></div>
-                        <button className="btn btn-danger" onClick={() => deleteAccount()}>
-                            <i className='fas fa-user-minus'></i> Delete My Account
-                        </button>                   </Fragment>
-                ) : (
-                    <Fragment>
-                        {/* <p>You have not setup your profile yet, please add some info</p>
-                            <Link to='/create-profile' className='btn btn-primary my-1'>Create Profile</Link> */}
-                        <CreateProfile />
-                    </Fragment>
-                )}
-            </Grid>
+            <div className={classes.root}>
+                <div className={classes.containerRoot}>
+
+                
+                	<Card  width="400px">
+                        <Card.Content>
+                            <Text b>Description</Text>
+                        </Card.Content>
+                        <Divider y={0} />
+                        <Card.Content>
+                            <Text>The Object constructor creates an object wrapper for the given value.</Text>
+                            <Text>When called in a non-constructor context, Object behaves identically to <Code>new Object()</Code>.</Text>
+                        </Card.Content>
+                        <Divider y={0} />
+                        <Card.Content>
+                            <Text>The Object constructor creates an object wrapper for the given value.</Text>
+                            <Text>When called in a non-constructor context, Object behaves identically to <Code>new Object()</Code>.</Text>
+                        </Card.Content>
+                        </Card>
+                </div>
+            </div>
         </Fragment>
     );
 };
