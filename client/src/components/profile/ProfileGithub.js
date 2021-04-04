@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
         wordWrap:'break-word'
     },
     list:{
+        marginTop:'10px',
         width:'90%',
         listStyle:'none',
         display:'flex',
@@ -35,12 +36,19 @@ const useStyles = makeStyles((theme) => ({
         alignContent:'center'
     },
     cardcontainer:{
+        marginTop:'-1rem',
         display:'flex',
         flexDirection:'column',
         width:'100%',
-        height:'50vh',
+        height:'51vh',
         overflowY:'scroll',
         alignItems:'center'
+    },
+    h4repo:{
+        paddingBottom:'20px'
+    },
+    cardFooter:{
+        minHeight:'10px'
     }
 
 }));
@@ -59,9 +67,16 @@ const ProfileGithub = ({ username, getGithubRepos, repos }) => {
 
     return (
         <div style={{width:'100%'}}>
-            <h2 className="text-primary my-1"> Github Repos</h2>
-            <div className={classes.cardcontainer} >
+            <Card>
+                <Card.Content style={{display:'flex',justifyContent:'space-between', flexDirection:'column'}}>
+                <div className={classes.h4repo}>
+                    <span>Github Repos</span>
+                </div>
+                
+                <Divider y={0} />
 
+            <div className={classes.cardcontainer} >
+                
             
             {
                 repos === null ? <Spinner /> : (
@@ -72,7 +87,7 @@ const ProfileGithub = ({ username, getGithubRepos, repos }) => {
     {repo.description?<p>{repo.description}</p>:<p>No description</p> }
     
 
-    <Card.Footer>
+    <Card.Footer style={{minHeight:'10px'}} className={classes.cardFooter}>
         <ul className={classes.list}>
 								<li >
 									<i class="fa fa-star-o" aria-hidden="true"></i>{" "}
@@ -96,6 +111,8 @@ const ProfileGithub = ({ username, getGithubRepos, repos }) => {
 
                 )}
                 </div> 
+                </Card.Content>
+                </Card>
         </div >
     )
 }

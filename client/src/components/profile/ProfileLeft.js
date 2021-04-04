@@ -3,14 +3,15 @@ import { connect } from "react-redux";
 import {Link} from 'react-router-dom'
 
 //Geist UI
-import {Card, Text, Divider,Code,Button,Avatar,Fieldset,Badge} from '@geist-ui/react' 
-import { Globe,Smile  } from '@geist-ui/react-icons'
+import {Card, Text, Divider,Button,Avatar,Fieldset,Badge} from '@geist-ui/react' 
+import { Globe,Smile,Code  } from '@geist-ui/react-icons'
 
 
 //Material UI
 import { makeStyles } from '@material-ui/core/styles';
 import {Grid} from '@material-ui/core'
 
+//icons'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -62,7 +63,7 @@ function ProfileLeft({ profile: {
   const name = user.name;
   const user_id = user._id;
   const skillarray = skills.toString().split(/[\s,]+/);
-
+console.log(social)
   return (
     <Grid item  >
       <Card  width="100%">
@@ -112,7 +113,24 @@ function ProfileLeft({ profile: {
                             </span>
                             </div>
                         </Card.Content>
+                        
+      </Card >
+
+      <Card style={{marginTop:'2rem'}} >
+        <Card.Content className={classes.CardOneTextTwo} >
+                              <span style={{display:'flex',alignItems:'flex-end'}}><Code/><span >Coding Profiles</span></span>
+                            <span className={classes.overflowText}>
+                              {social && social.facebook && (
+					<img></img>
+				)}
+
+                            </span>
+        </Card.Content>
       </Card>
+
+
+
+
       </Grid>
       
    
