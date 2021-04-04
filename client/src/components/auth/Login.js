@@ -198,7 +198,7 @@ export const Login = ({ login, isAuthenticated }) => {
 
                                 </Grid>
                                 <Grid item>
-                                    <Link href="#" variant="body2" style={{ color: '#3F51B5' }}>
+                                    <Link to="/register" variant="body2" style={{ color: '#3F51B5' }}>
                                         {"Don't have an account? Sign Up"}
                                     </Link>
                                 </Grid>

@@ -257,7 +257,7 @@ export const Register = ({ setAlert, register, isAuthenticated }) => {
           </Button>
                         <Grid container justify="flex-end">
                             <Grid item>
-                                <Link href="#" variant="body2" style={{ color: '#3F51B5' }}>
+                                <Link to="/login" variant="body2" style={{ color: '#3F51B5' }}>
                                     Already have an account? Sign in
               </Link>
                             </Grid>
