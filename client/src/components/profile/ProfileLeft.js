@@ -3,15 +3,20 @@ import { connect } from "react-redux";
 import {Link} from 'react-router-dom'
 
 //Geist UI
-import {Card, Text, Divider,Button,Avatar,Fieldset,Badge} from '@geist-ui/react' 
-import { Globe,Smile,Code  } from '@geist-ui/react-icons'
+import {Card, Text, Divider,Button,Avatar,Fieldset,Badge,Tooltip } from '@geist-ui/react' 
+import { Globe,Smile,Code,Facebook,Twitter,Linkedin,Instagram,Youtube,MessageCircle   } from '@geist-ui/react-icons'
 
 
 //Material UI
 import { makeStyles } from '@material-ui/core/styles';
 import {Grid} from '@material-ui/core'
 
-//icons'
+//icons
+import g4glogo from '../../img/gfgicon.png'
+import leetcodelogo from '../../img/leetcode-logo.png'
+import codeforceslogo from '../../img/codeforces-logo.jpg'
+import codecheflogo from '../../img/codechef-logo.png'
+import kagglelogo from '../../img/kaggle.png'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -41,6 +46,12 @@ const useStyles = makeStyles((theme) => ({
       display:'flex',
       justifyContent:'space-between',
       width:'30rem'
+    },
+    logo:{
+      maxWidth:'25px',
+      marginRight:'20px',
+      textDecoration:'none',
+      color:'black'
     }
 
 }));
@@ -52,6 +63,7 @@ function ProfileLeft({ profile: {
     location,
     website,
     social,
+    coding,
     user,
     skills,
     bio
@@ -63,7 +75,7 @@ function ProfileLeft({ profile: {
   const name = user.name;
   const user_id = user._id;
   const skillarray = skills.toString().split(/[\s,]+/);
-console.log(social)
+console.log(coding)
   return (
     <Grid item  >
       <Card  width="100%">
@@ -120,12 +132,89 @@ console.log(social)
         <Card.Content className={classes.CardOneTextTwo} >
                               <span style={{display:'flex',alignItems:'flex-end'}}><Code/><span >Coding Profiles</span></span>
                             <span className={classes.overflowText}>
-                              {social && social.facebook && (
-					<img></img>
-				)}
+                              {coding && coding.codechef && (
+                                <Tooltip text={'codechef'}>
+                                <a href={coding.codechef} target="_blank" rel="noopener noreferrer">
+					                        <img className={classes.logo} src={codecheflogo} alt=""/>
+                                </a>
+                              </Tooltip>
+				                      )}
+                              {coding && coding.codeforces && (
+                                <Tooltip text={'codeforces'}>
+					                    <a href={coding.codeforces} target="_blank" rel="noopener noreferrer">
+					                        <img className={classes.logo} src={codeforceslogo} alt=""/>
+                                </a>
+                              </Tooltip>
+				                      )}
+                              {coding && coding.leetcode && (
+                                <Tooltip text={'leetcode'}>
+					                    <a href={coding.leetcode} target="_blank" rel="noopener noreferrer">
+					                        <img className={classes.logo} src={leetcodelogo} alt=""/>
+                                </a>
+                              </Tooltip>
+				                      )}
+                              {coding && coding.geeksforgeeks && (
+                                <Tooltip text={'geeksforgeeks'}>
+					                    <a href={coding.geeksforgeeks} target="_blank" rel="noopener noreferrer">
+					                        <img className={classes.logo} src={g4glogo} alt=""/>
+                                </a>
+                              </Tooltip>
+				                      )}
+                              {coding && coding.kaggle && (
+                                <Tooltip text={'Kaggle'}>
+					                    <a href={coding.kaggle} target="_blank" rel="noopener noreferrer">
+					                        <img className={classes.logo} src={kagglelogo} alt=""/>
+                                </a>
+                              </Tooltip>
+				                      )}
 
                             </span>
         </Card.Content>
+        <Divider y={0} />
+        <Card.Content className={classes.CardOneTextTwo} >
+                              <span style={{display:'flex',alignItems:'flex-end'}}><MessageCircle /><span >Social Media</span></span>
+                            <span className={classes.overflowText}>
+                              {social && social.linkedin && (
+                                <Tooltip text={'linkedin'}>
+                              <a className={classes.logo} href={social.linkedin} target="_blank" rel="noopener noreferrer">
+                                <Linkedin/>
+                              </a>
+					                    
+                              </Tooltip>
+				                      )}
+                              {social && social.instagram && (
+                                <Tooltip text={'Instagram'}>
+					                    <a className={classes.logo} href={social.instagram} target="_blank" rel="noopener noreferrer">
+                                <Instagram/>
+                              </a>
+                              </Tooltip>
+				                      )}
+                              {social && social.facebook && (
+                                <Tooltip text={'facebook'}>
+					                    <a className={classes.logo} href={social.facebook} target="_blank" rel="noopener noreferrer">
+                                <Facebook/>
+                              </a>
+                              </Tooltip>
+				                      )}
+                              {social && social.twitter && (
+                                <Tooltip text={'twitter'}>
+					                    <a className={classes.logo} href={social.twitter} target="_blank" rel="noopener noreferrer">
+                                <Twitter/>
+                              </a>
+                              </Tooltip>
+				                      )}
+                              {social && social.youtube && (
+                                <Tooltip text={'youtube'}>
+                                <a className={classes.logo} href={social.youtube} target="_blank" rel="noopener noreferrer">
+                                <Youtube/>
+                              </a>
+                              </Tooltip>
+				                      )}
+
+                            </span>
+        </Card.Content>
+
+        
       </Card>
 
 
