@@ -90,8 +90,10 @@ router.post(
         }
         const user = await User.findById(req.user.id).select('-password');
 
-        if(gender==='female'||gender==='male')
-        profileFields.avatar = `https://avatars.dicebear.com/api/${gender}/${user._id}.svg?mood[]=happy`;
+        if(gender==='female'||gender==='male'){
+            console.log(gender)
+        profileFields.avatar = `https://avatars.dicebear.com/api/${sgender}/${user._id}.svg?mood[]=happy`;
+        }
         else
             profileFields.avatar = `https://avatars.dicebear.com/api/human/${user._id}.svg?mood[]=happy`;
 
