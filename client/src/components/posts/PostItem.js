@@ -4,57 +4,33 @@ import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import { addLike, removeLike, deletePost } from '../../actions/post'
-import {Card, CardContent, CardHeader,Avatar, makeStyles, CardActions, IconButton, Icon} from '@material-ui/core'
+import { CardContent, CardHeader,Avatar, makeStyles,Grid,Button, CardActions, IconButton, Icon} from '@material-ui/core'
+import {Fieldset,Badge} from '@geist-ui/react'
+import {ThumbsUp , ThumbsDown } from '@geist-ui/react-icons'
 const styles ={
-    cardRoot:{
-        
-        backgroundColor:'rgb(22, 27, 34,0.5)',
-        border:'gray solid 0.01px',
-        marginBottom:'1.5rem',
-        color:'rgb(201, 209, 217)',
-        textDecoration:'none',
-        ['@media (max-width:600px)']:{
-            height:'9rem'
-        }
+    separate:{
+        display:'flex',
+        justifyContent:'flex-start',
+        alignItems:'center'
     },
-    cardHeader:{
-        color:'rgb(201, 209, 217)',
-        ['@media (max-width:600px)']:{
-            height:'1em'
-        }
-    },
-    cardActions:{
-        borderTop:'gray solid 0.01px',
-        fontSize:'1rem',
-        ['@media (max-width:600px)']:{
-            fontSize:'11px',
-        }
-    },
-    actionButton:{
-        fontSize:'1rem',
-        color:'white',
-        textDecoration:'none'
+    nameanddate:{
+        marginLeft:'20px',
+        display:'flex',
+        flexDirection:'column',
+        justifyContent:'flex-start',
+        marginBottom:'0'
+
     },
     Date:{
-        color:'rgb(201, 209, 217)',
-        fontSize:'0.7rem'
-    }
-    ,
-root: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
-  },
-
-  expandOpen: {
-    transform: 'rotate(180deg)',
-  },
-  avatar: {
-    backgroundColor:'red',
-    color:'rgb(201, 209, 217)',
-  },
+        fontSize:'13px'
+    },
+    colorcorrect:{
+        color:'black'
+    },
+        fieldset:{
+        color:'black',
+        marginBottom:'1em'
+    },
 }
 const useStyles = makeStyles(styles)
 const PostItem = ({ addLike, deletePost, removeLike, auth, post: { _id, text, name, avatar, user, likes, comments, date }, showActions }) =>{
@@ -64,13 +40,47 @@ const PostItem = ({ addLike, deletePost, removeLike, auth, post: { _id, text, na
 
 
 return(
-    <Fragment>
-    {showActions&& <Card className={classes.cardRoot}>
+    <Fragment className={classes.colorcorrect}>
+        {showActions&&
+            
+            <Fieldset className={classes.fieldset}>
+                <div className={classes.separate}>
+                    <Avatar src={avatar} size="medium" />
+
+                <div className={classes.nameanddate}>
+                <h4 style={{marginBottom:'0'}}>{name}</h4>
+                <span><Moment className={classes.Date} format='YYYY/MM/DD'>{date}</Moment></span>
+                </div>
+                </div>
+                
+                <Fieldset.Subtitle style={{fontSize:'17px'}}>
+                {text}
+                </Fieldset.Subtitle>
+                
+                <Fieldset.Footer>
+                    <Fieldset.Footer.Actions>
+                    <Badge size="mini" style={{marginRight:'10px'}}>
+                        <button style={{border:'none',background:'none'}} onClick={() => addLike(_id)} type="button">
+                    <ThumbsUp size={20}color='orange'/>
+                    </button>
+                    <span >{likes.length > 0 && <span style={{padding:'10px', marginTop:'2rem',fontSize:'20px'}}>{likes.length}</span>}</span>
+                    </Badge>
+                    <Badge>
+                    <button style={{border:'none',background:'none'}} onClick={() => removeLike(_id)} type="button"> 
+                    <ThumbsDown color="orange"/>
+                    </button>
+                    </Badge>
+                    </Fieldset.Footer.Actions>
+                </Fieldset.Footer>
+            </Fieldset>
+            
+        }
+    {/* {showActions&& <Card className={classes.cardRoot}>
         <Link to={`/profile/${user}`}>
         <CardHeader
         className={classes.cardHeader}
         avatar={
-            <Avatar src ={avatar} aria-label="recipe" className={classes.avatar}>
+            <Avatar src ={avatar} className={classes.avatar}>
             </Avatar>
         }
         title={name}
@@ -101,7 +111,7 @@ return(
                     <i class="fas fa-times"></i>
             </IconButton>
         </CardActions>
-    </Card>}
+    </Card>} */}
     </Fragment>
 
 )
