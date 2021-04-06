@@ -74,7 +74,7 @@ export const NavbarComponent = ({ auth: { isAuthenticated, loading ,user}, logou
 
   return (
     <Fragment>
-      {!loading && isAuthenticated &&
+      {!loading && isAuthenticated && user &&
 
         <AppBar position="fixed" color="#2D3548" className={classes.AppBar}>
           <Grid item sm={12} xs={12} className={classes.container}>
