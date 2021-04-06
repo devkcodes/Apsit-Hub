@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
 
     },
     container: {
-        backgroundImage: 'url(https://res.cloudinary.com/dsph4eptm/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1615213211/vector-seamless-pattern-with-education-back-to-school-icons-doodle-student-dark-background-2BHRABY_dkq4s5.jpg)',
+        backgroundImage: 'url(https://res.cloudinary.com/dsph4eptm/image/upload/c_scale,w_1590/v1617677006/apsithub/Welcome_To_Apsit_Hub_1_rqdn7s.jpg)',
         height: "100vh"
     },
 

@@ -182,7 +182,16 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
         },
         Icons: {
             paddingRight: "5%"
+        },
+        h1:{
+            fontSize: "50px",
+            
+            float:"left"
+        },
+        lead:{
+            fontSize: "18px"
         }
+
 
 
 
@@ -211,13 +220,15 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
     return (
         <Fragment>
             <Grid container direction="column" className={classes.containerRoot}>
-                <Grid item> <h1 className="large text-primary">
-                    Edit Your Profile
+                <Grid item>  <div>
+                    <h1 className={classes.h1}>
+                        Create Your Profile
       </h1>
-                    <p className="lead">
-                        <i className="fas fa-user"></i> Let's get some information to make your
+                        <p className={classes.lead}>
+                             Let's get some information to make your
         profile stand out
-      </p></Grid>
+      </p>
+      </div></Grid>
                 <Grid className={classes.formGrid} direction="column">
                     <form className={classes.form} onSubmit={e => onSubmit(e)}>
                         <Paper className={classes.formPaper}>

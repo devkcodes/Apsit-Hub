@@ -92,7 +92,7 @@ router.post(
 
         if(gender==='female'||gender==='male'){
             console.log(gender)
-        profileFields.avatar = `https://avatars.dicebear.com/api/${sgender}/${user._id}.svg?mood[]=happy`;
+        profileFields.avatar = `https://avatars.dicebear.com/api/${gender}/${user._id}.svg?mood[]=happy`;
         }
         else
             profileFields.avatar = `https://avatars.dicebear.com/api/human/${user._id}.svg?mood[]=happy`;
@@ -198,7 +198,7 @@ router.delete('/', auth, async (req, res) => {
 
 });
 
-// @route    get api/profiles/search
+// @route    get api/profiles/search 
 // @desc   search user
 // @access   public
 

@@ -68,21 +68,21 @@ const CreateProfile = ({ createProfile, history }) => {
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
-    const onSubmit = e => {
+  
+  const onSubmit = e => {
         e.preventDefault();
         createProfile(formData, history);
     }
 
-
     const useStyles = makeStyles((theme) => ({
-        root: {
-            height: '100vh',
-            color: 'white',
-            backgroundColor: "grey"
-        },
+        // root: {
+        //     height: '100vh',
+        //     color: 'white',
+        //     backgroundColor: "grey"
+        // },
         containerRoot: {
             margin: '100px',
-            backgroundColor: "grey",
+            backgroundColor: "black",
             alignItems: 'center'
 
         },
@@ -142,6 +142,14 @@ const CreateProfile = ({ createProfile, history }) => {
         },
         Icons: {
             paddingRight: "5%"
+        },
+        h1:{
+            fontSize: "50px",
+            
+            float:"left"
+        },
+        lead:{
+            fontSize: "18px"
         }
 
 
@@ -184,13 +192,17 @@ const CreateProfile = ({ createProfile, history }) => {
         <Fragment>
             <Fragment>
                 <Grid container direction="column" className={classes.containerRoot}>
-                    <Grid item> <h1 className="large text-primary">
+                    <Grid item> 
+                    
+                    <div>
+                    <h1 className={classes.h1}>
                         Create Your Profile
       </h1>
-                        <p className="lead">
-                            <i className="fas fa-user"></i> Let's get some information to make your
+                        <p className={classes.lead}>
+                             Let's get some information to make your
         profile stand out
-      </p></Grid>
+      </p>
+      </div></Grid>
                     <Grid className={classes.formGrid} direction="column">
                         <form className={classes.form} onSubmit={e => onSubmit(e)}>
                             <Paper className={classes.formPaper}>
@@ -204,8 +216,7 @@ const CreateProfile = ({ createProfile, history }) => {
                                     Gender
                                 </InputLabel>
 
-        
-        <Select
+                                <Select
             labelId="demo-simple-select-placeholder-label-label"
             id="demo-simple-select-placeholder-label"
           value={gender}
@@ -223,8 +234,15 @@ const CreateProfile = ({ createProfile, history }) => {
 
          
         </Select>
+       
         
       </FormControl>
+
+
+
+
+
+
                                     <TextField className={classes.textField}
                                         id="status"
                                         select
@@ -353,7 +371,7 @@ const CreateProfile = ({ createProfile, history }) => {
                                 </Grid>
 
 
-                                <Button variant="outlined" type="submit" className={classes.Bsubmit}>Submit</Button>
+                                <Button onSubmit={e =>onSubmit(e)}variant="outlined" type="submit" className={classes.Bsubmit}>Submit</Button>
                                 {/* <input type="submit" className="btn btn-primary my-1" /> */}
                                 <Button item variant="outlined" className={classes.Bback} > <Link className={classes.links} to="/dashboard">Go Back</Link></Button>
 

@@ -9,12 +9,16 @@ import Navbar from '../layout/Navbar'
 import { Grid, makeStyles } from '@material-ui/core'
 
 const styles = {
+    body:{
+        backgroundColor:"#C59D85",
+    },
     containerRoot: {
         marginTop: "80px",
-        border: 'gray solid 0.01px',
+        border: 'gray solid 5px',
         borderTop: 'none',
         marginLeft: '20%',
         marginRight: '20%',
+        backgroundColor:"#DED5CB",
         ['@media (max-width:1000px)']: {
 
             margin: '0',

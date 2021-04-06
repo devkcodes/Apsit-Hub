@@ -2,7 +2,8 @@
 import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
-// import Landing from './components/layout/Landing';
+import Landing from './components/layout/Landing';
+import Landing2 from './components/layout/Landing2';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
@@ -15,6 +16,8 @@ import Profiles from './components/profiles/Profiles';
 import Profile from './components/profile/Profile';
 import Posts from './components/posts/Posts';
 import Post from './components/post/Post';
+import Footer from './components/layout/Footer';
+
 
 //Redux
 import { Provider } from 'react-redux';
@@ -31,11 +34,11 @@ const App = () => {
         store.dispatch(loadUser());
     }, []);
     return (
-        <Provider store={store}>
+        <Provider store={store} >
             <Router >
                 <Fragment >
                     <Navbar />
-                    <Route exact path="/" component={Login} />
+                    <Route exact path="/" component={Landing2} />
 
                     <section className="container">
 
@@ -56,6 +59,7 @@ const App = () => {
 
                         </Switch>
                     </section>
+<Footer/>
                 </Fragment > </Router></Provider>
     )
 };

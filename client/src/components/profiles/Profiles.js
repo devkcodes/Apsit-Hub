@@ -34,6 +34,7 @@ import Spinner from '../layout/Spinner';
 import ProfileItem from './ProfileItem';
 import { getProfiles } from '../../actions/profile';
 
+
 const useStyles = makeStyles((theme) => ({
     root: {
         height: '100vh',
@@ -42,6 +43,8 @@ const useStyles = makeStyles((theme) => ({
     },
     container: {
         marginTop: "80px",
+        display: "flex",
+        flexDirection: "row"
     },
     paper: {
         width: '90%',
@@ -57,6 +60,10 @@ const useStyles = makeStyles((theme) => ({
     },
     TextGrid: {
         padding:"50px"
+    },
+    searchBar:{
+        color: "white",
+        width:"50%",
     }
 
 
@@ -81,7 +88,7 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
                     <Grid container className={classes.container}>
 
                     <Grid container className={classes.TextGrid} >
-                        <AutoComplete size="large" placeholder="Search Users" options={options} />
+                        
                     </Grid>
 
                     <Grid container className={classes.gridProfile} direction="row" justify="flex-start">

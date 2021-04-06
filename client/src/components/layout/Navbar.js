@@ -4,11 +4,20 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
 import { Grid, Button, AppBar, Toolbar, Typography, MenuItem, Menu, Avatar } from "@material-ui/core"
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, MuiThemeProvider } from '@material-ui/core/styles';
+import "../../App.css";
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 
+const navFont = createMuiTheme({
+  typography: {
+    fontFamily: [
+      'Share Tech', 'san-serif',
+    ].join(','),
+    fontSize:"1px"
+},});
 
 const styles = ({
-
+ 
   row: {
     flexGrow: 1
   },
@@ -35,7 +44,8 @@ const styles = ({
     backgroundSize: "cover",
     padding: "0px",
     marginBottom: "5px",
-    textDecoration: 'none'
+    textDecoration: 'none',
+    
 
   },
   mainLogo: {
@@ -74,6 +84,7 @@ export const NavbarComponent = ({ auth: { isAuthenticated, loading ,user}, logou
 
   return (
     <Fragment>
+      <MuiThemeProvider theme={navFont}>
       {!loading && isAuthenticated &&
 
         <AppBar position="fixed" color="#2D3548" className={classes.AppBar}>
@@ -84,7 +95,7 @@ export const NavbarComponent = ({ auth: { isAuthenticated, loading ,user}, logou
                   <h2>ApsitHub</h2>
                 </Button>
               </Grid>
-              <Button color="inherit" className={classes.buttonFontSize}><Link  to={`/profile/${user._id}`} className={classes.links}>Dashboard</Link></Button>
+              {/* <Button color="inherit" className={classes.buttonFontSize}><Link  to={`/profile/${user._id}`} className={classes.links}>Dashboard</Link></Button> */}
               <Button color="inherit" component={Link} className={classes.buttonFontSize}><Link to="/profiles" className={classes.links}>Students</Link></Button>
               <Button color="inherit" className={classes.buttonFontSize}><Link to="/posts" className={classes.links}>Posts</Link></Button>
               <Button color="inherit" className={classes.buttonFontSize} >
@@ -98,7 +109,7 @@ export const NavbarComponent = ({ auth: { isAuthenticated, loading ,user}, logou
         </AppBar>
 
       }
-
+</MuiThemeProvider>
     </Fragment>
 
   )
