@@ -78,7 +78,7 @@ router.post(
 
         const profileFields = {};
         profileFields.user = req.user.id;
-        if(gender) profileFields.gender = gender;
+        if(gender) profileFields.gender = gender
         if (company) profileFields.company = company;
         if (website) profileFields.website = website;
         if (location) profileFields.location = location;
@@ -92,7 +92,7 @@ router.post(
 
         if(gender==='female'||gender==='male'){
             console.log(gender)
-        profileFields.avatar = `https://avatars.dicebear.com/api/${sgender}/${user._id}.svg?mood[]=happy`;
+        profileFields.avatar = `https://avatars.dicebear.com/api/${gender}/${user._id}.svg?mood[]=happy`;
         }
         else
             profileFields.avatar = `https://avatars.dicebear.com/api/human/${user._id}.svg?mood[]=happy`;
@@ -120,7 +120,6 @@ router.post(
             if (profile) {
                 //update
                 profile = await Profile.findOneAndUpdate({ user: req.user.id }, { $set: profileFields }, { new: true });
-
                 return res.json(profile);
             }
 
