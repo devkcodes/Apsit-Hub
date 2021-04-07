@@ -11,14 +11,14 @@ import Button from '@material-ui/core/Button';
 
 
 const SearchBar = ({ setAlert, searcher }) => {
-	const [text, setText] = useState(" ");
+	const [text, setText] = useState("");
 
 	const OnChange = (e) => setText(e.target.value);
 
 	const OnClick = async (e) => {
 		console.log("im here");
 		e.preventDefault();
-		if (text == " ") {
+		if (text == "") {
 			setAlert("Please Enter Something", "danger");
 		} else {
 			searcher(text);

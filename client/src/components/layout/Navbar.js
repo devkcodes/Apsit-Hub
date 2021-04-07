@@ -88,7 +88,7 @@ export const NavbarComponent = ({ auth: { isAuthenticated, loading ,user}, logou
     
     <Fragment>
       <MuiThemeProvider>
-      {!loading && isAuthenticated && user &&
+      {!loading && isAuthenticated  &&
 
         <AppBar position="fixed" color="#2D3548" className={classes.AppBar}>
           
@@ -101,7 +101,7 @@ export const NavbarComponent = ({ auth: { isAuthenticated, loading ,user}, logou
               <Grid item>
               
               
-              {/* <Button color="inherit" className={classes.buttonFontSize}><Link  to={`/profile/${user._id}`} className={classes.links}>Dashboard</Link></Button>  */}
+              <Button color="inherit" className={classes.buttonFontSize}><Link  to={`/profile/${user._id}`} className={classes.links}>Dashboard</Link></Button> 
               <Button color="inherit" component={Link} className={classes.buttonFontSize}><Link to="/profiles" className={classes.links}>Students</Link></Button>
               <Button color="inherit" className={classes.buttonFontSize}><Link to="/posts" className={classes.links}>Posts</Link></Button>
               <Button color="inherit" className={classes.buttonFontSize} >
