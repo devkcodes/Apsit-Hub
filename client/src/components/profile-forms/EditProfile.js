@@ -61,7 +61,7 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
         getCurrentProfile();
         console.log(profile)
         setFormData({
-            gender : loading && profile.gender,
+            gender : loading ||  profile.gender,
             company: loading || !profile.company ? '' : profile.company,
             website: loading || !profile.website ? '' : profile.website,
             location: loading || !profile.location ? '' : profile.location,

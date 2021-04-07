@@ -78,7 +78,7 @@ router.post(
 
         const profileFields = {};
         profileFields.user = req.user.id;
-        if(gender) profileFields.gender = gender;
+        if(gender) profileFields.gender = gender
         if (company) profileFields.company = company;
         if (website) profileFields.website = website;
         if (location) profileFields.location = location;
@@ -120,7 +120,6 @@ router.post(
             if (profile) {
                 //update
                 profile = await Profile.findOneAndUpdate({ user: req.user.id }, { $set: profileFields }, { new: true });
-
                 return res.json(profile);
             }
 

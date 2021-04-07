@@ -85,9 +85,10 @@ export const NavbarComponent = ({ auth: { isAuthenticated, loading ,user}, logou
 
 
   return (
+    
     <Fragment>
-      <MuiThemeProvider theme={navFont}>
-      {!loading && isAuthenticated &&
+      <MuiThemeProvider>
+      {!loading && isAuthenticated && user &&
 
         <AppBar position="fixed" color="#2D3548" className={classes.AppBar}>
           
@@ -113,8 +114,9 @@ export const NavbarComponent = ({ auth: { isAuthenticated, loading ,user}, logou
           
         </AppBar>
 
-      }
+    }  
 </MuiThemeProvider>
+      
     </Fragment>
 
   )
