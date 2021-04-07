@@ -216,12 +216,9 @@ router.get('/search', async (req, res) => {
         let profiles = [];
         for (let i = 0; i < users.length; i++) {
             let id = users[i].id;
-          
             let j = await Profile.find({ user: id }).populate('user', ['name']);
-           
-            profiles.push(j);
+            profiles.push(j[0]);
         }
-        console.log(res.data);
         res.json(profiles);
         
     }
