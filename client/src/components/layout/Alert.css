@@ -1,0 +1,19 @@
+.font{
+    font-size: 20px;
+};
+
+.alert-success{
+    background-color:#F8D7DA ;
+    border: 1px solid #721C24;
+    color:#721C24;
+    width:100%;
+    height: 22px;
+};
+
+.alert-danger{
+    background-color:#D4EDDA ;
+    border: 1px solid #155724;
+    color:#155724;
+    width:100%;
+    height: 22px;
+};

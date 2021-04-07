@@ -204,10 +204,10 @@ router.delete('/', auth, async (req, res) => {
 
 router.get('/search', async (req, res) => {
     try {
-        console.log(req.query)
+        console.log(req.query);
 
 
-        const users = await User.find({ name: { $regex: req.query.name, $options: 'i' } }).populate('user');
+        const users = await User.find({ name: { $regex: req.query.name, $options: 'i' } });
         // let profiles = users.forEach(async (user) => {
         //     let id = user.id;
         //     return await Profile.find({ user: id });
@@ -217,18 +217,23 @@ router.get('/search', async (req, res) => {
         let profiles = [];
         for (let i = 0; i < users.length; i++) {
             let id = users[i].id;
-            let j = await Profile.find({ user: id })
+          
+            let j = await Profile.find({ user: id }).populate('user', ['name']);
+           
             profiles.push(j);
         }
-        res.json(profiles)
+        console.log(res.data);
+        res.json(profiles);
+        
     }
     catch (err) {
         console.error(err.message);
         res.status(500).send('Server Error');
+        console.log("error");
 
     }
 
-})
+});
 
 
 
@@ -265,16 +270,16 @@ router.get('/github/:username', (req, res) => {
 })
 
 
-router.get('/search', async(req,res)=>{
-    try {
+// router.get('/search', async(req,res)=>{
+//     try {
         
-        const profiles = await Profile.find({ name: {$regex: req.query.name, $options:'i'} }).populate('user')
-        res.json(profiles);
+//         const profiles = await Profile.find({ name: {$regex: req.query.name, $options:'i'} }).populate('user')
+//         res.json(profiles);
 
-    } catch (err) {
-        console.error(err.message);
-        res.status(500).send('Server Error');
-    }
-})
+//     } catch (err) {
+//         console.error(err.message);
+//         res.status(500).send('Server Error');
+//     }
+// })
 
 module.exports = router;

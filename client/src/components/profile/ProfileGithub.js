@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
         display:'flex',
         flexDirection:'column',
         width:'100%',
-        height:'51vh',
+        height:'72.5vh',
         overflowY:'scroll',
         alignItems:'center'
     },

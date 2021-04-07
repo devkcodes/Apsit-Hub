@@ -133,11 +133,13 @@ console.log(coding)
                               <span style={{display:'flex',alignItems:'flex-end'}}><Code/><span >Coding Profiles</span></span>
                             <span className={classes.overflowText}>
                               {coding && coding.codechef && (
-                                <Tooltip text={'codechef'}>
+                                // <Tooltip text={'codechef'}>
+                                <span>
                                 <a href={coding.codechef} target="_blank" rel="noopener noreferrer">
 					                        <img className={classes.logo} src={codecheflogo} alt=""/>
                                 </a>
-                              </Tooltip>
+                                </span>
+                              // </Tooltip>
 				                      )}
                               {coding && coding.codeforces && (
                                 <Tooltip text={'codeforces'}>

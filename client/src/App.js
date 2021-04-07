@@ -17,6 +17,7 @@ import Profile from './components/profile/Profile';
 import Posts from './components/posts/Posts';
 import Post from './components/post/Post';
 import Footer from './components/layout/Footer';
+import './components/layout/Alert.css';
 
 
 //Redux
@@ -24,12 +25,18 @@ import { Provider } from 'react-redux';
 import store from './storee';
 import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
+var bodyParser = require('body-parser');
+
+
 
 if (localStorage.token) {
     setAuthToken(localStorage.token);
 }
 
 const App = () => {
+//     App.use(bodyParser.json());
+
+// App.use(bodyParser.urlencoded({ extended: true }));
     useEffect(() => {
         store.dispatch(loadUser());
     }, []);
@@ -38,11 +45,12 @@ const App = () => {
             <Router >
                 <Fragment >
                     <Navbar />
+                    <Alert />
                     <Route exact path="/" component={Landing2} />
 
                     <section className="container">
 
-                        <Alert />
+                        
                         <Switch>
                             <Route exact path="/register" component={Register} />
                             <Route exact path="/login" component={Login} />

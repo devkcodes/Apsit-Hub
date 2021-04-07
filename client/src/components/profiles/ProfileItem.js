@@ -72,14 +72,19 @@ const useStyles = makeStyles(() => ({
 
 const Profileitem = ({
     profile: {
-        user: { _id, name },
+        
         avatar,
         status,
+        user,
         company,
         location,
         skills
     }
 }) => {
+
+    console.log(user)
+    const name = user.name;
+    const _id = user._id
     const classes = useStyles();
     var array = skills.toString().split(/[\s,]+/);
 

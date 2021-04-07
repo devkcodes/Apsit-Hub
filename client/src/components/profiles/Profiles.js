@@ -33,6 +33,7 @@ import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import ProfileItem from './ProfileItem';
 import { getProfiles } from '../../actions/profile';
+import SearchBar from './searchbar';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -75,18 +76,16 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
         getProfiles();
     }, [getProfiles]);
     const classes = useStyles();
-    const options = [
-    { label: 'London', value: 'london' },
-    { label: 'Sydney', value: 'sydney' },
-    { label: 'Shanghai', value: 'shanghai' },
-    ]
+   
+    console.log(`my profilesssssssssssssssss ${profiles[0]}`)
+    console.log(JSON.stringify(profiles))
 
     return <Fragment
 
     >
         {loading ? <Spinner /> :
                     <Grid container className={classes.container}>
-
+<SearchBar/>
                     <Grid container className={classes.TextGrid} >
                         
                     </Grid>

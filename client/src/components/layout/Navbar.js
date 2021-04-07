@@ -6,7 +6,7 @@ import { logout } from '../../actions/auth';
 import { Grid, Button, AppBar, Toolbar, Typography, MenuItem, Menu, Avatar } from "@material-ui/core"
 import { makeStyles, MuiThemeProvider } from '@material-ui/core/styles';
 import "../../App.css";
-import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import {createMuiTheme } from '@material-ui/core/styles'
 
 const navFont = createMuiTheme({
   typography: {
@@ -30,7 +30,9 @@ const styles = ({
     margin: "auto"
   },
   buttonFontSize: {
-    fontSize: "16px",
+    fontSize: "20px",
+    marginRight:"7px",
+    marginLeft:"7px"
 
   },
   links: {
@@ -88,24 +90,27 @@ export const NavbarComponent = ({ auth: { isAuthenticated, loading ,user}, logou
       {!loading && isAuthenticated &&
 
         <AppBar position="fixed" color="#2D3548" className={classes.AppBar}>
-          <Grid item sm={12} xs={12} className={classes.container}>
-            <Toolbar>
+          
+            <Toolbar >
               <Grid className={classes.grow}>
                 <Button className={[classes.mainLogo]}>
                   <h2>ApsitHub</h2>
                 </Button>
               </Grid>
-              {/* <Button color="inherit" className={classes.buttonFontSize}><Link  to={`/profile/${user._id}`} className={classes.links}>Dashboard</Link></Button> */}
+              <Grid item>
+              
+              
+              {/* <Button color="inherit" className={classes.buttonFontSize}><Link  to={`/profile/${user._id}`} className={classes.links}>Dashboard</Link></Button>  */}
               <Button color="inherit" component={Link} className={classes.buttonFontSize}><Link to="/profiles" className={classes.links}>Students</Link></Button>
               <Button color="inherit" className={classes.buttonFontSize}><Link to="/posts" className={classes.links}>Posts</Link></Button>
               <Button color="inherit" className={classes.buttonFontSize} >
                 <a className={classes.links} onClick={logout} href="http://localhost:3000/login">
-
+               
                   Logout</a>
               </Button>
-
+              </Grid>
             </Toolbar>
-          </Grid>
+          
         </AppBar>
 
       }

@@ -71,23 +71,23 @@ export const getProfileById = (userId) => async dispatch => {
 };
 
 //Get  profile by search
-export const getProfileBySearch = (name) => async dispatch => {
-    dispatch({ type: CLEAR_PROFILE });
-    try {
-        const res = await axios.get(`/api/profile/search?name=${name}`);
+// export const getProfileBySearch = (name) => async dispatch => {
+//     dispatch({ type: CLEAR_PROFILE });
+//     try {
+//         const res = await axios.get(`/api/profile/search?name=${name}`);
+//         console.log(res.data);
+//         dispatch({
 
-        dispatch({
-
-            type: GET_PROFILES,
-            payload: res.data
-        })
-    } catch (err) {
-        dispatch({
-            type: PROFILE_ERROR,
-            payload: { msg: err.response.statusText, status: err.response.status }
-        });
-    }
-};
+//             type: GET_PROFILES,
+//             payload: res.data
+//         })
+//     } catch (err) {
+//         dispatch({
+//             type: PROFILE_ERROR,
+//             payload: { msg: err.response.statusText, status: err.response.status }
+//         });
+//     }
+// };
 
 // Get github repos
 export const getGithubRepos = username => async dispatch => {
@@ -145,7 +145,43 @@ export const createProfile = (formData, history, edit = false) => async dispatch
     }
 };
 
+// //search profiles
+export const searcher = (name) => async dispatch =>{
+    dispatch({type: CLEAR_PROFILE});
+    try {console.log(name);
+        const res = await axios.get(`/api/profile/search?name=${name}`);
+        console.log('from actions/profile.js the data is')
+        console.log(res)
+      
+        dispatch({
+        type:GET_PROFILES,
+        payload: res.data,
+        
+        });
+    } catch (error) {
+        console.log(error);
+        if(error.response)
+        {
+            dispatch({
+        type: PROFILE_ERROR,
+        
+        payload: { 
+            msg: error.response.statusText,
+             status: error.response.status }
+      });}
 
+      else{
+        {dispatch({
+            type: PROFILE_ERROR,
+            
+           
+          })
+      }
+      
+    
+  }
+    }
+}
 
 //delete account
 export const deleteAccount = () => async dispatch => {
