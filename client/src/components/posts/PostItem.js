@@ -7,6 +7,11 @@ import { addLike, removeLike, deletePost } from '../../actions/post'
 import { CardContent, CardHeader,Avatar, makeStyles,Grid,Button, CardActions, IconButton, Icon} from '@material-ui/core'
 import {Fieldset,Badge} from '@geist-ui/react'
 import {ThumbsUp , ThumbsDown } from '@geist-ui/react-icons'
+
+
+import { convertFromRaw } from 'draft-js'
+import { stateToHTML } from "draft-js-export-html";
+
 const styles ={
     separate:{
         display:'flex',
@@ -37,6 +42,8 @@ const PostItem = ({ addLike, deletePost, removeLike, auth, post: { _id, text, na
     const classes = useStyles()
 
 
+    let styled_text = stateToHTML((convertFromRaw(JSON.parse(text))))
+
 
 
 return(
@@ -54,7 +61,7 @@ return(
                 </div>
                 
                 <Fieldset.Subtitle style={{fontSize:'17px'}}>
-                {text}
+                <div className="content" dangerouslySetInnerHTML={{__html:styled_text}}></div>
                 </Fieldset.Subtitle>
                 
                 <Fieldset.Footer>
@@ -75,43 +82,7 @@ return(
             </Fieldset>
             
         }
-    {/* {showActions&& <Card className={classes.cardRoot}>
-        <Link to={`/profile/${user}`}>
-        <CardHeader
-        className={classes.cardHeader}
-        avatar={
-            <Avatar src ={avatar} className={classes.avatar}>
-            </Avatar>
-        }
-        title={name}
-        subheader={
-        <Moment className={classes.Date} format='YYYY/MM/DD'>{date}</Moment>
-        }
-        />
-        </Link>
-        <CardContent>{text}</CardContent>
-        <CardActions  className={classes.cardActions}>
-            <IconButton className={classes.actionButton}  onClick={e => addLike(_id)}><i class="fas fa-thumbs-up"></i>{" "}
-                <span>{likes.length > 0 &&
-                    <span >{likes.length}</span>
-                }</span>
-            </IconButton>
-            <IconButton className={classes.actionButton} onClick={e => removeLike(_id)}>
-                    <i class="fas fa-thumbs-down"></i>
-            </IconButton>
-            <IconButton className={classes.actionButton}>
-                <Link to={`/posts/${_id}`} >
-                <i class="fas fa-comment"></i>
-                {"  "}{comments.length > 0 && (
-                    <span class='comment-count'>{comments.length}</span>
-                )}
-            </Link>
-            </IconButton>
-            <IconButton className={classes.actionButton} onClick={e => deletePost(_id)}>
-                    <i class="fas fa-times"></i>
-            </IconButton>
-        </CardActions>
-    </Card>} */}
+    
     </Fragment>
 
 )
