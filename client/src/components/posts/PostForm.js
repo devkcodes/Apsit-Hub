@@ -3,25 +3,27 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addPost } from '../../actions/post';
 import "../../styles/PostForm.css"
-import Card from '@material-ui/core/Card'
-import Icon from '@material-ui/core/Icon'
-import Button from '@material-ui/core/Button'
-import TextField from '@material-ui/core/TextField'
-import FormControl from '@material-ui/core/FormControl'
-import { makeStyles } from '@material-ui/core/styles';
+
+//Rich text editor
+import MUIRichTextEditor from 'mui-rte'
+import { convertToRaw } from 'draft-js'
+
+
+import {Card, Button,Icon,TextField,FormControl} from '@material-ui/core'
+
+import { makeStyles,MuiThemeProvider,createMuiTheme } from '@material-ui/core/styles';
 import SendIcon from '@material-ui/icons/Send';
 
 const useStyles = makeStyles((theme) => ({
-  divClass:{
-      width:"98%",
-      backgroundColor:'white',
-      padding:'5px',
-      marginBottom: '20px',
-      
-  },
-  text:{
-      width:'37vw',
-      ['@media (max-width:1000px)']: {
+    divClass:{
+    width:"98%",
+    backgroundColor:'white',
+    padding:'5px',
+    marginBottom: '20px'
+    },
+    text:{
+    width:'37vw',
+    ['@media (max-width:1000px)']: {
 
         width:'62vw',
     },
@@ -46,6 +48,28 @@ margin:'5px',
 
 
 }));
+  
+const defaultTheme = createMuiTheme()
+  Object.assign(defaultTheme, {
+    overrides: {
+        MUIRichTextEditor: {
+            root: {
+                marginTop: 20,
+                width: "80%",
+            },
+            editor: {
+                borderBottom: "1px solid gray" ,
+                padding:"50px"
+            
+            },
+            toolbar:{
+            border:"1px solid gray"
+            },
+
+        }
+    }
+})
+
 
 
 const PostForm = ({ addPost }) => {
@@ -54,13 +78,14 @@ const PostForm = ({ addPost }) => {
     return (
         <div >
 
+           
             <div >
                 <h3>Say Something...</h3>
             </div>
             <div className={classes.divClass} >
                 <FormControl  className={classes.text}
                    >
-                    <TextField
+                    {/* <TextField
                     
                         
                         name="text"
@@ -73,7 +98,20 @@ const PostForm = ({ addPost }) => {
                         value={text} onChange={e => setText(e.target.value)}
                         multiline
                         required
-                    ></TextField>
+                    ></TextField> */}
+                     <MuiThemeProvider theme={defaultTheme}>
+                      <MUIRichTextEditor 
+                      label="Type your requirements here..."
+                    text={text}
+                    onChange={(editorState)=>{
+                        let contentState = editorState.getCurrentContent();
+                        
+                        setText(JSON.stringify(convertToRaw(contentState)))
+
+                    }}
+				            required
+                    />
+                    </MuiThemeProvider>
                    
                 </FormControl>
                 <Button
