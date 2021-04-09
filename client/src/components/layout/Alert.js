@@ -1,4 +1,4 @@
-import {React,Fragment} from 'react'
+import {React,Fragment,useState} from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import "./Alert.css"
@@ -28,13 +28,12 @@ const useStyles = makeStyles((theme) => ({
 
 export const Alert = ({ alerts }) => {
     const classes = useStyles();
+    // const [alerttype, setalerttype] = useState('danger')
     return ( <Fragment>
         {alerts !== null && alerts.length > 0 && alerts.map(alert => (
     
-        <div key={alert.id} className={`classes.${alert.alertType}`} >
-            
-           <Text blockquote size="1.25rem" fontWeight="bold" className={`classes.${alert.alertType}`}>{alert.msg}</Text>
-        </div>
+       
+    <AlertDiv alert ={alert}/>
     
     ))}
     </Fragment>
@@ -48,6 +47,16 @@ const mapStatetoprops = state => ({
     alerts: state.alert
 });
 
+const AlertDiv = ({alert:{id,msg,alertType}}) =>{
+        const classes = useStyles();
+
+        return (
+             <div  key={alert.id} className={classes[alertType]} >
+            
+            <Text blockquote size="1.25rem" fontWeight="bold" className={`classes.${alert.alertType}`}>{msg}</Text>
+        </div>
+        )
+}  
 
 export default connect(mapStatetoprops)(Alert);
 
