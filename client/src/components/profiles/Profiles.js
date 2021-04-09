@@ -85,7 +85,7 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
         
         {loading ? <Spinner /> :
                     <Grid container className={classes.container}>
-                        <div><Alert/></div>
+                      
                         
 <SearchBar/>
                     <Grid container className={classes.gridProfile} direction="row" justify="flex-start">

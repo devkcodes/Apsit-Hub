@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import InputLabel from '@material-ui/core/InputLabel'
 import Checkbox from '@material-ui/core/Checkbox';
 // import Paper from '@material-ui/core/Paper';
 import Paper from '@material-ui/core/Paper';
@@ -85,10 +86,11 @@ backgroundColor:"#D4B39D"
     //     },
     // },
 textfieldcolor:{
-
+    backgroundColor: "#171319",
+    color: "white"
 
     
-    color:"#F1304D"
+    // color:"#F1304D"
 }
 }));
 
@@ -129,27 +131,25 @@ export const Login = ({ login, isAuthenticated }) => {
                             Sign in
           </Typography>
                         <form className={classes.form} noValidate>
-                            <TextField
-                                style={{
-                                    backgroundColor: "#171319",
-                                    color: "white",
-                                    // border: '5px solid black',
-                                    // borderRadius: "10px"
-                                }}
+                            <TextField className={ classes.textfieldcolor}
+                              
+                                
                                 InputProps={{
                                     style: {
-                                        color: "white"
+                                        color: "white" // for input text color
                                     }
                                 }}
+
                                 InputLabelProps={{
                                     style: {
                                         textOverflow: 'ellipsis',
                                         whiteSpace: 'nowrap',
                                         overflow: 'hidden',
                                         width: '100%',
-                                        color: 'white'
+                                        focussedColor: '#F1304D'
                                     }
                                 }}
+
                                 variant="filled"
                                 margin="normal"
                                 required
@@ -162,17 +162,17 @@ export const Login = ({ login, isAuthenticated }) => {
                                 autoComplete="email"
                                 autoFocus
                             />
-                            <TextField
+                            <TextField className={ classes.textfieldcolor}
                            InputProps={{
-                            className: classes.multilineColor
+                            
                           }}
-                                style={{
-                                    backgroundColor: "#171319",
-                                    color: "#primary",
-                                    // border: '5px solid black',
-                                    // borderRadius: "10px"
+                               
+                                InputProps={{
+                                    style: {
+                                        color: "white" // for input text color
+                                    }
                                 }}
-                                
+
                                 InputLabelProps={{
                                     style: {
                                         textOverflow: 'ellipsis',
@@ -182,6 +182,7 @@ export const Login = ({ login, isAuthenticated }) => {
                                         color: 'white'
                                     }
                                 }}
+
                                 variant="filled"
                                 margin="normal"
                                 required

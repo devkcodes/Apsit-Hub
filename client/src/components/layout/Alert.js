@@ -23,16 +23,18 @@ const useStyles = makeStyles((theme) => ({
         color:"#155724",
         backgroundColor:"#D4EDDA"
     }
+    
 }));
 
 
 export const Alert = ({ alerts }) => {
     const classes = useStyles();
+
     return ( <Fragment>
         {alerts !== null && alerts.length > 0 && alerts.map(alert => (
-    
-        <div key={alert.id} className={`classes.${alert.alertType}`} >
             
+        <div key={alert.id} className={classes.alertType} >
+            <span>{alert.alertType}</span>
            <Text blockquote size="1.25rem" fontWeight="bold" className={`classes.${alert.alertType}`}>{alert.msg}</Text>
         </div>
     

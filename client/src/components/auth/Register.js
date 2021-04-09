@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { Text, Divider,Fieldset,Badge,Tooltip } from '@geist-ui/react' 
 
 
 //others
@@ -27,18 +28,33 @@ import PropTypes from 'prop-types'
 //styles
 const useStyles = makeStyles((theme) => ({
     paper: {
-        marginTop: theme.spacing(8),
+        // marginTop: theme.spacing(3),
+        // display: 'flex',
+        // flexDirection: 'column',
+        // alignItems: 'center',
+        // padding: "5em",
+        // paddingTop:"5vh",
+        // margin: '35em',
+        // backgroundColor: '#151117',
+        // width:"40vw",
+        padding: '5em',
+        paddingTop:"5vh",
         display: 'flex',
+        width:"35vw",
         flexDirection: 'column',
         alignItems: 'center',
-        padding: "5em",
-        margin: '35em',
-        backgroundColor: '#151117'
-
+        backgroundColor: '#0F1319',
+        margin: '70px',
+        marginLeft: '33%',
+        border: '1px solid #F1304D',
+        boxShadow:"0px 0px 5px 5px #F1304D",
+        // marginBottom:"1000px"
+        height:"80vh"
     },
     container: {
-        backgroundImage: 'url(https://res.cloudinary.com/dsph4eptm/image/upload/c_scale,w_1590/v1617677006/apsithub/Welcome_To_Apsit_Hub_1_rqdn7s.jpg)',
-        height: "100vh"
+        backgroundImage: 'url(https://res.cloudinary.com/dsph4eptm/image/upload/v1617973085/3_dudhhs.png)',
+        height: "100vh",
+        // marginBottom: "200px"
     },
 
     avatar: {
@@ -51,6 +67,9 @@ const useStyles = makeStyles((theme) => ({
     },
     submit: {
         margin: theme.spacing(3, 0, 2),
+        backgroundColor:"#F1304D",
+        color:"#0F1319"
+
     },
     gridRoot: {
         backgroundColor: "red",
@@ -245,19 +264,20 @@ export const Register = ({ setAlert, register, isAuthenticated }) => {
                             </Grid>
                         </Grid>
                         <Button
-                            onClick={e => onClick(e)}
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            color="primary"
-                            className={classes.submit}
-                            value='register'
-                        >
-                            Sign Up
-          </Button>
+                                onClick={e => onClick(e)}
+                                type="submit"
+                                fullWidth
+                                value='login'
+                                variant="contained"
+                                color="primary"
+                                className={classes.submit}
+                               
+                            >
+                             <Typography><Text b color="white"> Register</Text></Typography>
+            </Button>
                         <Grid container justify="flex-end">
                             <Grid item>
-                                <Link to="/login" variant="body2" style={{ color: '#3F51B5' }}>
+                                <Link to="/login" variant="body2"  style={{ color: '#F1304D' }}>
                                     Already have an account? Sign in
               </Link>
                             </Grid>
