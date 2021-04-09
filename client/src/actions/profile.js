@@ -24,10 +24,19 @@ export const getCurrentProfile = () => async dispatch => {
 
     }
     catch (err) {
+        if(err.response)
         dispatch({
             type: PROFILE_ERROR,
             payload: { msg: err.response.statusText, status: err.response.status }
         });
+        else{
+            {dispatch({
+                type: PROFILE_ERROR,
+                
+               
+              })
+          }
+        }
     }
 };
 
@@ -46,10 +55,19 @@ export const getProfiles = () => async dispatch => {
 
     }
     catch (err) {
+        if(err.response)
         dispatch({
             type: PROFILE_ERROR,
             payload: { msg: err.response.statusText, status: err.response.status }
         });
+        else{
+            {dispatch({
+                type: PROFILE_ERROR,
+                
+               
+              })
+          }
+        }
     }
 };
 
@@ -63,10 +81,19 @@ export const getProfileById = (userId) => async dispatch => {
             payload: res.data
         })
     } catch (err) {
+        if(err.response)
         dispatch({
             type: PROFILE_ERROR,
             payload: { msg: err.response.statusText, status: err.response.status }
         });
+        else{
+            {dispatch({
+                type: PROFILE_ERROR,
+                
+               
+              })
+          }
+        }
     }
 };
 
@@ -103,10 +130,19 @@ export const getGithubRepos = username => async dispatch => {
 
     }
     catch (err) {
+        if(err.response)
         dispatch({
             type: PROFILE_ERROR,
             payload: { msg: err.response.statusText, status: err.response.status }
         });
+        else{
+            {dispatch({
+                type: PROFILE_ERROR,
+                
+               
+              })
+          }
+        }
     }
 };
 
@@ -137,11 +173,20 @@ export const createProfile = (formData, history, edit = false) => async dispatch
         const errors = err.response.data.errors;
         if (errors) {
             errors.forEach(error => dispatch(setAlert(error.msg, 'danger')))
-        }
+        
         dispatch({
             type: PROFILE_ERROR,
             payload: { msg: err.response.statusText, status: err.response.status }
         });
+        }
+        else{
+            {dispatch({
+                type: PROFILE_ERROR,
+                
+               
+              })
+          }
+        }
     }
 };
 

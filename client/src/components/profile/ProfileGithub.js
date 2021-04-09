@@ -6,12 +6,34 @@ import { getGithubRepos } from '../../actions/profile';
 import Spinner from '../layout/Spinner';
 
 //Geist UI
-import {Card,Divider} from '@geist-ui/react'
+// import {Card,Divider} from '@geist-ui/react'
+import {Card, Text, Divider,Button,Avatar,Fieldset,Badge,Tooltip } from '@geist-ui/react' 
+import { Globe,Smile,Code,Facebook,Twitter,Linkedin,Instagram,Youtube,MessageCircle   } from '@geist-ui/react-icons'
+
 
 //Material UI
 import { makeStyles } from '@material-ui/core/styles';
 import {Grid} from '@material-ui/core'
+import {  MuiThemeProvider } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
+
+
+
+
+const light = createMuiTheme({
+    palette: {
+      primary: {
+        main:"#fff",
+      }},
+    typography: {
+      fontFamily: [
+        'Share Tech', 'san-serif',
+      ].join(','),
+      fontSize:"1px",
+      Fontcolor:"white"
+  }});
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -36,12 +58,14 @@ const useStyles = makeStyles((theme) => ({
         alignContent:'center'
     },
     cardcontainer:{
-        marginTop:'-1rem',
+        marginTop:'1rem',
         display:'flex',
         flexDirection:'column',
         width:'100%',
-        height:'72.5vh',
+        height:'69vh',
         overflowY:'scroll',
+        overflowX:'hidden',
+
         alignItems:'center'
     },
     h4repo:{
@@ -49,6 +73,14 @@ const useStyles = makeStyles((theme) => ({
     },
     cardFooter:{
         minHeight:'10px'
+    },
+    cardmain:{
+        maxWidth:"100%",
+        display:'flex',
+        backgroundColor:"white",
+        justifyContent:'space-between',
+         flexDirection:'column',
+         borderRadius:"5px",
     }
 
 }));
@@ -66,11 +98,13 @@ const ProfileGithub = ({ username, getGithubRepos, repos }) => {
 
 
     return (
-        <div style={{width:'100%'}}>
+        <MuiThemeProvider theme={light}>
+            <Typography>
+        
             <Card>
-                <Card.Content style={{display:'flex',justifyContent:'space-between', flexDirection:'column'}}>
+                <Card.Content className={classes.cardmain} >
                 <div className={classes.h4repo}>
-                    <span>Github Repos</span>
+                    <span><Text size={20} b>Github Repositories</Text></span>
                 </div>
                 
                 <Divider y={0} />
@@ -82,7 +116,7 @@ const ProfileGithub = ({ username, getGithubRepos, repos }) => {
                 repos === null ? <Spinner /> : (
                     repos.map(repo => (
                         <Grid xs={12} md = {12} item key={repo.id} className={classes.gitcard}>
-                        <Card style={{padding:'1rem'}}type="dark"  width="500px" >
+                        <Card style={{padding:'1rem'}}type="dark"  width="500px" margin="0">
     <h4>{repo.name}</h4>
     {repo.description?<p>{repo.description}</p>:<p>No description</p> }
     
@@ -113,7 +147,9 @@ const ProfileGithub = ({ username, getGithubRepos, repos }) => {
                 </div> 
                 </Card.Content>
                 </Card>
-        </div >
+        
+        </Typography>
+        </MuiThemeProvider>
     )
 }
 

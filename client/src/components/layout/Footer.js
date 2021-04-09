@@ -19,6 +19,7 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import ListItemText from '@material-ui/core/ListItemText';
 import Link from '@material-ui/core/Link';
+import { url } from 'gravatar';
 
 // import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 
@@ -34,8 +35,9 @@ const footFont = createMuiTheme({
       'Share Tech', 'san-serif',
     ].join(','),
     fontSize:"1px",
-    Fontcolor:"white"
+    Fontcolor:"#F1304D"
 }});
+
 
 const styles = ({
  
@@ -47,10 +49,11 @@ const styles = ({
 
   footer: {
       colour:"white",
-      backgroundColor:"#2D3548",
+      backgroundColor:"#20242B",
       padding:"30px",
       margin:"0px",
-      marginBottom:"0px"
+      marginBottom:"0px",
+      // backgroundImage:"url(https://res.cloudinary.com/dsph4eptm/image/upload/v1617971458/heyy_clkr5c.jpg)",
   },
   footerLinks:{
       marginTop:"5vh"
@@ -59,7 +62,7 @@ const styles = ({
       margin:"10px",
   },
   box:{
-      backgroundColor: "#2D3548",
+      backgroundColor: "#20252B",
       width:"70%"
   },
   subLinks:{
@@ -85,7 +88,7 @@ const Footer = () => {
         <Grid container className={classes.footer} >
           <Grid item md="3">
             
-            <img src={temp}></img>
+            <img src={"https://res.cloudinary.com/dsph4eptm/image/upload/c_scale,w_240/v1617975621/ApSIt_Hub_n2dvbf.jpg"}></img>
           </Grid >
           <Grid item md="3" className={classes.footerLinks}>
           <Box  className={classes.box}float="left"><Typography color="primary" variant="h6" className="title">Our Mission</Typography>

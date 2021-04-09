@@ -9,6 +9,7 @@ import ProfileAbout from "./ProfileAbout";
 import ProfileLeft from "./ProfileLeft";
 import ProfileRight from "./ProfileRight";
 import { getProfileById } from "../../actions/profile";
+import Alert from "../layout/Alert"
 
 
 //Geist UI
@@ -28,12 +29,13 @@ const useStyles = makeStyles((theme) => ({
         color: 'white'
     },
     containerRoot: {
-        marginTop:'10em',
+        marginTop:"80px",
 				width:'90vw',
 				display:'flex',
 
 
-    }
+    },
+	
 
 }));
 
@@ -57,8 +59,9 @@ console.log(auth)
 	console.log(_id)
 
 	return (
-		<div>
+		
 			<Fragment>
+				
 				{ ( profile===null)  ? <CreateProfile/> :
 				<Fragment>
 				{ profile === null || loading ? (
@@ -66,6 +69,7 @@ console.log(auth)
 				) : (
 						<Fragment>
 							<div className={classes.root}>
+							
 								<Grid container 
 								direction="row"
   							  justify="space-between"
@@ -85,7 +89,7 @@ console.log(auth)
 					</Fragment>
 }
 			</Fragment>
-		</div>
+		
 	)
 }
 

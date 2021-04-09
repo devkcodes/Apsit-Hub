@@ -22,6 +22,7 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import GridList from '@material-ui/core/GridList';
+import Alert from '../layout/Alert';
 
 //Geist
 import {AutoComplete} from '@geist-ui/react'
@@ -80,16 +81,13 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
     console.log(`my profilesssssssssssssssss ${profiles[0]}`)
     console.log(JSON.stringify(profiles))
 
-    return <Fragment
-
-    >
+    return <Fragment >
+        
         {loading ? <Spinner /> :
                     <Grid container className={classes.container}>
-<SearchBar/>
-                    <Grid container className={classes.TextGrid} >
+                        <div><Alert/></div>
                         
-                    </Grid>
-
+<SearchBar/>
                     <Grid container className={classes.gridProfile} direction="row" justify="flex-start">
                         {profiles.length > 0 ? (
                             profiles.map(profile => (<ProfileItem key={profile._id} profile={profile} />))

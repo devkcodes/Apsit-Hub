@@ -16,6 +16,7 @@ const navFont = createMuiTheme({
     fontSize:"1px"
 },});
 
+
 const styles = ({
  
   row: {
@@ -87,7 +88,7 @@ export const NavbarComponent = ({ auth: { isAuthenticated, loading ,user}, logou
   return (
     
     <Fragment>
-      <MuiThemeProvider>
+      <MuiThemeProvider theme={navFont}>
       {!loading && isAuthenticated  &&
 
         <AppBar position="fixed" color="#2D3548" className={classes.AppBar}>
@@ -100,8 +101,8 @@ export const NavbarComponent = ({ auth: { isAuthenticated, loading ,user}, logou
               </Grid>
               <Grid item>
               
-              
-              <Button color="inherit" className={classes.buttonFontSize}><Link  to={`/profile/${user._id}`} className={classes.links}>Dashboard</Link></Button> 
+              {user &&
+              <Button color="inherit" className={classes.buttonFontSize}><Link  to={`/profile/${user._id}`} className={classes.links}>Dashboard</Link></Button> }
               <Button color="inherit" component={Link} className={classes.buttonFontSize}><Link to="/profiles" className={classes.links}>Students</Link></Button>
               <Button color="inherit" className={classes.buttonFontSize}><Link to="/posts" className={classes.links}>Posts</Link></Button>
               <Button color="inherit" className={classes.buttonFontSize} >

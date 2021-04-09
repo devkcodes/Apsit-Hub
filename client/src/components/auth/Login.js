@@ -16,6 +16,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 
 // import Form from '@material-ui/core/Form';
+import { Text, Divider,Fieldset,Badge,Tooltip } from '@geist-ui/react' 
 
 
 
@@ -47,10 +48,17 @@ const useStyles = makeStyles((theme) => ({
 
         padding: '5em',
         display: 'flex',
+        width:"35vw",
         flexDirection: 'column',
         alignItems: 'center',
-        backgroundColor: '#151117',
+        backgroundColor: '#0F1319',
         margin: '70px',
+        marginLeft: '33%',
+        border: '1px solid #F1304D',
+        boxShadow:"0px 0px 5px 5px #F1304D",
+        // marginBottom:"1000px"
+        height:"70vh"
+
     },
     avatar: {
         margin: theme.spacing(1),
@@ -62,19 +70,23 @@ const useStyles = makeStyles((theme) => ({
     },
     submit: {
         margin: theme.spacing(3, 0, 2),
+        backgroundColor:"#F1304D",
+        color:"#0F1319"
 
     },
     gridRoot: {
-
-        // backgroundImage: 'url(https://res.cloudinary.com/dsph4eptm/image/upload/v1615213580/Capture_islxj1.png)',
+boxShadow:"none",
+        backgroundImage: 'url(https://res.cloudinary.com/dsph4eptm/image/upload/v1617973085/3_dudhhs.png)',
 backgroundColor:"#D4B39D"
     },
-    typography: {
-        allVariants: {
-            color: "white"
-        },
-    },
-
+    // typography: {
+    //     allVariants: {
+    //         color: "white"
+    //     },
+    // },
+textfieldcolor:{
+    color:"#F1304D"
+}
 }));
 
 
@@ -104,13 +116,13 @@ export const Login = ({ login, isAuthenticated }) => {
         <Fragment>
             <Grid container component="main" className={classes.root}>
                 <CssBaseline />
-                <Grid item xs={false} sm={4} md={7} className={classes.image} />
-                <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} className={classes.gridRoot} square>
-                    <Paper elevation={3} className={classes.paper}>
+                {/* <Grid item xs={false} sm={4} md={7} className={classes.image} /> */}
+                <Grid   xs={12} contaner sm={8} md={12} component={Paper} elevation={6} className={classes.gridRoot} square>
+                    <Paper elevation={3} item className={classes.paper}>
                         <Avatar className={classes.avatar}>
                             <LockOutlinedIcon color='white' />
                         </Avatar>
-                        <Typography component="h1" variant="h4" style={{ color: 'white' }}>
+                     <Typography   component="h1" variant="h4" style={{ color: 'white' }}>
                             Sign in
           </Typography>
                         <form className={classes.form} noValidate>
@@ -148,17 +160,16 @@ export const Login = ({ login, isAuthenticated }) => {
                                 autoFocus
                             />
                             <TextField
+                           InputProps={{
+                            className: classes.multilineColor
+                          }}
                                 style={{
                                     backgroundColor: "#171319",
-                                    color: "white",
+                                    color: "#primary",
                                     // border: '5px solid black',
                                     // borderRadius: "10px"
                                 }}
-                                InputProps={{
-                                    style: {
-                                        color: "white"
-                                    }
-                                }}
+                                
                                 InputLabelProps={{
                                     style: {
                                         textOverflow: 'ellipsis',
@@ -190,15 +201,16 @@ export const Login = ({ login, isAuthenticated }) => {
                                 variant="contained"
                                 color="primary"
                                 className={classes.submit}
+                               
                             >
-                                Sign In
+                             <Typography><Text b color="white"> Sign In</Text></Typography>
             </Button>
                             <Grid container>
                                 <Grid item xs>
 
                                 </Grid>
                                 <Grid item>
-                                    <Link to="/register" variant="body2" style={{ color: '#3F51B5' }}>
+                                    <Link to="/register" variant="body2" style={{ color: '#F1304D' }}>
                                         {"Don't have an account? Sign Up"}
                                     </Link>
                                 </Grid>

@@ -19,6 +19,7 @@ import Post from './components/post/Post';
 import Footer from './components/layout/Footer';
 import './components/layout/Alert.css';
 
+import { makeStyles } from '@material-ui/core/styles'
 
 //Redux
 import { Provider } from 'react-redux';
@@ -28,6 +29,10 @@ import setAuthToken from './utils/setAuthToken';
 var bodyParser = require('body-parser');
 
 
+const useStyles = makeStyles((theme) => ({
+    frag:{marginTop:80}
+    
+    }));
 
 if (localStorage.token) {
     setAuthToken(localStorage.token);
@@ -35,18 +40,19 @@ if (localStorage.token) {
 
 const App = () => {
 //     App.use(bodyParser.json());
-
+const classes = useStyles();
 // App.use(bodyParser.urlencoded({ extended: true }));
     useEffect(() => {
         store.dispatch(loadUser());
     }, []);
     return (
-        <Provider store={store} >
+        <Provider  store={store} >
             <Router >
-                <Fragment >
-                    <Navbar />
+                <Fragment  >
+                   <Navbar /> 
+                    <Fragment className={classes.frag}>
                     <Alert />
-                    <Route exact path="/" component={Landing2} />
+                    <Route exact path="/" component={Login} />
 
                     <section className="container">
 
@@ -67,7 +73,7 @@ const App = () => {
 
                         </Switch>
                     </section>
-<Footer/>
+<Footer/></Fragment>
                 </Fragment > </Router></Provider>
     )
 };

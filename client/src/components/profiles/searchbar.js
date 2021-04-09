@@ -7,11 +7,24 @@ import { searcher } from "../../actions/profile";
 import { connect } from "react-redux";
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
+import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
+import './search.css'
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+cardSearch:{
+	backgroundColor: "pink",
+	margin:"50px",
+	marginBottom:0
+},
+
+}));
 
 
 const SearchBar = ({ setAlert, searcher }) => {
 	const [text, setText] = useState("");
+	const classes = useStyles();
 
 	const OnChange = (e) => setText(e.target.value);
 
@@ -26,22 +39,28 @@ const SearchBar = ({ setAlert, searcher }) => {
 		}
 	};
 
+
+
 	return (
 		<Fragment>
-			<FormControl className="searchBox" >
+		<Card className={classes.cardSearch}>
 				<TextField
+				 style = {{width:" 40vw"}}
 					className="searchInput"
 					onChange={(e) => OnChange(e)}
 					name="text"
 					value={text}
 					type="text"
 				/>
-				<Button onClick={e => OnClick(e)}
+				<Button variant="contained" color="primary" onClick={e => OnClick(e)}
                                 type="submit">
-					<i className="fa fa-search" />
+					Search
 				</Button>
-			</FormControl>
+				</Card>
 		</Fragment>
+
+
+	
 	);
 };
 SearchBar.propTypes = {

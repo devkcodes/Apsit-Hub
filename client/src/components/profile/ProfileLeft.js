@@ -8,8 +8,12 @@ import { Globe,Smile,Code,Facebook,Twitter,Linkedin,Instagram,Youtube,MessageCir
 
 
 //Material UI
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, MuiThemeProvider } from '@material-ui/core/styles';
+
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
 import {Grid} from '@material-ui/core'
+import Typography from '@material-ui/core/Typography';
 
 //icons
 import g4glogo from '../../img/gfgicon.png'
@@ -17,6 +21,20 @@ import leetcodelogo from '../../img/leetcode-logo.png'
 import codeforceslogo from '../../img/codeforces-logo.jpg'
 import codecheflogo from '../../img/codechef-logo.png'
 import kagglelogo from '../../img/kaggle.png'
+
+
+const light = createMuiTheme({
+  palette: {
+    primary: {
+      main:"#fff",
+    }},
+  typography: {
+    fontFamily: [
+      'Share Tech', 'san-serif',
+    ].join(','),
+    fontSize:"1px",
+    Fontcolor:"white"
+}});
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -52,6 +70,13 @@ const useStyles = makeStyles((theme) => ({
       marginRight:'20px',
       textDecoration:'none',
       color:'black'
+    },
+    spanBio:{
+      margin:'10px',
+      marginRight:'50px',
+    },
+    name:{
+      marginBottom:"20px",
     }
 
 }));
@@ -77,13 +102,15 @@ function ProfileLeft({ profile: {
   const skillarray = skills.toString().split(/[\s,]+/);
 console.log(coding)
   return (
+    <MuiThemeProvider theme={light}>
+       <Typography>
     <Grid item  >
       <Card  width="100%">
                         <Card.Content style={{display:'flex',justifyContent:'space-between'}}>
                           <span>Basic Profile</span>
                           <span>
                             {_id===user_id&&
-                            <Button size="mini" shadow type="secondary"auto type="secondary" className={classes.overflowText}><Link to={`/edit-profile`}>Edit Profile</Link></Button>}
+                            <span><Button size="mini" shadow type="secondary"auto type="secondary" className={classes.overflowText}><Link to={`/edit-profile`}>Edit Profile</Link></Button></span>}
                           </span>
                         </Card.Content>
                         <Divider y={0} />
@@ -92,7 +119,7 @@ console.log(coding)
                             
                             <div className={classes.CardOneText}>
                             <span>
-                            <Text b>{name}</Text>
+                            <Typography className={classes.name} variant="h1" >{name}</Typography>
                             </span>
                             <span>
                               {status}
@@ -101,17 +128,17 @@ console.log(coding)
                         </Card.Content>
                         <Divider y={0} />
                         <Card.Content className={classes.CardOneTextTwo}>
-                            <span style={{display:'flex',alignItems:'flex-end'}}><Globe/><span >Location</span></span>
-                            <span className={classes.overflowText}>{location}</span>
+                            <span style={{display:'flex',alignItems:'flex-end'}}><Globe/><span > <Typography>Location </Typography></span></span>
+                            <Typography><span className={classes.overflowText}>{location}</span> </Typography>
                         </Card.Content>
       </Card>
 
             <Card  width="100%" style={{marginTop:'2rem'}}>
-                        <Card.Content style={{display:'flex',justifyContent:'space-between'}}>
+                        <Card.Content style={{display:'flex',justifyContent:'space-between',flexDirection:'row'}}>
                           <div className={classes.Bio}>
-                            <span  style={{display:'flex',alignItems:'flex-end'}} ><Smile/><span>Bio</span></span>
+                            <span  style={{display:'flex',alignItems:'flex-end',flexDirection:'column'}} ><Text b fontWeight="fontWeightBold" justify="" className={classes.spanBio}>Bio</Text></span>
                             <span className={classes.overflowText}>
-                              <Text b>{bio}</Text>
+                              <Typography   align="justify">{bio}</Typography>
                             </span>
                           </div>
                         </Card.Content>
@@ -130,7 +157,7 @@ console.log(coding)
 
       <Card style={{marginTop:'2rem'}} >
         <Card.Content className={classes.CardOneTextTwo} >
-                              <span style={{display:'flex',alignItems:'flex-end'}}><Code/><span >Coding Profiles</span></span>
+                              <span style={{display:'flex',alignItems:'flex-end'}}><Code/><span ><Text b>Coding Profiles</Text></span></span>
                             <span className={classes.overflowText}>
                               {coding && coding.codechef && (
                                 // <Tooltip text={'codechef'}>
@@ -174,7 +201,7 @@ console.log(coding)
         </Card.Content>
         <Divider y={0} />
         <Card.Content className={classes.CardOneTextTwo} >
-                              <span style={{display:'flex',alignItems:'flex-end'}}><MessageCircle /><span >Social Media</span></span>
+                              <span style={{display:'flex',alignItems:'flex-end'}}><MessageCircle />  <span ><Text b>    Social Profiles</Text></span></span>
                             <span className={classes.overflowText}>
                               {social && social.linkedin && (
                                 <Tooltip text={'linkedin'}>
@@ -223,7 +250,8 @@ console.log(coding)
 
 
       </Grid>
-      
+      </Typography>
+      </MuiThemeProvider>
    
   )
 }
