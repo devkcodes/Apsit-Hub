@@ -85,6 +85,9 @@ backgroundColor:"#D4B39D"
     //     },
     // },
 textfieldcolor:{
+
+
+    
     color:"#F1304D"
 }
 }));
