@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import { addLike, removeLike, deletePost } from '../../actions/post'
-import { CardContent, CardHeader,Avatar, makeStyles,Grid,Button, CardActions, IconButton, Icon} from '@material-ui/core'
-import {Fieldset,Badge} from '@geist-ui/react'
-import {ThumbsUp , ThumbsDown } from '@geist-ui/react-icons'
+import { CardContent, CardHeader,Avatar, makeStyles,Grid, CardActions, IconButton, Icon} from '@material-ui/core'
+import {Fieldset,Badge,Button,Spacer} from '@geist-ui/react'
+import {ThumbsUp , ThumbsDown,MessageSquare  } from '@geist-ui/react-icons'
 
 
 import { convertFromRaw } from 'draft-js'
@@ -34,8 +34,22 @@ const styles ={
     },
         fieldset:{
         color:'black',
-        marginBottom:'1em'
+        marginBottom:'1em',
+        width:'100%'
     },
+    btnclass:{
+        marginRight:'5px'
+    },
+    likesnum:{
+        padding:'4px',
+        fontSize:'18px',
+        border:'2px solid green',
+        borderRadius:'4px',
+        marginRight:'5px',
+        paddingRight:'9px',
+        paddingLeft:'9px'
+        
+    }
 }
 const useStyles = makeStyles(styles)
 const PostItem = ({ addLike, deletePost, removeLike, auth, post: { _id, text, name, avatar, user, likes, comments, date }, showActions }) =>{
@@ -65,18 +79,17 @@ return(
                 </Fieldset.Subtitle>
                 
                 <Fieldset.Footer>
-                    <Fieldset.Footer.Actions>
-                    <Badge size="mini" style={{marginRight:'10px'}}>
-                        <button style={{border:'none',background:'none'}} onClick={() => addLike(_id)} type="button">
-                    <ThumbsUp size={20}color='orange'/>
-                    </button>
-                    <span >{likes.length > 0 && <span style={{padding:'10px', marginTop:'2rem',fontSize:'20px'}}>{likes.length}</span>}</span>
-                    </Badge>
-                    <Badge>
-                    <button style={{border:'none',background:'none'}} onClick={() => removeLike(_id)} type="button"> 
-                    <ThumbsDown color="orange"/>
-                    </button>
-                    </Badge>
+                    <Fieldset.Footer.Actions >
+                        <span >{likes.length > 0 && <div className={classes.likesnum}>{likes.length}</div> } </span>
+                        <Button className={classes.btnclass} iconRight={<ThumbsUp/>} onClick={() => addLike(_id)} type="success" ghost auto size="small" >
+                        </Button>
+
+                        <Button className={classes.btnclass} iconRight={<ThumbsDown/>} onClick={() => removeLike(_id)} type="secondary" ghost auto size="small" >
+                        </Button>
+                    <Link className={classes.btnclass}  to={`/posts/${_id}`}>
+                        <Button iconRight={<MessageSquare/>} type="secondary" ghost auto size="small" >
+                        </Button>
+                    </Link>
                     </Fieldset.Footer.Actions>
                 </Fieldset.Footer>
             </Fieldset>
