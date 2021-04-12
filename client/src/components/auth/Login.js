@@ -72,9 +72,12 @@ const useStyles = makeStyles((theme) => ({
     submit: {
         margin: theme.spacing(3, 0, 2),
         backgroundColor:"#F1304D",
-        color:"#0F1319"
+        color:"#0F1319",
+        '&:hover': {
+            backgroundColor:"#F1304D",
 
     },
+},
     gridRoot: {
 boxShadow:"none",
         backgroundImage: 'url(https://res.cloudinary.com/dsph4eptm/image/upload/v1617973085/3_dudhhs.png)',

@@ -7,7 +7,7 @@ import "../../styles/PostForm.css"
 //Rich text editor
 import MUIRichTextEditor from 'mui-rte'
 import { convertToRaw } from 'draft-js'
-
+import Divider from '@material-ui/core/Divider'
 
 import {Card, Button,Icon,TextField,FormControl} from '@material-ui/core'
 
@@ -44,6 +44,10 @@ margin:'5px',
     marginLeft:"53vw",
 },
 
+},
+rte:{
+    width:"500px",
+    backgroundCOlor:"black"
 }
 
 
@@ -83,24 +87,15 @@ const PostForm = ({ addPost }) => {
                 <h3>Say Something...</h3>
             </div>
             <div className={classes.divClass} >
-                <FormControl  className={classes.text}
-                   >
-                    {/* <TextField
+                <FormControl  className={classes.text}>
+                   
                     
-                        
-                        name="text"
-                        rows={6}
-                        rowsMax={10}
-                        // columns={10}
-                        color="white"
-                        variant="outlined"
-                        placeholder="Create a post"
-                        value={text} onChange={e => setText(e.target.value)}
-                        multiline
-                        required
-                    ></TextField> */}
                      <MuiThemeProvider theme={defaultTheme}>
+                         <Divider/>
                       <MUIRichTextEditor 
+
+    
+
                       label="Type your requirements here..."
                     text={text}
                     onChange={(editorState)=>{
@@ -110,7 +105,10 @@ const PostForm = ({ addPost }) => {
 
                     }}
 				            required
+                            className={classes.rte}
                     />
+                         <Divider/>
+
                     </MuiThemeProvider>
                    
                 </FormControl>

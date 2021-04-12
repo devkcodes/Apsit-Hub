@@ -11,11 +11,12 @@ export const getPosts = () => async dispatch => {
         console.log(res)
         dispatch({ type: GET_POSTS, payload: res.data });
     } catch (err) {
-        console.log(err)
-        dispatch({
+        if(err.response)
+       { dispatch({
             type: POST_ERROR,
             payload: { msg: err.response.statusText, status: err.response.status }
-        });
+        });}
+        else { dispatch({ type:POST_ERROR})}
     }
 
 
@@ -28,10 +29,12 @@ export const addLike = id => async dispatch => {
 
         dispatch({ type: UPDATE_LIKES, payload: { id, likes: res.data } });
     } catch (err) {
-        dispatch({
+        if(err.response)
+       { dispatch({
             type: POST_ERROR,
             payload: { msg: err.response.statusText, status: err.response.status }
-        });
+        });}
+        else { dispatch({ type:POST_ERROR})}
     }
 
 
@@ -45,10 +48,12 @@ export const removeLike = id => async dispatch => {
 
         dispatch({ type: UPDATE_LIKES, payload: { id, likes: res.data } });
     } catch (err) {
-        dispatch({
+        if(err.response)
+       { dispatch({
             type: POST_ERROR,
             payload: { msg: err.response.statusText, status: err.response.status }
-        });
+        });}
+        else { dispatch({ type:POST_ERROR})}
     }
 
 
@@ -64,10 +69,12 @@ export const deletePost = id => async dispatch => {
         dispatch(setAlert('Post Removed', 'success'));
 
     } catch (err) {
-        dispatch({
+        if(err.response)
+       { dispatch({
             type: POST_ERROR,
             payload: { msg: err.response.statusText, status: err.response.status }
-        });
+        });}
+        else { dispatch({ type:POST_ERROR})}
     }
 
 
@@ -88,10 +95,12 @@ export const addPost = formData => async dispatch => {
         dispatch(setAlert('Post created', 'success'));
 
     } catch (err) {
-        dispatch({
+        if(err.response)
+       { dispatch({
             type: POST_ERROR,
             payload: { msg: err.response.statusText, status: err.response.status }
-        });
+        });}
+        else { dispatch({ type:POST_ERROR})}
     }
 
 
@@ -105,10 +114,12 @@ export const getPost = id => async dispatch => {
 
         dispatch({ type: GET_POST, payload: res.data });
     } catch (err) {
-        dispatch({
+        if(err.response)
+       { dispatch({
             type: POST_ERROR,
             payload: { msg: err.response.statusText, status: err.response.status }
-        });
+        });}
+        else { dispatch({ type:POST_ERROR})}
     }
 
 
@@ -128,10 +139,12 @@ export const addComment = (postId, formData) => async dispatch => {
         dispatch(setAlert('comment added', 'success'));
 
     } catch (err) {
-        dispatch({
-            type: POST_ERROR,
-            payload: { msg: err.response.statusText, status: err.response.status }
-        });
+        if(err.response)
+        { dispatch({
+             type: POST_ERROR,
+             payload: { msg: err.response.statusText, status: err.response.status }
+         });}
+         else { dispatch({ type:POST_ERROR})}
     }
 
 
@@ -149,10 +162,12 @@ export const deleteComment = (postId, commentId) => async dispatch => {
         dispatch(setAlert('comment removed', 'success'));
 
     } catch (err) {
-        dispatch({
-            type: POST_ERROR,
-            payload: { msg: err.response.statusText, status: err.response.status }
-        });
+        if(err.response)
+        { dispatch({
+             type: POST_ERROR,
+             payload: { msg: err.response.statusText, status: err.response.status }
+         });}
+         else { dispatch({ type:POST_ERROR})}
     }
 
 

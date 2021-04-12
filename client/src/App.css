@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech&family=Staatliches&display=swap');
 .container{
-background-color:#C59D85;
+background-color:#0F1319;
 color:rgb(201, 209, 217);
 display: flex;
 justify-content: center;
 align-items: center;
-
+margin:0;
 
 }
 

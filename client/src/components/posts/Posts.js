@@ -14,11 +14,15 @@ const styles = {
     },
     containerRoot: {
         marginTop: "80px",
-        border: 'gray solid 5px',
+        border: '#62BCE6 solid 5px',
+        boxShadow:"0px 0px 5px 5px #62BCE6",
+        boxShadowBottom:"none",
+
         borderTop: 'none',
         marginLeft: '20%',
         marginRight: '20%',
-        backgroundColor:"#DED5CB",
+        borderBottom: 'none',
+        backgroundColor:"#1A1E24",
         ['@media (max-width:1000px)']: {
 
             margin: '0',
@@ -35,8 +39,10 @@ const styles = {
         ['@media (max-width:600px)']: {
             width: '80%',
             margin: '0',
+            
 
-        }
+        },
+        // border: '1px solid red'
     }
 }
 const useStyles = makeStyles(styles)
@@ -73,7 +79,7 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
 
 
                 </Grid>
-
+                
 
 
             </Fragment>

@@ -65,6 +65,7 @@ const useStyles = makeStyles((theme) => ({
         height:'69vh',
         overflowY:'scroll',
         overflowX:'hidden',
+        // border:"5px solid #F1304D",
 
         alignItems:'center'
     },
@@ -77,7 +78,8 @@ const useStyles = makeStyles((theme) => ({
     cardmain:{
         maxWidth:"100%",
         display:'flex',
-        backgroundColor:"white",
+        border:"5px solid #F1304D",
+        backgroundColor:"#20242B",
         justifyContent:'space-between',
          flexDirection:'column',
          borderRadius:"5px",
@@ -101,10 +103,10 @@ const ProfileGithub = ({ username, getGithubRepos, repos }) => {
         <MuiThemeProvider theme={light}>
             <Typography>
         
-            <Card>
+            <Card style={{border: '1px solid #000'}}>
                 <Card.Content className={classes.cardmain} >
                 <div className={classes.h4repo}>
-                    <span><Text size={20} b>Github Repositories</Text></span>
+                    <span><Text size={20} style={{color: '#EBE0D0'}} b>Github Repositories</Text></span>
                 </div>
                 
                 <Divider y={0} />

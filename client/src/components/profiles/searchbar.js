@@ -14,7 +14,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
 cardSearch:{
-	backgroundColor: "pink",
+	backgroundColor: "white",
 	margin:"50px",
 	marginBottom:0
 },
@@ -45,14 +45,16 @@ const SearchBar = ({ setAlert, searcher }) => {
 		<Fragment>
 		<Card className={classes.cardSearch}>
 				<TextField
-				 style = {{width:" 40vw"}}
+				 style = {{width:" 20vw"}}
 					className="searchInput"
 					onChange={(e) => OnChange(e)}
 					name="text"
 					value={text}
 					type="text"
 				/>
-				<Button variant="contained" color="primary" onClick={e => OnClick(e)}
+				<Button variant="contained" color="black" 
+				style={{backgroundColor:"#58A8CE"}}
+				onClick={e => OnClick(e)}
                                 type="submit">
 					Search
 				</Button>

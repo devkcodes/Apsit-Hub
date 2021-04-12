@@ -13,6 +13,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { Text, Divider,Fieldset,Badge,Tooltip } from '@geist-ui/react' 
+import { InputBase } from '@material-ui/core';
+
 
 
 //others
@@ -68,11 +70,17 @@ const useStyles = makeStyles((theme) => ({
     submit: {
         margin: theme.spacing(3, 0, 2),
         backgroundColor:"#F1304D",
-        color:"#0F1319"
+        color:"#0F1319",
+        '&:hover': {
+            backgroundColor:"#F1304D",
 
     },
+},
     gridRoot: {
         backgroundColor: "red",
+    },
+    textFieldRoot:{
+        color:'red'
     }
 }));
 
@@ -125,6 +133,10 @@ export const Register = ({ setAlert, register, isAuthenticated }) => {
                         <Grid container spacing={2} >
                             <Grid item xs={12} >
                                 <TextField
+                                className={
+                                    {root: classes.textFieldRoot}
+                                }
+                                 
                                     style={{
                                         backgroundColor: "#171319",
                                         color: "white",
@@ -144,6 +156,15 @@ export const Register = ({ setAlert, register, isAuthenticated }) => {
                                             width: '100%',
                                             color: 'white'
                                         }
+                                    }}
+
+                                    InputBaseProps={{
+                                        style: {
+                                            
+                                            width: '100%',
+                                            color: 'pink'
+                                        },
+                                        color:"red"
                                     }}
                                     onChange={e => onChange(e)}
                                     autoComplete="name"

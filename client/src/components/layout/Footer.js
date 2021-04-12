@@ -91,7 +91,7 @@ const Footer = () => {
             <img src={"https://res.cloudinary.com/dsph4eptm/image/upload/c_scale,w_240/v1617975621/ApSIt_Hub_n2dvbf.jpg"}></img>
           </Grid >
           <Grid item md="3" className={classes.footerLinks}>
-          <Box  className={classes.box}float="left"><Typography color="primary" variant="h6" className="title">Our Mission</Typography>
+          <Box  className={classes.box}float="left"><Typography color="primary" style={{ fontSize: 25 }} className="title">Our Mission</Typography>
           <Typography color="primary" variant="body1"  align="justify" className={classes.mission}>Contrary to popular belief, Lorem Ipsum is not simply rand
           om text. It has roots in a piece of classical Latin literature fr
           om 45 BC, making it over 2000 years old. Richard McClintock</Typography>
@@ -99,7 +99,7 @@ const Footer = () => {
            
           </Grid >
           <Grid item md="2" className={classes.footerLinks}>
-          <Box  className={classes.box} color="primary"> <Typography color="primary" variant="h6" className="title">Apsit  Hub</Typography>
+          <Box  className={classes.box} color="primary"> <Typography color="primary" style={{ fontSize: 25 }} className="title">Apsit  Hub</Typography>
           <List dense="true">
               <ListItem><Typography color="primary" variant="caption" className={classes.subLink}><Link href="#" color="primary" > License</Link></Typography></ListItem>
               <ListItem><Typography color="primary" variant="caption" className={classes.subLink}><Link href="#" color="primary" > FeedBack</Link></Typography></ListItem>
@@ -111,7 +111,7 @@ const Footer = () => {
           </Grid >
          
           <Grid item md="2" className={classes.footerLinks}>
-          <Box  className={classes.box}> <Typography color="primary" color="primary" variant="h6" className="title">About APSIT</Typography>
+          <Box  className={classes.box}> <Typography color="primary" color="primary" style={{ fontSize: 25 }} className="title">About APSIT</Typography>
           <List dense="true" >
               <ListItem><Typography color="primary" variant="caption" className={classes.subLink}><Link href="https://www.apsit.edu.in/home" color="primary" > About Us</Link></Typography></ListItem>
               <ListItem><Typography color="primary" variant="caption" className={classes.subLink}><Link href="https://www.apsit.edu.in/admission-notification-2020-21" color="primary" > Admissions</Link></Typography></ListItem>
@@ -121,7 +121,7 @@ const Footer = () => {
           </Box>
           </Grid ><Divider/>
           <Grid item md="2" className={classes.footerLinks}>
-          <Box  className={classes.box}> <Typography color="primary" variant="h6" className="title">Follow Apsit</Typography>
+          <Box  className={classes.box}> <Typography color="primary" style={{ fontSize: 25 }} className="title">Follow Apsit</Typography>
           <List dense="false">
               <ListItem><Typography color="primary" variant="caption" className={classes.subLink}><ListItemIcon><Link href="https://www.instagram.com/ojus_apsit"><InstagramIcon color="primary" style={{ fontSize: 30 }}/></Link></ListItemIcon></Typography></ListItem>
               <ListItem><Typography color="primary" variant="caption" className={classes.subLink}><ListItemIcon><Link href="http://ojus.eventsapsit.org/#"><TwitterIcon color="primary" style={{ fontSize: 30 }}/></Link></ListItemIcon></Typography></ListItem>

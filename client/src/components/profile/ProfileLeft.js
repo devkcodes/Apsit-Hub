@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import {Link} from 'react-router-dom'
 
 //Geist UI
-import {Card, Text, Divider,Button,Avatar,Fieldset,Badge,Tooltip } from '@geist-ui/react' 
+import {Card, Text, Divider,Avatar,Fieldset,Badge,Tooltip } from '@geist-ui/react' 
 import { Globe,Smile,Code,Facebook,Twitter,Linkedin,Instagram,Youtube,MessageCircle   } from '@geist-ui/react-icons'
 
 
@@ -11,7 +11,7 @@ import { Globe,Smile,Code,Facebook,Twitter,Linkedin,Instagram,Youtube,MessageCir
 import { makeStyles, MuiThemeProvider } from '@material-ui/core/styles';
 
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-
+import Button from '@material-ui/core/Button';
 import {Grid} from '@material-ui/core'
 import Typography from '@material-ui/core/Typography';
 
@@ -105,12 +105,12 @@ console.log(coding)
     <MuiThemeProvider theme={light}>
        <Typography>
     <Grid item  >
-      <Card  width="100%">
-                        <Card.Content style={{display:'flex',justifyContent:'space-between'}}>
+      <Card  style={{width:"100%",border:"4px solid #62BCE6",color:"white"}}>
+                        <Card.Content style={{display:'flex',justifyContent:'space-between',backgroundColor:'#20242B',width:'92.5%'}}>
                           <span>Basic Profile</span>
                           <span>
                             {_id===user_id&&
-                            <span><Button size="mini" shadow type="secondary"auto type="secondary" className={classes.overflowText}><Link to={`/edit-profile`}>Edit Profile</Link></Button></span>}
+                            <span><Button  style={{color:"white",backgroundColor:"F1304D"}} className={classes.overflowText}><Link to={`/edit-profile`}>Edit Profile</Link></Button></span>}
                           </span>
                         </Card.Content>
                         <Divider y={0} />
@@ -133,7 +133,7 @@ console.log(coding)
                         </Card.Content>
       </Card>
 
-            <Card  width="100%" style={{marginTop:'2rem'}}>
+            <Card  width="100%" style={{width:"100%",border:"4px solid #62BCE6",marginTop:'2rem'}}>
                         <Card.Content style={{display:'flex',justifyContent:'space-between',flexDirection:'row'}}>
                           <div className={classes.Bio}>
                             <span  style={{display:'flex',alignItems:'flex-end',flexDirection:'column'}} ><Text b fontWeight="fontWeightBold" justify="" className={classes.spanBio}>Bio</Text></span>
@@ -155,7 +155,7 @@ console.log(coding)
                         
       </Card >
 
-      <Card style={{marginTop:'2rem'}} >
+      <Card style={{width:"100%",border:"4px solid #62BCE6",marginTop:'2rem'}} >
         <Card.Content className={classes.CardOneTextTwo} >
                               <span style={{display:'flex',alignItems:'flex-end'}}><Code/><span ><Text b>Coding Profiles</Text></span></span>
                             <span className={classes.overflowText}>
