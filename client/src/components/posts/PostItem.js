@@ -6,13 +6,20 @@ import { connect } from 'react-redux';
 import { addLike, removeLike, deletePost } from '../../actions/post'
 import {Divider, CardContent, CardHeader,Avatar, makeStyles,Grid, CardActions, IconButton, Icon} from '@material-ui/core'
 import {Fieldset,Badge,Button,Spacer} from '@geist-ui/react'
-import {ThumbsUp , ThumbsDown,MessageSquare  } from '@geist-ui/react-icons'
+import {ThumbsUp , ThumbsDown,MessageSquare,XSquare   } from '@geist-ui/react-icons'
 
 
 import { convertFromRaw } from 'draft-js'
 import { stateToHTML } from "draft-js-export-html";
 
 const styles ={
+    Card:{
+        color:'black',
+        marginBottom:'1em',
+        width:'100%',
+        boxShadow:' 3px 3px 5px 5px #ccc',
+        backgroundColor:"#f5f5f5",color:"#17252A",border:'0.5px dashed  #17252A'
+    },
     separate:{
         display:'flex',
         justifyContent:'flex-start',
@@ -34,23 +41,22 @@ const styles ={
         border:'2px solid red'
     },
         fieldset:{
-        color:'black',
-        marginBottom:'1em',
-        width:'100%'
+        
     },
     btnclass:{
         marginRight:'5px'
     },
     likesnum:{
-        padding:'4px',
+        padding:'3.5px',
         fontSize:'18px',
-        border:'2px solid green',
+        border:'2px solid #2B7A78',
         borderRadius:'4px',
         marginRight:'5px',
         paddingRight:'9px',
-        paddingLeft:'9px'
+        paddingLeft:'9px',
+        backgroundColor:'white'
         
-    }
+    },
 }
 const useStyles = makeStyles(styles)
 const PostItem = ({ addLike, deletePost, removeLike, auth, post: { _id, text, name, avatar, user, likes, comments, date }, showActions }) =>{
@@ -65,7 +71,7 @@ return(
     <Fragment className={classes.colorcorrect}>
         {showActions&&
             
-            <Fieldset className={classes.fieldset}   style={{backgroundColor:"black",color:"white"}}
+            <Fieldset className={classes.Card}   
             >
                 
                 <div className={classes.separate}>
@@ -81,8 +87,8 @@ return(
                 <div className="content" dangerouslySetInnerHTML={{__html:styled_text}}></div>
                 </Fieldset.Subtitle>
                 
-                <Fieldset.Footer>
-                    <Fieldset.Footer.Actions >
+                <Fieldset.Footer style={{backgroundColor:"rgba(58,175,169,0.7)",color:"#17252A",border:'0.5px dashed  #17252A',marginTop:'-20px'}} >
+                    <Fieldset.Footer.Actions>
                         <span >{likes.length > 0 && <div className={classes.likesnum}>{likes.length}</div> } </span>
                         <Button className={classes.btnclass} iconRight={<ThumbsUp/>} onClick={() => addLike(_id)} type="success" ghost auto size="small" >
                         </Button>
@@ -93,6 +99,9 @@ return(
                         <Button iconRight={<MessageSquare/>} type="secondary" ghost auto size="small" >
                         </Button>
                     </Link>
+                    {!auth.loading && user === auth.user._id && (
+				    <Button iconRight={<XSquare/>} onClick={() => deletePost(_id)} type="error" ghost auto size="small"/>
+			)}
                     </Fieldset.Footer.Actions>
                 </Fieldset.Footer>
                 <Divider y={0} />
