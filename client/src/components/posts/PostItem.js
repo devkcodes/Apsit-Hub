@@ -4,10 +4,17 @@ import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import { addLike, removeLike, deletePost } from '../../actions/post'
+<<<<<<< HEAD
 import { CardContent, CardHeader,Avatar, makeStyles,Grid,Button, CardActions, IconButton, Icon} from '@material-ui/core'
 import {Fieldset,Badge} from '@geist-ui/react'
 import {ThumbsUp , ThumbsDown } from '@geist-ui/react-icons'
 import Divider from "@material-ui/core/Divider"
+=======
+import { CardContent, CardHeader,Avatar, makeStyles,Grid, CardActions, IconButton, Icon} from '@material-ui/core'
+import {Fieldset,Badge,Button,Spacer} from '@geist-ui/react'
+import {ThumbsUp , ThumbsDown,MessageSquare  } from '@geist-ui/react-icons'
+
+>>>>>>> 8ca4d5f2e4d395f572c93c418e3a4f0332d3e36c
 
 import { convertFromRaw } from 'draft-js'
 import { stateToHTML } from "draft-js-export-html";
@@ -36,10 +43,27 @@ const styles ={
         fieldset:{
         color:'black',
         marginBottom:'1em',
+<<<<<<< HEAD
         border: "5px solid red",
     },
     footer:{
         backGroundColor:'#000000'
+=======
+        width:'100%'
+    },
+    btnclass:{
+        marginRight:'5px'
+    },
+    likesnum:{
+        padding:'4px',
+        fontSize:'18px',
+        border:'2px solid green',
+        borderRadius:'4px',
+        marginRight:'5px',
+        paddingRight:'9px',
+        paddingLeft:'9px'
+        
+>>>>>>> 8ca4d5f2e4d395f572c93c418e3a4f0332d3e36c
     }
 }
 const useStyles = makeStyles(styles)
@@ -71,6 +95,7 @@ return(
                 <div className="content" dangerouslySetInnerHTML={{__html:styled_text}}></div>
                 </Fieldset.Subtitle>
                 
+<<<<<<< HEAD
                 <Fieldset.Footer style={{ backgroundColor:'#000000', margin:"0",border:"2px solid #62BCE6"}}>
                     <Fieldset.Footer.Actions>
                     <Badge size="mini" style={{marginRight:'10px'}}>
@@ -84,6 +109,20 @@ return(
                     <ThumbsDown color="orange"/>
                     </button>
                     </Badge>
+=======
+                <Fieldset.Footer>
+                    <Fieldset.Footer.Actions >
+                        <span >{likes.length > 0 && <div className={classes.likesnum}>{likes.length}</div> } </span>
+                        <Button className={classes.btnclass} iconRight={<ThumbsUp/>} onClick={() => addLike(_id)} type="success" ghost auto size="small" >
+                        </Button>
+
+                        <Button className={classes.btnclass} iconRight={<ThumbsDown/>} onClick={() => removeLike(_id)} type="secondary" ghost auto size="small" >
+                        </Button>
+                    <Link className={classes.btnclass}  to={`/posts/${_id}`}>
+                        <Button iconRight={<MessageSquare/>} type="secondary" ghost auto size="small" >
+                        </Button>
+                    </Link>
+>>>>>>> 8ca4d5f2e4d395f572c93c418e3a4f0332d3e36c
                     </Fieldset.Footer.Actions>
                 </Fieldset.Footer>
                 <Divider y={0} />
