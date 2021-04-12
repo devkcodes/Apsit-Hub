@@ -95,7 +95,7 @@ const Profileitem = ({
     return (
 
         <Grid item sm={3} xs={12} className ={classes.profileCard}>
-            <Fieldset hoverable='true' style={{border: '4px solid #F1304D',color:"black"}}>
+            <Fieldset hoverable='true' style={{color:"black"}}>
                 <div className={classes.NameAndAvatar}>
                     <Avatar src={avatar} size="medium" />
                 <Fieldset.Title style={{padding:'15px',marginTop:'-0.5em'}}>{name}</Fieldset.Title>

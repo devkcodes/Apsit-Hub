@@ -78,7 +78,7 @@ const useStyles = makeStyles((theme) => ({
     cardmain:{
         maxWidth:"100%",
         display:'flex',
-        border:"5px solid #F1304D",
+        // border:"5px solid #F1304D",
         backgroundColor:"#20242B",
         justifyContent:'space-between',
          flexDirection:'column',

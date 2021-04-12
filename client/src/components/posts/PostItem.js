@@ -4,17 +4,10 @@ import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import { addLike, removeLike, deletePost } from '../../actions/post'
-<<<<<<< HEAD
-import { CardContent, CardHeader,Avatar, makeStyles,Grid,Button, CardActions, IconButton, Icon} from '@material-ui/core'
-import {Fieldset,Badge} from '@geist-ui/react'
-import {ThumbsUp , ThumbsDown } from '@geist-ui/react-icons'
-import Divider from "@material-ui/core/Divider"
-=======
-import { CardContent, CardHeader,Avatar, makeStyles,Grid, CardActions, IconButton, Icon} from '@material-ui/core'
+import {Divider, CardContent, CardHeader,Avatar, makeStyles,Grid, CardActions, IconButton, Icon} from '@material-ui/core'
 import {Fieldset,Badge,Button,Spacer} from '@geist-ui/react'
 import {ThumbsUp , ThumbsDown,MessageSquare  } from '@geist-ui/react-icons'
 
->>>>>>> 8ca4d5f2e4d395f572c93c418e3a4f0332d3e36c
 
 import { convertFromRaw } from 'draft-js'
 import { stateToHTML } from "draft-js-export-html";
@@ -43,12 +36,6 @@ const styles ={
         fieldset:{
         color:'black',
         marginBottom:'1em',
-<<<<<<< HEAD
-        border: "5px solid red",
-    },
-    footer:{
-        backGroundColor:'#000000'
-=======
         width:'100%'
     },
     btnclass:{
@@ -63,7 +50,6 @@ const styles ={
         paddingRight:'9px',
         paddingLeft:'9px'
         
->>>>>>> 8ca4d5f2e4d395f572c93c418e3a4f0332d3e36c
     }
 }
 const useStyles = makeStyles(styles)
@@ -79,7 +65,7 @@ return(
     <Fragment className={classes.colorcorrect}>
         {showActions&&
             
-            <Fieldset className={classes.fieldset}   style={{backgroundColor:"black",color:"white",border:"2px solid #62BCE6"}}
+            <Fieldset className={classes.fieldset}   style={{backgroundColor:"black",color:"white"}}
             >
                 
                 <div className={classes.separate}>
@@ -95,21 +81,6 @@ return(
                 <div className="content" dangerouslySetInnerHTML={{__html:styled_text}}></div>
                 </Fieldset.Subtitle>
                 
-<<<<<<< HEAD
-                <Fieldset.Footer style={{ backgroundColor:'#000000', margin:"0",border:"2px solid #62BCE6"}}>
-                    <Fieldset.Footer.Actions>
-                    <Badge size="mini" style={{marginRight:'10px'}}>
-                        <button style={{border:'none',background:'none'}} onClick={() => addLike(_id)} type="button">
-                    <ThumbsUp size={20}color='#F1304D'/>
-                    </button>
-                    <span >{likes.length > 0 && <span style={{padding:'10px', marginTop:'2rem',fontSize:'20px'}}>{likes.length}</span>}</span>
-                    </Badge>
-                    <Badge>
-                    <button style={{border:'none',background:'none'}} onClick={() => removeLike(_id)} type="button"> 
-                    <ThumbsDown color="orange"/>
-                    </button>
-                    </Badge>
-=======
                 <Fieldset.Footer>
                     <Fieldset.Footer.Actions >
                         <span >{likes.length > 0 && <div className={classes.likesnum}>{likes.length}</div> } </span>
@@ -122,7 +93,6 @@ return(
                         <Button iconRight={<MessageSquare/>} type="secondary" ghost auto size="small" >
                         </Button>
                     </Link>
->>>>>>> 8ca4d5f2e4d395f572c93c418e3a4f0332d3e36c
                     </Fieldset.Footer.Actions>
                 </Fieldset.Footer>
                 <Divider y={0} />

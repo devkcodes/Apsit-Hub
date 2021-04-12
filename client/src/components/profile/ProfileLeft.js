@@ -105,7 +105,7 @@ console.log(coding)
     <MuiThemeProvider theme={light}>
        <Typography>
     <Grid item  >
-      <Card  style={{width:"100%",border:"4px solid #62BCE6",color:"white"}}>
+      <Card  style={{width:"100%",color:"white"}}>
                         <Card.Content style={{display:'flex',justifyContent:'space-between',backgroundColor:'#20242B',width:'92.5%'}}>
                           <span>Basic Profile</span>
                           <span>
@@ -133,7 +133,7 @@ console.log(coding)
                         </Card.Content>
       </Card>
 
-            <Card  width="100%" style={{width:"100%",border:"4px solid #62BCE6",marginTop:'2rem'}}>
+            <Card  width="100%" style={{width:"100%",marginTop:'2rem'}}>
                         <Card.Content style={{display:'flex',justifyContent:'space-between',flexDirection:'row'}}>
                           <div className={classes.Bio}>
                             <span  style={{display:'flex',alignItems:'flex-end',flexDirection:'column'}} ><Text b fontWeight="fontWeightBold" justify="" className={classes.spanBio}>Bio</Text></span>
@@ -155,7 +155,7 @@ console.log(coding)
                         
       </Card >
 
-      <Card style={{width:"100%",border:"4px solid #62BCE6",marginTop:'2rem'}} >
+      <Card style={{width:"100%",marginTop:'2rem'}} >
         <Card.Content className={classes.CardOneTextTwo} >
                               <span style={{display:'flex',alignItems:'flex-end'}}><Code/><span ><Text b>Coding Profiles</Text></span></span>
                             <span className={classes.overflowText}>
