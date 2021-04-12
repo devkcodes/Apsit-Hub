@@ -8,11 +8,11 @@ import Typography from '@material-ui/core/Typography'
 import { Text, Divider,Button,Avatar,Fieldset,Badge,Tooltip } from '@geist-ui/react' 
 const useStyles = makeStyles((theme) => ({
     root: {
-        height: '100vh',
-        color: 'white'
+        position:'sticky',
+        marginTop:'80px'
+
     },
     danger:{
-        // marginTop:"80px",
         color:"#721C24",
         backgroundColor:"#F8D7DA",
         height:"60px",
@@ -29,15 +29,14 @@ const useStyles = makeStyles((theme) => ({
 
 export const Alert = ({ alerts }) => {
     const classes = useStyles();
-   
-    return ( <Fragment>
+    return ( <div className={classes.root}>
         {alerts !== null && alerts.length > 0 && alerts.map(alert => (
     
        
     <AlertDiv alert ={alert}/>
     
     ))}
-    </Fragment>
+    </div>
     )
 } 
 
@@ -52,7 +51,7 @@ const AlertDiv = ({alert:{id,msg,alertType}}) =>{
         const classes = useStyles();
 
         return (
-             <div  key={alert.id} className={classes[alertType]} >
+            <div  key={alert.id} className={classes[alertType]} >
             
             <Text blockquote size="1.25rem" fontWeight="bold" className={`classes.${alert.alertType}`}>{msg}</Text>
         </div>
