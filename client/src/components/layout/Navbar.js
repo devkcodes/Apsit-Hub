@@ -45,7 +45,7 @@ const styles = ({
   AppBar: {
     //height:400,
     //background: `url("http://lorempixel.com/1920/1080/nature") no-repeat center center`,
-    backgroundColor: "#20242B",
+    backgroundColor: "#2B7A78",
     backgroundSize: "cover",
     padding: "0px",
     marginBottom: "5px",

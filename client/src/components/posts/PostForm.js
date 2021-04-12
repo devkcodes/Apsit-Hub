@@ -15,11 +15,15 @@ import { makeStyles,MuiThemeProvider,createMuiTheme } from '@material-ui/core/st
 import SendIcon from '@material-ui/icons/Send';
 
 const useStyles = makeStyles((theme) => ({
+
     divClass:{
     width:"98%",
     backgroundColor:'white',
     padding:'5px',
-    marginBottom: '20px'
+    marginBottom: '20px',
+    marginTop:'50px',
+    boxShadow:' 3px 3px 5px 6px #ccc'
+    
     },
     text:{
     width:'37vw',
@@ -34,8 +38,10 @@ const useStyles = makeStyles((theme) => ({
 },
 buttonSend: {
 width:'20vw',
+color:'#FEFFFF',
 marginLeft:"17vw",
 margin:'5px',
+backgroundColor:"#17252A",
 ['@media (max-width:1000px)']: {
 
     marginLeft:"42vw",
@@ -45,10 +51,7 @@ margin:'5px',
 },
 
 },
-rte:{
-    width:"500px",
-    backgroundCOlor:"black"
-}
+
 
 
 }));
@@ -58,16 +61,24 @@ const defaultTheme = createMuiTheme()
     overrides: {
         MUIRichTextEditor: {
             root: {
-                marginTop: 20,
-                width: "80%",
+                marginTop: '0',
+                width: "100%",
+                display:'flex',
+                border:"5px solid #17252A",
+                
+
             },
             editor: {
-                borderBottom: "1px solid gray" ,
-                padding:"50px"
+                padding:"40px",
+                color:'#17252A'
+                
             
             },
             toolbar:{
-            border:"1px solid gray"
+
+            marginTop:'-10px',
+            borderBottom:'5px solid #17252A',
+            
             },
 
         }
@@ -80,23 +91,14 @@ const PostForm = ({ addPost }) => {
     const classes = useStyles();
     const [text, setText] = useState('');
     return (
-        <div >
-
-           
-            <div >
-                <h3>Say Something...</h3>
-            </div>
             <div className={classes.divClass} >
                 <FormControl  className={classes.text}>
-                   
-                    
-                     <MuiThemeProvider theme={defaultTheme}>
-                         <Divider/>
-                      <MUIRichTextEditor 
+                    <h3>Create a post!</h3>
 
-    
-
-                      label="Type your requirements here..."
+                    <MuiThemeProvider theme={defaultTheme}>
+                        <Divider/>
+                    <MUIRichTextEditor 
+                    label="Type your requirements here..."
                     text={text}
                     onChange={(editorState)=>{
                         let contentState = editorState.getCurrentContent();
@@ -107,15 +109,14 @@ const PostForm = ({ addPost }) => {
 				            required
                             className={classes.rte}
                     />
-                         <Divider/>
+                        <Divider/>
 
                     </MuiThemeProvider>
-                   
+                
                 </FormControl>
                 <Button
                     className={classes.buttonSend}
-                     onClick={e => {
-                       
+                    onClick={e => {
                         e.preventDefault();
                         addPost({ text });
                         setText(' ');
@@ -127,7 +128,7 @@ const PostForm = ({ addPost }) => {
                     >Post!</Button>
             </div>
 
-        </div>
+
     )
 }
 

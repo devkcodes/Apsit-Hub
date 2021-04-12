@@ -13,23 +13,24 @@ const styles = {
         backgroundColor:"#C59D85",
     },
     containerRoot: {
-        marginTop: "80px",
-        border: '#62BCE6 solid 5px',
-        boxShadow:"0px 0px 5px 5px #62BCE6",
+        marginTop: "0px",
+        boxShadow:"0px 0px 2px 2px #2B7A78",
         boxShadowBottom:"none",
 
         borderTop: 'none',
         marginLeft: '20%',
         marginRight: '20%',
         borderBottom: 'none',
-        backgroundColor:"#1A1E24",
+        backgroundColor:"white",
         ['@media (max-width:1000px)']: {
 
             margin: '0',
+            marginTop:'15px',
             padding: '0'
         },
         ['@media (max-width:600px)']: {
             margin: '0',
+            marginTop:'45px',
             padding: '0'
         }
 
@@ -66,9 +67,7 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
                     alignItems="center"
                     className={classes.containerRoot}
                 >
-                    <Grid item xs={12} >
-                        <p>Recent Activity</p>
-                    </Grid>
+                    
                     <Grid item className={classes.gridItem}>
                         <PostForm />
                     </Grid>

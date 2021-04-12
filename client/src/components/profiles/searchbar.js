@@ -11,13 +11,25 @@ import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
 import './search.css'
 import { makeStyles } from '@material-ui/core/styles';
+import { Search } from '@geist-ui/react-icons'
+
 
 const useStyles = makeStyles((theme) => ({
 cardSearch:{
-	backgroundColor: "white",
 	margin:"50px",
-	marginBottom:0
+	width:'350px',
+	marginBottom:0,
+
 },
+searchInput:{
+	border:'none',
+	width:'76%',
+	padding:'10px'
+},
+searchbtn:{
+
+	backgroundColor:'#2B7A78'
+}
 
 }));
 
@@ -44,19 +56,18 @@ const SearchBar = ({ setAlert, searcher }) => {
 	return (
 		<Fragment>
 		<Card className={classes.cardSearch}>
-				<TextField
-				 style = {{width:" 20vw"}}
-					className="searchInput"
+				<input
+					className={classes.searchInput}
 					onChange={(e) => OnChange(e)}
 					name="text"
 					value={text}
 					type="text"
+					placeholder="search users..."
 				/>
-				<Button variant="contained" color="black" 
-				style={{backgroundColor:"#58A8CE"}}
+				<Button variant="contained" color="black"  className={classes.searchbtn}
 				onClick={e => OnClick(e)}
                                 type="submit">
-					Search
+					<Search/>
 				</Button>
 				</Card>
 		</Fragment>

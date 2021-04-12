@@ -11,9 +11,9 @@ import { Globe,Smile,Code,Facebook,Twitter,Linkedin,Instagram,Youtube,MessageCir
 import { makeStyles, MuiThemeProvider } from '@material-ui/core/styles';
 
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import {Grid} from '@material-ui/core'
-import Typography from '@material-ui/core/Typography';
+
+import {Grid,Button,Typography} from '@material-ui/core'
+
 
 //icons
 import g4glogo from '../../img/gfgicon.png'
@@ -77,6 +77,20 @@ const useStyles = makeStyles((theme) => ({
     },
     name:{
       marginBottom:"20px",
+    },
+    BasicProfile:{
+      display:'flex',
+      justifyContent:'space-between',
+      width:'92.5%',
+      height:'5px'
+    },
+    editBtn:{
+      backgroundColor:'#2B7A78',
+      marginRight:'3rem',
+      marginTop:'-15px',
+      textDecoration: 'none',
+      
+      
     }
 
 }));
@@ -105,12 +119,12 @@ console.log(coding)
     <MuiThemeProvider theme={light}>
        <Typography>
     <Grid item  >
-      <Card  style={{width:"100%",color:"white"}}>
-                        <Card.Content style={{display:'flex',justifyContent:'space-between',backgroundColor:'#20242B',width:'92.5%'}}>
+      <Card  style={{width:"100%"}}>
+                        <Card.Content className={classes.BasicProfile}>
                           <span>Basic Profile</span>
                           <span>
                             {_id===user_id&&
-                            <span><Button  style={{color:"white",backgroundColor:"F1304D"}} className={classes.overflowText}><Link to={`/edit-profile`}>Edit Profile</Link></Button></span>}
+                            <span><Button size='small' className={classes.editBtn} ><Link to={`/edit-profile`} >Edit Profile</Link></Button></span>}
                           </span>
                         </Card.Content>
                         <Divider y={0} />

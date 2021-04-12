@@ -98,7 +98,7 @@ const Profileitem = ({
             <Fieldset hoverable='true' style={{color:"black"}}>
                 <div className={classes.NameAndAvatar}>
                     <Avatar src={avatar} size="medium" />
-                <Fieldset.Title style={{padding:'15px',marginTop:'-0.5em'}}>{name}</Fieldset.Title>
+                <Fieldset.Title style={{padding:'15px',marginTop:'-0.5em',}}>{name}</Fieldset.Title>
                 </div>
                 
                 <Fieldset.Subtitle className={classes.StatusAndSkills}>
