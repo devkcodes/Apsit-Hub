@@ -30,15 +30,7 @@ import PropTypes from 'prop-types'
 //styles
 const useStyles = makeStyles((theme) => ({
     paper: {
-        // marginTop: theme.spacing(3),
-        // display: 'flex',
-        // flexDirection: 'column',
-        // alignItems: 'center',
-        // padding: "5em",
-        // paddingTop:"5vh",
-        // margin: '35em',
-        // backgroundColor: '#151117',
-        // width:"40vw",
+       
         padding: '5em',
         paddingTop:"5vh",
         display: 'flex',
@@ -51,12 +43,36 @@ const useStyles = makeStyles((theme) => ({
         border: '1px solid #F1304D',
         boxShadow:"0px 0px 5px 5px #F1304D",
         // marginBottom:"1000px"
-        height:"80vh"
+        height:"80vh",
+        ['@media (max-width:1000px)']: {
+
+            margin: '0',
+            marginTop:'15%',
+            padding: '15%',
+            width: '100%',
+            height: '100%'
+        },
+        ['@media (max-width:600px)']: {
+            margin: '0',
+            marginTop:'45px',
+            padding: '5%',
+            width: '100%',
+            marginBottom: '15%',
+        height: '85%'        }
     },
     container: {
         backgroundImage: 'url(https://res.cloudinary.com/dsph4eptm/image/upload/v1617973085/3_dudhhs.png)',
         height: "100vh",
         // marginBottom: "200px"
+        ['@media (max-width:1000px)']: {
+backgroundImage: 'none',
+          backgroundColor:'#0F1319',
+        },
+        ['@media (max-width:600px)']: {
+            backgroundColor:'#0F1319',
+backgroundImage: 'none',
+
+        }
     },
 
     avatar: {
@@ -73,8 +89,17 @@ const useStyles = makeStyles((theme) => ({
         color:"#0F1319",
         '&:hover': {
             backgroundColor:"#F1304D",
-
     },
+
+    ['@media (max-width:1000px)']: {
+        width:"80%",
+        margin: "7%",
+                },
+                ['@media (max-width:600px)']: {
+                    width:"80%",
+                    margin: "7%",
+        
+                }
 },
     gridRoot: {
         backgroundColor: "red",

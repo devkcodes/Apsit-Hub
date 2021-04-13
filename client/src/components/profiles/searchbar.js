@@ -17,13 +17,13 @@ import { Search } from '@geist-ui/react-icons'
 const useStyles = makeStyles((theme) => ({
 cardSearch:{
 	margin:"50px",
-	width:'350px',
+	width:'320px',
 	marginBottom:0,
 
 },
 searchInput:{
 	border:'none',
-	width:'76%',
+	width:'73.75%',
 	padding:'10px'
 },
 searchbtn:{

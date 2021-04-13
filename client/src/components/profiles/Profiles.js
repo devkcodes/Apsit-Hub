@@ -46,7 +46,8 @@ const useStyles = makeStyles((theme) => ({
     container: {
         marginTop: "80px",
         display: "flex",
-        flexDirection: "row"
+        flexDirection: "row",
+        
     },
     paper: {
         width: '90%',
@@ -78,8 +79,7 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
     }, [getProfiles]);
     const classes = useStyles();
    
-    console.log(`my profilesssssssssssssssss ${profiles[0]}`)
-    console.log(JSON.stringify(profiles))
+  
 
     return <Fragment >
         

@@ -54,6 +54,7 @@ const useStyles = makeStyles(() => ({
     },
     profileCard:{
         padding:'1em',
+        
        
     },
     fieldset:{
@@ -94,7 +95,7 @@ const Profileitem = ({
 
     return (
 
-        <Grid item sm={3} xs={12} className ={classes.profileCard}>
+        <Grid item sm={6} lg={3} xs={12}  className ={classes.profileCard}>
             <Fieldset hoverable='true' style={{color:"black"}}>
                 <div className={classes.NameAndAvatar}>
                     <Avatar src={avatar} size="medium" />
@@ -108,9 +109,9 @@ const Profileitem = ({
                 
                 </Fieldset.Subtitle>
                 
-                <Fieldset.Footer style={{backgroundColor:"#58A8CE",color:"white"}}>
+                <Fieldset.Footer style={{backgroundColor:"#75C7C3",color:"white"}}>
                     <Fieldset.Footer.Actions>
-                    <Button style={{backgroundColor:"#58A8CE",color:"white"}} auto size="mini"><Link to={`/profile/${_id}`}> View</Link></Button>
+                    <Button style={{backgroundColor:"#75C7C3",color:"white"}} auto size="mini"><Link to={`/profile/${_id}`}> View</Link></Button>
                     </Fieldset.Footer.Actions>
                 </Fieldset.Footer>
             </Fieldset>

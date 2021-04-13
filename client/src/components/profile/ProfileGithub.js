@@ -47,7 +47,8 @@ const useStyles = makeStyles((theme) => ({
     },
     gitcard:{
         marginTop:'2rem',
-        wordWrap:'break-word'
+        wordWrap:'break-word',
+        border: '1px solid #17242A'
     },
     list:{
         marginTop:'10px',
@@ -79,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
         maxWidth:"100%",
         display:'flex',
         // border:"5px solid #F1304D",
-        backgroundColor:"#20242B",
+        backgroundColor:"#2B7A78",
         justifyContent:'space-between',
          flexDirection:'column',
          borderRadius:"5px",
@@ -106,7 +107,7 @@ const ProfileGithub = ({ username, getGithubRepos, repos }) => {
             <Card style={{border: '1px solid #000'}}>
                 <Card.Content className={classes.cardmain} >
                 <div className={classes.h4repo}>
-                    <span><Text size={20} style={{color: '#EBE0D0'}} b>Github Repositories</Text></span>
+                    <span><Text size={20} style={{color: '#17242A'}} b>Github Repositories</Text></span>
                 </div>
                 
                 <Divider y={0} />
@@ -118,7 +119,7 @@ const ProfileGithub = ({ username, getGithubRepos, repos }) => {
                 repos === null ? <Spinner /> : (
                     repos.map(repo => (
                         <Grid xs={12} md = {12} item key={repo.id} className={classes.gitcard}>
-                        <Card style={{padding:'1rem'}}type="dark"  width="500px" margin="0">
+                        <Card style={{padding:'1rem',backgroundColor:"#DEF2F1"}}  width="500px" margin="0">
     <h4>{repo.name}</h4>
     {repo.description?<p>{repo.description}</p>:<p>No description</p> }
     

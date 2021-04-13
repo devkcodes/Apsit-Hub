@@ -1,5 +1,3 @@
-
-
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -15,7 +13,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
-
+import Container from '@material-ui/core/Container'
 // import Form from '@material-ui/core/Form';
 import { Text, Divider,Fieldset,Badge,Tooltip } from '@geist-ui/react' 
 
@@ -34,8 +32,23 @@ import Navbar from '../layout/Navbar';
 
 const useStyles = makeStyles((theme) => ({
     root: {
+        margin:0,
+        padding:0,
         height: '100vh',
-        color: 'white'
+        color: 'white',
+        backgroundImage: 'url(https://res.cloudinary.com/dsph4eptm/image/upload/v1617973085/3_dudhhs.png)',
+        height: "100vh",
+        // marginBottom: "200px"
+        ['@media (max-width:1024px)']: {
+backgroundImage: 'none',
+          backgroundColor:'#0F1319',
+          padding:0,
+        },
+        ['@media (max-width:600px)']: {
+            backgroundColor:'#0F1319',
+backgroundImage: 'none',
+
+        }
     },
     image: {
         backgroundImage: 'url(https://res.cloudinary.com/dsph4eptm/image/upload/c_scale,w_1564/v1617711570/Untitled_design_psiyef.png)', 
@@ -53,12 +66,27 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'column',
         alignItems: 'center',
         backgroundColor: '#0F1319',
-        margin: '70px',
+        margin: '90px',
         marginLeft: '33%',
         border: '1px solid #F1304D',
         boxShadow:"0px 0px 5px 5px #F1304D",
         // marginBottom:"1000px"
-        height:"70vh"
+        height:"70vh",
+        ['@media (max-width:1024px)']: {
+
+            margin: '5%',
+            marginTop:'15%',
+            padding: '15%',
+            width: '90%',
+            height: '70%'
+        },
+        ['@media (max-width:600px)']: {
+            margin: '5%',
+            marginTop:'45px',
+            padding: '5%',
+            width: '90%',
+            marginBottom: '15%',
+        height: '80%'        }
 
     },
     avatar: {
@@ -81,7 +109,22 @@ const useStyles = makeStyles((theme) => ({
     gridRoot: {
 boxShadow:"none",
         backgroundImage: 'url(https://res.cloudinary.com/dsph4eptm/image/upload/v1617973085/3_dudhhs.png)',
-backgroundColor:"#D4B39D"
+backgroundColor:"#D4B39D",
+['@media (max-width:1024px)']: {
+
+    margin: '0',
+    marginTop:'',
+    padding: '0',
+    width: '180%',
+    height: '70%'
+},
+['@media (max-width:600px)']: {
+    margin: '5%',
+    marginTop:'45px',
+    padding: '5%',
+    width: '90%',
+    marginBottom: '15%',
+height: '80%'        }
     },
     // typography: {
     //     allVariants: {
@@ -94,7 +137,22 @@ textfieldcolor:{
 
     
     // color:"#F1304D"
-}
+},
+container: {
+    backgroundImage: 'url(https://res.cloudinary.com/dsph4eptm/image/upload/v1617973085/3_dudhhs.png)',
+    height: "100vh",
+    // marginBottom: "200px"
+    ['@media (max-width:1000px)']: {
+backgroundImage: 'none',
+      backgroundColor:'#0F1319',
+    },
+    ['@media (max-width:600px)']: {
+        backgroundColor:'#0F1319',
+backgroundImage: 'none',
+
+    }
+},
+
 }));
 
 
@@ -122,10 +180,10 @@ export const Login = ({ login, isAuthenticated }) => {
     return (
 
         <Fragment>
-            <Grid container component="main" className={classes.root}>
+             <Container component="main" maxWidth="xl" className={classes.container}>
                 <CssBaseline />
                 {/* <Grid item xs={false} sm={4} md={7} className={classes.image} /> */}
-                <Grid   xs={12} contaner sm={8} md={12} component={Paper} elevation={6} className={classes.gridRoot} square>
+               
                     <Paper elevation={3} item className={classes.paper}>
                         <Avatar className={classes.avatar}>
                             <LockOutlinedIcon color='white' />
@@ -149,7 +207,8 @@ export const Login = ({ login, isAuthenticated }) => {
                                         whiteSpace: 'nowrap',
                                         overflow: 'hidden',
                                         width: '100%',
-                                        focussedColor: '#F1304D'
+                                        focussedColor: '#F1304D',
+                                        color:"white"
                                     }
                                 }}
 
@@ -227,8 +286,8 @@ export const Login = ({ login, isAuthenticated }) => {
                             </Box>
                         </form>
                     </Paper>
-                </Grid>
-            </Grid>
+                
+            </Container>
         </Fragment>
     )
 };

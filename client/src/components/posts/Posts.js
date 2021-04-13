@@ -21,7 +21,7 @@ const styles = {
         marginLeft: '20%',
         marginRight: '20%',
         borderBottom: 'none',
-        backgroundColor:"white",
+        backgroundColor:"#DEF2F1",
         ['@media (max-width:1000px)']: {
 
             margin: '0',
@@ -37,6 +37,7 @@ const styles = {
     },
     gridItem: {
         width: '65%',
+        
         ['@media (max-width:600px)']: {
             width: '80%',
             margin: '0',

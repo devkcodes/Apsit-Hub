@@ -9,10 +9,25 @@ import MUIRichTextEditor from 'mui-rte'
 import { convertToRaw } from 'draft-js'
 import Divider from '@material-ui/core/Divider'
 
-import {Card, Button,Icon,TextField,FormControl} from '@material-ui/core'
+import {Card, Button,Icon,TextField,FormControl, Typography} from '@material-ui/core'
 
+
+// import { ThemeProvider } from '@material-ui/core/styles';
 import { makeStyles,MuiThemeProvider,createMuiTheme } from '@material-ui/core/styles';
 import SendIcon from '@material-ui/icons/Send';
+
+const formFont = createMuiTheme({
+    palette: {
+      primary: {
+        main:"#fff",
+      }},
+    typography: {
+      fontFamily: [
+        'Share Tech', 'san-serif',
+      ].join(','),
+      fontSize:"1px",
+      Fontcolor:"#F1304D"
+  }});
 
 const useStyles = makeStyles((theme) => ({
 
@@ -64,20 +79,20 @@ const defaultTheme = createMuiTheme()
                 marginTop: '0',
                 width: "100%",
                 display:'flex',
-                border:"5px solid #17252A",
+                border:"5px double #17252A",
                 
 
             },
             editor: {
                 padding:"40px",
-                color:'#17252A'
+                backgroundColor:'#DEF2F1',
                 
             
             },
             toolbar:{
 
             marginTop:'-10px',
-            borderBottom:'5px solid #17252A',
+            borderBottom:'5px double #17252A',
             
             },
 
@@ -93,7 +108,7 @@ const PostForm = ({ addPost }) => {
     return (
             <div className={classes.divClass} >
                 <FormControl  className={classes.text}>
-                    <h3>Create a post!</h3>
+                <MuiThemeProvider theme={formFont}><Typography style={{margin:"5%"}} variant='h3'> Create a post!</Typography></MuiThemeProvider>
 
                     <MuiThemeProvider theme={defaultTheme}>
                         <Divider/>
@@ -127,7 +142,7 @@ const PostForm = ({ addPost }) => {
 
                     >Post!</Button>
             </div>
-
+            
 
     )
 }

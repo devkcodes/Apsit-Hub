@@ -18,7 +18,8 @@ const styles ={
         marginBottom:'1em',
         width:'100%',
         boxShadow:' 3px 3px 5px 5px #ccc',
-        backgroundColor:"#f5f5f5",color:"#17252A",border:'0.5px dashed  #17252A'
+        backgroundColor:"#3AAFA9",color:"#17252A",border:'0.5px dashed  #17252A',
+        
     },
     separate:{
         display:'flex',
@@ -38,7 +39,7 @@ const styles ={
     },
     colorcorrect:{
         color:'black',
-        border:'2px solid red'
+        backgroundColor:'#3AAFA9'
     },
         fieldset:{
         
@@ -87,7 +88,7 @@ return(
                 <div className="content" dangerouslySetInnerHTML={{__html:styled_text}}></div>
                 </Fieldset.Subtitle>
                 
-                <Fieldset.Footer style={{backgroundColor:"rgba(58,175,169,0.7)",color:"#17252A",border:'0.5px dashed  #17252A',marginTop:'-20px'}} >
+                <Fieldset.Footer style={{backgroundColor:"#17242A",color:"#17252A",border:'0.5px dashed  #17252A',marginTop:'-20px',border:"2px solid #17242A"}} >
                     <Fieldset.Footer.Actions>
                         <span >{likes.length > 0 && <div className={classes.likesnum}>{likes.length}</div> } </span>
                         <Button className={classes.btnclass} iconRight={<ThumbsUp/>} onClick={() => addLike(_id)} type="success" ghost auto size="small" >

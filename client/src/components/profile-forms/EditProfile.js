@@ -11,7 +11,6 @@ import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem'
 import LanguageSharpIcon from '@material-ui/icons/LanguageSharp';
 import InstagramIcon from '@material-ui/icons/Instagram';
@@ -20,6 +19,9 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import { makeStyles, MuiThemeProvider } from '@material-ui/core/styles';
+
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 
 
@@ -113,7 +115,19 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
         createProfile(formData, history, true);
     }
 
-
+    const editFont = createMuiTheme({
+        palette: {
+          primary: {
+            main:"#fff",
+          }},
+        typography: {
+          fontFamily: [
+            'Share Tech', 'san-serif',
+          ].join(','),
+          
+          Fontcolor:"#F1304D"
+      }});
+      
     const useStyles = makeStyles((theme) => ({
         root: {
             height: '100vh',
@@ -122,7 +136,7 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
         },
         containerRoot: {
             margin: '100px',
-            backgroundColor: "grey",
+            
             alignItems: 'center'
 
         },
@@ -137,7 +151,10 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
         formPaper: {
             backgroundColor: "white",
             height: "100%",
-            padding: '60px'
+            padding: '60px',
+            width: '79%',
+            marginBottom: '10%',
+            marginLeft:0
 
 
         },
@@ -154,18 +171,23 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
             marginTop: "70px",
         },
         buttonToggle: {
-            margin: "10px",
-            marginLeft: '20%'
+            marginTop: "10px",
+            // marginLeft: '20%',
+            color: 'black',
+            border: '1px solid ',
+            width: '100%'
+
         },
         Bsubmit: {
-            marginLeft: "2%",
+            // marginLeft: "2%",
             backgroundColor: "green",
-            marginRight: "7%",
+            // marginRight: "7%",
             color: "white"
         },
         Bback: {
-            marginRight: "7%",
-            backgroundColor: "blue"
+            // marginRight: "7%",
+            color: "black",
+            width: "100%"
         },
         Bdelete: {
             backgroundColor: "red",
@@ -173,7 +195,7 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
         },
         links: {
             color: 'white',
-            textDecoration: 'none'
+            textDecoration: 'none',
         },
         textFieldSocial: {
             width: '26vw',
@@ -184,12 +206,13 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
             paddingRight: "5%"
         },
         h1:{
-            fontSize: "50px",
-            
+            fontSize: "60px",
+            backgroundColor:"17242A",
             float:"left"
         },
         lead:{
-            fontSize: "18px"
+            fontSize: "18px",
+            dispay:'block'
         }
 
 
@@ -218,17 +241,20 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
     ];
 
     return (
+        <MuiThemeProvider theme={editFont}>
         <Fragment>
-            <Grid container direction="column" className={classes.containerRoot}>
-                <Grid item>  <div>
-                    <h1 className={classes.h1}>
-                        Create Your Profile
-      </h1>
-                        <p className={classes.lead}>
-                             Let's get some information to make your
-        profile stand out
-      </p>
-      </div></Grid>
+            <Grid container
+  direction="column"
+  justify="space-between"
+  alignItems="center" style={{backgroundColor:"#2B7A77"}} className={classes.containerRoot}>
+            <div>
+                    <Typography><h1 variant="h4" className={classes.h1}> Create Your Profile</h1></Typography>
+                       
+      
+                    <Typography> <p className={classes.lead}>
+                             Let's get some information to make your profile stand out
+      </p></Typography>
+      </div>
                 <Grid className={classes.formGrid} direction="column">
                     <form className={classes.form} onSubmit={e => onSubmit(e)}>
                         <Paper className={classes.formPaper}>
@@ -289,15 +315,19 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
                             </Grid>
                             <Grid item className={classes.formGrid2}>
                                 <div className="my-2">
-                                    <Button color="primary" variant="outlined" onClick={() => toggleSocialInputs(!displaySocialInputs)} size="small" className={classes.buttonToggle}>
+                                    <Grid  container
+  direction="row"
+  justify="space-around"
+  alignItems="center">
+                                   <Grid item> <Button color="primary" variant="outlined" onClick={() => toggleSocialInputs(!displaySocialInputs)} size="small" className={classes.buttonToggle}>
                                         <LanguageSharpIcon />Add Social Network Links
-          </Button>
+          </Button></Grid>
 
-                                    <Button color="primary" variant="outlined" onClick={() => toggleCodingInputs(!displayCodingInputs)} size="small" className={classes.buttonToggle}>
+          <Grid item>      <Button color="primary" variant="outlined" onClick={() => toggleCodingInputs(!displayCodingInputs)} size="small" className={classes.buttonToggle}>
                                         <LanguageSharpIcon />Add Coding Profile Links
-          </Button>
-
-                                    <span>Optional</span>
+          </Button></Grid>
+          </Grid>
+                                   
                                 </div>
 
                                 {displaySocialInputs && <Fragment>
@@ -362,20 +392,22 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
 
                             </Grid>
 
-
-                            <Button variant="outlined" type="submit" className={classes.Bsubmit}>Submit</Button>
+<Grid  container direction="row" justify="space-around" alignItems="center">
+<Grid item><Button variant="outlined" type="submit" className={classes.Bsubmit}>Save</Button>  </Grid>
                             {/* <input type="submit" className="btn btn-primary my-1" /> */}
-                            <Button item variant="outlined" className={classes.Bback} > <Link className={classes.links} to="/dashboard">Go Back</Link></Button>
-
-                            <Button variant="outlined" className={classes.Bdelete} onClick={() => deleteAccount()}>
+                            <Grid item> <Button variant="outlined" className={classes.Bdelete} onClick={() => deleteAccount()}>
                                 <DeleteForeverIcon />  Delete Account
-                        </Button>
+                        </Button>  </Grid>
+                            <Grid item> <Button item variant="outlined" className={classes.Bback} > <Link  to="/dashboard">Go Back</Link></Button>  </Grid>
 
+                           
+                        </Grid>
                         </Paper>
                     </form>
                 </Grid>
             </Grid>
         </Fragment >
+        </MuiThemeProvider>
     )
 }
 
