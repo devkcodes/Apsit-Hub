@@ -1,6 +1,7 @@
 
 import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import ResponsiveDrawer from './components/layout/Navbar2';
 import Navbar from './components/layout/Navbar';
 
 import Register from './components/auth/Register';
@@ -29,7 +30,17 @@ var bodyParser = require('body-parser');
 
 
 const useStyles = makeStyles((theme) => ({
-    frag:{marginTop:80}
+    frag:{marginTop:80},
+    navbar:{
+        // ['@media (min-width:601px)']: {
+                display:'none'
+        // }
+    },
+    drawer:{
+        // ['@media (max-width:600px)']: {
+                 display: "none"
+        // }
+    },
     
     }));
 
@@ -48,7 +59,12 @@ const classes = useStyles();
         <Provider  store={store} >
             <Router >
                 <Fragment  >
-                   <Navbar /> 
+                <div className="navbar">
+                     <Navbar /> </div>
+                   
+                   <div className="drawer">
+                    <ResponsiveDrawer /></div>
+
                     <Fragment className={classes.frag}>
                     <Alert />
                     <Route exact path="/" component={Login} />

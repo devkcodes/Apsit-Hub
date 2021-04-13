@@ -20,6 +20,7 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import ListItemText from '@material-ui/core/ListItemText';
 import Link from '@material-ui/core/Link';
 import { url } from 'gravatar';
+import "./footer.css"
 
 // import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 
@@ -67,8 +68,8 @@ const styles = ({
   },
   subLinks:{
       
-  }
-
+  },
+ 
 
 
 });
@@ -86,11 +87,11 @@ const Footer = () => {
     <Grid  >
       <div fluid >
         <Grid container className={classes.footer} >
-          <Grid item md="3">
+          <Grid item md="3" className="mobile"  className={classes.footer}>
             
             <img src={"https://res.cloudinary.com/dsph4eptm/image/upload/c_scale,w_240/v1617975621/ApSIt_Hub_n2dvbf.jpg"}></img>
           </Grid >
-          <Grid item md="3" className={classes.footerLinks}>
+          <Grid item md="3" className={classes.mobile}  className={classes.footerLinks} >
           <Box  className={classes.box}float="left"><Typography color="primary" style={{ fontSize: 25 }} className="title">Our Mission</Typography>
           <Typography color="primary" variant="body1"  align="justify" className={classes.mission}>Contrary to popular belief, Lorem Ipsum is not simply rand
           om text. It has roots in a piece of classical Latin literature fr
@@ -98,7 +99,7 @@ const Footer = () => {
           </Box>
            
           </Grid >
-          <Grid item md="2" className={classes.footerLinks}>
+          <Grid item md="2" className="mobileno"  className={classes.footerLinks}>
           <Box  className={classes.box} color="primary"> <Typography color="primary" style={{ fontSize: 25 }} className="title">Apsit  Hub</Typography>
           <List dense="true">
               <ListItem><Typography color="primary" variant="caption" className={classes.subLink}><Link href="#" color="primary" > License</Link></Typography></ListItem>
@@ -110,7 +111,9 @@ const Footer = () => {
            
           </Grid >
          
-          <Grid item md="2" className={classes.footerLinks}>
+          <Grid item  className="mobileno" style={{['@media (max-width:600px)']: {
+           display: 'none',}
+}}  className={classes.footerLinks}>
           <Box  className={classes.box}> <Typography color="primary" color="primary" style={{ fontSize: 25 }} className="title">About APSIT</Typography>
           <List dense="true" >
               <ListItem><Typography color="primary" variant="caption" className={classes.subLink}><Link href="https://www.apsit.edu.in/home" color="primary" > About Us</Link></Typography></ListItem>
@@ -120,7 +123,7 @@ const Footer = () => {
           </List>
           </Box>
           </Grid ><Divider/>
-          <Grid item md="2" className={classes.footerLinks}>
+          <Grid item md="2" className={classes.footerLinks} className="mobile" >
           <Box  className={classes.box}> <Typography color="primary" style={{ fontSize: 25 }} className="title">Follow Apsit</Typography>
           <List dense="false">
               <ListItem><Typography color="primary" variant="caption" className={classes.subLink}><ListItemIcon><Link href="https://www.instagram.com/ojus_apsit"><InstagramIcon color="primary" style={{ fontSize: 30 }}/></Link></ListItemIcon></Typography></ListItem>

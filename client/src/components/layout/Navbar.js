@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
-import { Grid, Button, AppBar, Toolbar, Typography, MenuItem, Menu, Avatar, Divider } from "@material-ui/core"
+import { Drawer,Grid, Button, AppBar, Toolbar, Typography, MenuItem, Menu, Avatar, Divider } from "@material-ui/core"
 import { makeStyles, MuiThemeProvider } from '@material-ui/core/styles';
 import "../../App.css";
+import MenuIcon from '@material-ui/icons/Menu';
 import {createMuiTheme } from '@material-ui/core/styles'
 // import { Divider } from '@material-ui/core';
 
@@ -35,8 +36,9 @@ const styles = ({
   buttonFontSize: {
     fontSize: "20px",
     marginRight:"7px",
-    marginLeft:"7px"
-
+    marginLeft:"7px",
+    ['@media (max-width:600px)']: {
+display: "none"      }
   },
   links: {
     color: 'white',
@@ -48,8 +50,12 @@ const styles = ({
     backgroundColor: "#2B7A78",
     backgroundSize: "cover",
     padding: "0px",
-    marginBottom: "5px",
+    marginBottom: "",
     textDecoration: 'none',
+    
+  ['@media (max-width:600px)']: {
+    
+    }
     
 
   },
@@ -97,7 +103,7 @@ export const NavbarComponent = ({ auth: { isAuthenticated, loading ,user}, logou
           
             <Toolbar >
               <Grid className={classes.grow}>
-                <Button className={[classes.mainLogo]}>
+                <Button container className={[classes.mainLogo]}>
                   <h2>ApsitHub</h2>
                 </Button>
               </Grid>
@@ -112,6 +118,17 @@ export const NavbarComponent = ({ auth: { isAuthenticated, loading ,user}, logou
                
                   Logout</a>
               </Button>
+              <Drawer
+        className={classes.drawer}
+        variant="persistent"
+        anchor="left"
+        // open={open}
+        classes={{
+          paper: classes.drawerPaper,
+        }}
+      >
+        
+      </Drawer>
               </Grid>
             </Toolbar>
           <Divider/>
