@@ -1,6 +1,10 @@
 import React from 'react'
 import './Landing.css'
 import waveSVG from './wave.svg'
+import blobs from '../../img/blobs-01.svg'
+import hero from '../../img/hero.svg'
+import logo from '../../img/APSIT-HUB.svg'
+
 
 function Landing() {
   return (
@@ -10,7 +14,7 @@ function Landing() {
 
   <main class="section-wrapper">
 
-    <img src="./img/blobs-01.svg" alt="blobs" class="svelte-1p7dm5a"/>
+    <img src={blobs} alt="blobs" class="svelte-1p7dm5a"/>
 
       <section class="section-content hero svelte-1424rrd">
         <div class="content svelte-1424rrd">
@@ -28,16 +32,15 @@ function Landing() {
         </div> 
         
 
-        <div class="image-wrapper svelte-1424rrd" 
-        style={{backgroundImage:'url(./img/hero.svg)'}}>
         
-        </div>
+        <img class="image-wrapper svelte-1424rrd"  src={hero} alt=""/>
+     
       </section>
 
       <div class="menu section-wrapper svelte-yoh1v8 show">
         <div class="section-content svelte-yoh1v8">
           <div class="logo svelte-yoh1v8">
-            <img src="./img/logo.png" alt="serio verify logo" class="svelte-yoh1v8"/>
+            <img src={logo} alt="serio verify logo" class="svelte-yoh1v8"/>
           </div>
             <div class="links svelte-yoh1v8"><a href="#suite" class="svelte-yoh1v8">Students</a> 
 				<a href="https://www.apsit.edu.in/home" target="_blank" class="svelte-yoh1v8">APSIT</a> 
@@ -74,7 +77,7 @@ function Landing() {
 <div class="footer-content">
   <div class="footer-row-1">
    <div class="logo svelte-yoh1v8">
-            <img src="./img/logo.png" alt="serio verify logo" class="svelte-yoh1v8"/>
+            <img src={logo} alt="serio verify logo" class="svelte-yoh1v8"/>
           </div>
 
     <div class="follow">
