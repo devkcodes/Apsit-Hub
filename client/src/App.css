@@ -2,11 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech&family=Staatliches&display=swap');
 .container{
 background-color:#17252A;
-
 display: flex;
+width: 100%;
 justify-content: center;
 align-items: center;
 margin:0;
+height: auto;
 
 }
 

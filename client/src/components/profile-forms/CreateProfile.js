@@ -454,6 +454,12 @@ const CreateProfile = ({ createProfile, history }) => {
                             
                             <Grid item> <Button item variant="outlined" className={classes.Bback} > <Link  to="/dashboard">Go Back</Link></Button>  </Grid>
 
+
+                                <Button onSubmit={e =>onSubmit(e)}variant="outlined" type="submit" className={classes.Bsubmit}>Submit</Button>
+                                {/* <input type="submit" className="btn btn-primary my-1" /> */}
+                                <Button item variant="outlined" className={classes.Bback} > <Link className={classes.links} to="/posts">Go Back</Link></Button>
+
+
                         </Grid>
                                 </FormControl>
 

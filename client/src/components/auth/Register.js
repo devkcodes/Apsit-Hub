@@ -129,6 +129,8 @@ export const Register = ({ setAlert, register, isAuthenticated }) => {
             setAlert('Passwords do not match', 'danger')
         }
         else {
+            console.log(name);
+            console.log(email)
             register({ name, email, password });
         }
     };
@@ -161,7 +163,7 @@ export const Register = ({ setAlert, register, isAuthenticated }) => {
                                 className={
                                     {root: classes.textFieldRoot}
                                 }
-                                 
+                                
                                     style={{
                                         backgroundColor: "#171319",
                                         color: "white",

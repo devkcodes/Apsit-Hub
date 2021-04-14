@@ -11,8 +11,9 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import MailIcon from "@material-ui/icons/Mail";
-import MenuIcon from "@material-ui/icons/Menu";
+import {MailIcon} from '@material-ui/icons';
+import MenuIcon from '@material-ui/icons/Menu'
+
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
@@ -25,6 +26,7 @@ import ContactMailIcon from '@material-ui/icons/ContactMail';
 import {Link} from 'react-router-dom';
 import { logout } from '../../actions/auth';
 import Grid from '@material-ui/core/Grid'
+import { connect } from 'react-redux';
 
 
 
@@ -34,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     ['@media (min-width:600px)']: {
-       display:"none"     }
+      display:"none"     }
   },
   drawer: {
     [theme.breakpoints.up("sm")]: {
@@ -71,9 +73,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ResponsiveDrawer({ 
-    // auth: {user}
- }) {
+function ResponsiveDrawer({ auth: { isAuthenticated, loading ,user}, logout }) {
 //   const { window } = props;
   const classes = useStyles();
   const theme = useTheme();
@@ -87,8 +87,9 @@ function ResponsiveDrawer({
     <div>
       <div className={classes.toolbar} />
       <Divider  />
-     
-     
+      {/* {isAuthenticated?
+
+      } */}
       <List>
        <Link  to={`profiles`} className={classes.links}> <ListItem button >
             <ListItemIcon>
@@ -103,13 +104,15 @@ function ResponsiveDrawer({
             </ListItemIcon> 
             <ListItemText primary={"Posts"} />
           </ListItem></Link>
-          
-          <Link  to="#" className={classes.links}> <ListItem button >
+          {user&&
+           <Link to={`/profile/${user._id}`}  className={classes.links}> <ListItem button >
             <ListItemIcon>
                <DashboardIcon />
             </ListItemIcon> 
             <ListItemText primary={"Dashboard"} />
           </ListItem></Link>
+          }
+         
        
       </List>
       <Divider />
@@ -123,9 +126,9 @@ function ResponsiveDrawer({
             <ListItemText primary={"Edit Profile"} />
           </ListItem></Link>
          
-         <Link  to={`#`} className={classes.links}> <ListItem button >
+         <Link  to={`/`} onClick={logout}  className={classes.links}> <ListItem button >
             <ListItemIcon>
-               <ExitToAppIcon />
+               <ExitToAppIcon /> 
             </ListItemIcon> 
             <ListItemText primary={"Logout"} />
           </ListItem></Link>
@@ -213,5 +216,11 @@ ResponsiveDrawer.propTypes = {
 };
 
 
+ResponsiveDrawer.propTypes = {
+  logout: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+}
 
-export default ResponsiveDrawer;
+const mapStatetoprops = state => ({ auth: state.auth });
+
+export default connect(mapStatetoprops, { logout })(ResponsiveDrawer);
