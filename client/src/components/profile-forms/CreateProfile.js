@@ -373,7 +373,7 @@ const CreateProfile = ({ createProfile, history }) => {
 
                                 <Button onSubmit={e =>onSubmit(e)}variant="outlined" type="submit" className={classes.Bsubmit}>Submit</Button>
                                 {/* <input type="submit" className="btn btn-primary my-1" /> */}
-                                <Button item variant="outlined" className={classes.Bback} > <Link className={classes.links} to="/dashboard">Go Back</Link></Button>
+                                <Button item variant="outlined" className={classes.Bback} > <Link className={classes.links} to="/posts">Go Back</Link></Button>
 
 
 

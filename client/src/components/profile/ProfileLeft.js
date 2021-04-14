@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     },
     containerRoot: {
         marginTop:'10em',
-				display:'flex'
+				display:'flex',
 
     },
     CardOneText:{
@@ -77,6 +77,7 @@ const useStyles = makeStyles((theme) => ({
     },
     name:{
       marginBottom:"20px",
+      fontSize:'2rem'
     },
     BasicProfile:{
       display:'flex',
@@ -133,7 +134,7 @@ console.log(coding)
                             
                             <div className={classes.CardOneText}>
                             <span>
-                            <Typography className={classes.name} variant="h1" >{name}</Typography>
+                            <Typography className={classes.name} >{name}</Typography>
                             </span>
                             <span>
                               {status}
@@ -142,7 +143,10 @@ console.log(coding)
                         </Card.Content>
                         <Divider y={0} />
                         <Card.Content className={classes.CardOneTextTwo}>
-                            <span style={{display:'flex',alignItems:'flex-end'}}><Globe/><span > <Typography>Location </Typography></span></span>
+                          
+                            <span style={{display:'flex',alignItems:'flex-end'}}>
+                              <span ><Typography>Location</Typography></span>
+                            </span>
                             <Typography><span className={classes.overflowText}>{location}</span> </Typography>
                         </Card.Content>
       </Card>
@@ -171,6 +175,7 @@ console.log(coding)
 
       <Card style={{width:"100%",marginTop:'2rem'}} >
         <Card.Content className={classes.CardOneTextTwo} >
+          
                               <span style={{display:'flex',alignItems:'flex-end'}}><Code/><span ><Text b>Coding Profiles</Text></span></span>
                             <span className={classes.overflowText}>
                               {coding && coding.codechef && (

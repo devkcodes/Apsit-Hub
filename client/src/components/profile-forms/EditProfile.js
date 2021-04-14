@@ -22,6 +22,12 @@ import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import { makeStyles, MuiThemeProvider } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import g4glogo from '../../img/gfgicon.png'
+import leetcodelogo from '../../img/leetcode-logo.png'
+import codeforceslogo from '../../img/codeforces-logo.jpg'
+import codecheflogo from '../../img/codechef-logo.png'
+import kagglelogo from '../../img/kaggle.png'
+
 
 
 
@@ -133,7 +139,7 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
         containerRoot: {
             margin: '100px',
             ['@media (max-width:600px)']: {
-                margin:0,
+                margin:100,
                 backgroundColor:"# ",
 
                     }
@@ -149,13 +155,17 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
         },
 
         formPaper: {
-           margin:"0%",
+           margin:"5%",
             height: "100%",
             padding: '2%',
             width: '60%',
-            marginBottom: '10%',
+            marginBottom: '20%',
             marginLeft:0,
             ['@media (max-width:600px)']: {
+                margin:0,
+                width:"94%"
+            },
+            ['@media (max-width:1024px)']: {
                 margin:0,
                 width:"94%"
             }
@@ -175,6 +185,10 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
             height: "5vh",
             marginBottom:"15px",
             ['@media (max-width:600px)']: {
+            
+            },
+            ['@media (max-width:1024)']: {
+            
             }
     
         },
@@ -182,6 +196,10 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
             margin: "0%",
             // marginLeft:"-20%",
             ['@media (max-width:600px)']: {
+           
+            },
+            ['@media (max-width:1024)']: {
+            
             }
     
        },
@@ -190,6 +208,10 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
             marginTop: "70px",
             width: "80%",
             ['@media (max-width:600px)']: {
+            
+            },
+            ['@media (max-width:1024)']: {
+           
             }
     
         },
@@ -200,6 +222,10 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
             border: '1px solid ',
             width: '100%',
             ['@media (max-width:600px)']: {
+            
+            },
+            ['@media (max-width:1024)']: {
+            
             }
     
 
@@ -223,18 +249,28 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
             marginLeft:"-12%",
             margin:"5%"
         },
-        // links: {
-        //     color: 'white',
-        //     textDecoration: 'none',
-        // },
+        urls: {
+            marginLeft:"10%",
+            marginTop:"5%"
+        },
+        logo:{
+            maxWidth:'25px',
+            marginRight:'20px',
+            textDecoration:'none',
+            color:'black'
+          },
+          Icons:{
+            marginRight:'20px',
+          },
+
         textFieldSocial: {
             width: '26vw',
             margin: "0px",
             height: "5vh",
         },
-        // Icons: {
-        //     paddingRight: "5%"
-        // },
+        Icons: {
+            marginRight:'20px',
+        },
         // h1:{
         //     fontSize: "60px",
         //     backgroundColor:"17242A",
@@ -283,7 +319,7 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
                      </Typography>
                       </Grid>
                       <Paper className={classes.formPaper}>
-                    <FormControl className={classes.form} onSubmit={e => onSubmit(e)}>
+                    <form className={classes.form} onSubmit={e => onSubmit(e)}>
                         
                     <Grid
   container
@@ -364,7 +400,8 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
                                    
                                 
 
-                                {displaySocialInputs && <Fragment>
+                                {displaySocialInputs &&<div className={classes.urls}>
+
 
                                     <div className="form-group social-input">
                                         <TwitterIcon fontSize="large" className={classes.Icons} />
@@ -389,38 +426,40 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
                                     <div className="form-group social-input">
                                         <InstagramIcon fontSize="large" className={classes.Icons} />
                                         <TextField className={classes.textFieldSocial} placeholder="Instagram URL" name="instagram" value={instagram} onChange={e => onChange(e)} ></TextField>
-                                    </div></Fragment>
+                                    </div></div>
 
                                 }
 
 
 
-                                {displayCodingInputs && <Fragment>
+                                {displayCodingInputs && <div className={classes.urls}>
+
 
                                     <div className="form-group social-input">
-                                        <TwitterIcon fontSize="large" className={classes.Icons} />
+                                    <img className={classes.logo} src={g4glogo} alt=""/>
+                                        
                                         <TextField className={classes.textFieldSocial} placeholder="geeksforgeeks URL" name="geeksforgeeks" value={geeksforgeeks} onChange={e => onChange(e)} ></TextField>
                                     </div>
 
                                     <div className="form-group social-input">
-                                        <FacebookIcon fontSize="large" className={classes.Icons} />
+                                    <img className={classes.logo} src={leetcodelogo} alt=""/>
                                         <TextField className={classes.textFieldSocial} placeholder="leetcode URL" name="leetcode" value={leetcode} onChange={e => onChange(e)} ></TextField>
                                     </div>
 
                                     <div className="form-group social-input">
-                                        <YouTubeIcon fontSize="large" className={classes.Icons} />
+                                    <img className={classes.logo} src={codeforceslogo} alt=""/>
                                         <TextField className={classes.textFieldSocial} placeholder="codeforces URL" name="codeforces" value={codeforces} onChange={e => onChange(e)} ></TextField>
                                     </div>
 
                                     <div className="form-group social-input">
-                                        <LinkedInIcon fontSize="large" className={classes.Icons} />
+                                    <img className={classes.logo} src={codecheflogo} alt=""/>
                                         <TextField className={classes.textFieldSocial} placeholder="codechef URL" name="codechef" value={codechef} onChange={e => onChange(e)} ></TextField>
                                     </div>
 
                                     <div className="form-group social-input">
-                                        <InstagramIcon fontSize="large" className={classes.Icons} />
+                                    <img className={classes.logo} src={kagglelogo} alt=""/>
                                         <TextField className={classes.textFieldSocial} placeholder="kaggle URL" name="kaggle" value={kaggle} onChange={e => onChange(e)} ></TextField>
-                                    </div></Fragment>
+                                    </div></div>
 
                                 }
 
@@ -436,7 +475,7 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
 
                         </Grid>
                         
-                    </FormControl>
+                    </form>
                     </Paper>
                 </Grid>
             

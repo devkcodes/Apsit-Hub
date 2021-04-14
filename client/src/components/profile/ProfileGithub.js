@@ -38,7 +38,8 @@ const light = createMuiTheme({
 const useStyles = makeStyles((theme) => ({
     root: {
         height: '100vh',
-        color: 'white'
+        color: 'white',
+        marginTop:'2em'
     },
     containerRoot: {
         marginTop:'10em',
@@ -82,8 +83,8 @@ const useStyles = makeStyles((theme) => ({
         // border:"5px solid #F1304D",
         backgroundColor:"#2B7A78",
         justifyContent:'space-between',
-         flexDirection:'column',
-         borderRadius:"5px",
+        flexDirection:'column',
+        borderRadius:"5px",
     }
 
 }));
