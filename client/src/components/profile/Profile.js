@@ -19,6 +19,7 @@ import {Card, Text, Divider,Code} from '@geist-ui/react'
 import { makeStyles } from '@material-ui/core/styles';
 import {Grid} from '@material-ui/core'
 import CreateProfile from "../profile-forms/CreateProfile";
+import Container from '@material-ui/core/Container'
 
 
 
@@ -26,7 +27,8 @@ import CreateProfile from "../profile-forms/CreateProfile";
 const useStyles = makeStyles((theme) => ({
     root: {
         height: '100vh',
-        color: 'white'
+        color: 'white',
+		backgroundColor:"#17252A"
     },
     containerRoot: {
         marginTop:"80px",
@@ -48,9 +50,6 @@ function Profile({ match, getProfileById, profile: { profile,user, loading }, au
 		getProfileById(match.params.id)
 	}, [getProfileById])
 
-	console.log('hellooooooooooo')
-	// const user_id = user._id;
-	console.log(user)
 
 const _id = 0;
 const user_id =0;
@@ -67,7 +66,7 @@ console.log(auth)
 				{ profile === null || loading ? (
 					<Spinner />
 				) : (
-						<Fragment>
+						<Container>
 							<div className={classes.root}>
 							
 								<Grid container 
@@ -84,7 +83,7 @@ console.log(auth)
 									
 								</Grid>
 							</div>
-						</Fragment>
+						</Container>
 					)}
 					</Fragment>
 }

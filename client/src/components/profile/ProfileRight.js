@@ -6,7 +6,7 @@ import {Grid} from '@material-ui/core'
 function ProfileRight({profile}) {
   
   return (
-    <Grid  container item  justify="flex-start"> 
+    <Grid   item  justify="flex-start"> 
     
       <ProfileGithub username={profile.githubusername}/>
     </Grid>

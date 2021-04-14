@@ -28,7 +28,8 @@ containerRoot: {
         },
     },
     backButton:{
-        padding:'30px'
+        padding:'50px',
+        margin:"2%"
     }
 }
 const useStyles = makeStyles(styles)
@@ -45,7 +46,7 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
     return loading || post === null ? <Spinner /> : <Fragment>
         <div className={classes.containerRoot}>
             <Link to='/posts' className='btn'>
-            <Button className={classes.backButton} size="mini" shadow type="secondary"><ArrowLeft/></Button></Link>
+            <Button className={classes.backButton} size="mini" shadow type="secondary"><ArrowLeft/>Back To Posts</Button></Link>
             
         <PostItem post={post} postPage ={true}  />
 

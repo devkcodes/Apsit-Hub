@@ -88,7 +88,7 @@ const classes = useStyles();
 
                         </Switch>
                     </section>
-<Footer/></Fragment>
+</Fragment>
                 </Fragment > </Router></Provider>
     )
 };

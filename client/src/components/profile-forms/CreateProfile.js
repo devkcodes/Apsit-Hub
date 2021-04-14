@@ -10,7 +10,11 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import YouTubeIcon from '@material-ui/icons/YouTube';
-
+import g4glogo from '../../img/gfgicon.png'
+import leetcodelogo from '../../img/leetcode-logo.png'
+import codeforceslogo from '../../img/codeforces-logo.jpg'
+import codecheflogo from '../../img/codechef-logo.png'
+import kagglelogo from '../../img/kaggle.png'
 
 
 //normal 
@@ -19,6 +23,11 @@ import { Link, withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createProfile } from '../../actions/profile';
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import {  MuiThemeProvider } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography'
+
+
 
 const CreateProfile = ({ createProfile, history }) => {
     const [formData, setFormData] = useState(
@@ -74,48 +83,114 @@ const CreateProfile = ({ createProfile, history }) => {
         createProfile(formData, history);
     }
 
+
+    const editFont = createMuiTheme({
+        palette: {
+          primary: {
+            main:"#fff",
+          }},
+        typography: {
+          fontFamily: [
+            'Share Tech', 'san-serif',
+          ].join(','),
+          
+          Fontcolor:"#F1304D"
+      }});
+
     const useStyles = makeStyles((theme) => ({
-        // root: {
-        //     height: '100vh',
-        //     color: 'white',
-        //     backgroundColor: "grey"
-        // },
         containerRoot: {
             margin: '100px',
-            backgroundColor: "black",
-            alignItems: 'center'
+            ['@media (max-width:600px)']: {
+                margin:0,
+                backgroundColor:"# ",
 
+                    }
+            
         },
-        formBox: {
-            marginTop: '20px',
-            marginBottom: '20px'
+        form: {
+            marginLeft:"15%",
+            marginRight:"15%",
+            width: '100%', 
+            ['@media (max-width:600px)']: {
+            }
+    
         },
 
-        formGrid: {
-
-        },
         formPaper: {
-            backgroundColor: "white",
+           margin:"5%",
             height: "100%",
-            padding: '60px'
-
-
+            padding: '2%',
+            width: '60%',
+            marginBottom: '20%',
+            marginLeft:0,
+            ['@media (max-width:600px)']: {
+                margin:0,
+                width:"94%"
+            },
+            ['@media (max-width:1024px)']: {
+                margin:0,
+                width:"94%"
+            }
+    
         },
         textField: {
-            width: '30vw',
-            margin: "0px",
+            width: '70%',
+            margin: "5px",
             height: "5vh",
+            ['@media (max-width:600px)']: {
+            }
+    
+        },
+        textFieldSocial:{
+            width: '70%',
+            margin: "5px",
+            height: "5vh",
+            marginBottom:"15px",
+            ['@media (max-width:600px)']: {
+            
+            },
+            ['@media (max-width:1024)']: {
+            
+            }
+    
         },
         formGrid1: {
-            margin: "10px",
-        },
+            margin: "0%",
+            // marginLeft:"-20%",
+            ['@media (max-width:600px)']: {
+           
+            },
+            ['@media (max-width:1024)']: {
+            
+            }
+    
+       },
         formGrid2: {
-            margin: "10px",
+            marginLeft: "-4%",
             marginTop: "70px",
+            width: "80%",
+            ['@media (max-width:600px)']: {
+            
+            },
+            ['@media (max-width:1024)']: {
+           
+            }
+    
         },
         buttonToggle: {
-            margin: "10px",
-            marginLeft: '20%'
+            marginTop: "10px",
+            // marginLeft: '20%',
+            color: 'black',
+            border: '1px solid ',
+            width: '100%',
+            ['@media (max-width:600px)']: {
+            
+            },
+            ['@media (max-width:1024)']: {
+            
+            }
+    
+
         },
         Bsubmit: {
             marginLeft: "2%",
@@ -125,34 +200,35 @@ const CreateProfile = ({ createProfile, history }) => {
         },
         Bback: {
             marginRight: "7%",
-            backgroundColor: "blue"
+            color: "black",
+            width: "100%"
         },
         Bdelete: {
             backgroundColor: "red",
             color: "white"
         },
-        links: {
-            color: 'white',
-            textDecoration: 'none'
+        finalGrid:{
+            marginLeft:"-12%",
+            margin:"5%"
+        },
+        urls: {
+            marginLeft:"10%",
+            marginTop:"5%"
         },
         textFieldSocial: {
             width: '26vw',
             margin: "0px",
             height: "5vh",
         },
-        Icons: {
-            paddingRight: "5%"
-        },
-        h1:{
-            fontSize: "50px",
-            
-            float:"left"
-        },
-        lead:{
-            fontSize: "18px"
-        }
-
-
+        logo:{
+            maxWidth:'25px',
+            marginRight:'20px',
+            textDecoration:'none',
+            color:'black'
+          },
+          Icons:{
+            marginRight:'20px',
+          }
 
     }));
     const classes = useStyles();
@@ -189,30 +265,31 @@ const CreateProfile = ({ createProfile, history }) => {
 
     return (
     
-        <Fragment>
+        <MuiThemeProvider theme={editFont}>
             <Fragment>
-                <Grid container direction="column" className={classes.containerRoot}>
+                <Grid container direction="column" justify="space-between"  alignItems="center" style={{backgroundColor:"#2B7A77"}} className={classes.containerRoot}>
                     <Grid item> 
+                    <Typography><h1 variant="h4" className={classes.h1}> Create Your Profile</h1></Typography>
+                       
+      
+                       <Typography> 
+                                Let's get some information to make your profile stand out
+                        </Typography></Grid>
+                        <Paper className={classes.formPaper}>
+                        <FormControl className={classes.form} onSubmit={e => onSubmit(e)}>
+                        <Grid
+  container
+  direction="column"
+  justify="space-evenly"
+  alignItems="stretch"
+>
                     
-                    <div>
-                    <h1 className={classes.h1}>
-                        Create Your Profile
-      </h1>
-                        <p className={classes.lead}>
-                             Let's get some information to make your
-        profile stand out
-      </p>
-      </div></Grid>
-                    <Grid className={classes.formGrid} direction="column">
-                        <form className={classes.form} onSubmit={e => onSubmit(e)}>
-                            <Paper className={classes.formPaper}>
-                    
-                                <Grid item className={classes.formGrid1}>
+                                <Grid item className={classes.formGrid1} >
 
 
 
-                                <FormControl className={classes.formControl}>
-                                <InputLabel shrink id="demo-simple-select-placeholder-label-label">
+                                <Box direction="column" className={classes.formBox} elevation={3}><FormControl  style={{width:"71%",}}>
+                                <InputLabel  className={classes.textFieldSocial} shrink id="demo-simple-select-placeholder-label-label">
                                     Gender
                                 </InputLabel>
 
@@ -237,19 +314,19 @@ const CreateProfile = ({ createProfile, history }) => {
        
         
       </FormControl>
+</Box>
 
 
 
 
-
-
-                                    <TextField className={classes.textField}
+      <Box direction="column" className={classes.formBox} elevation={3}>
+                                    <TextField className={classes.textField} style={{marginTop:"20px"}}
                                         id="status"
                                         select
                                         name="status"
-                                        helperText='Currently in..'
+                                        // helperText='Currently in..'
                                         value={status}
-                                        label = "status"
+                                        label = "Currently in..."
                                         onChange={e => onChange(e)}
 
                                     >
@@ -258,7 +335,7 @@ const CreateProfile = ({ createProfile, history }) => {
                                                 {option.value}
                                             </MenuItem>
                                         ))}
-                                    </TextField>
+                                    </TextField></Box>
 
                                     <Box direction="column" className={classes.formBox} elevation={3}>
                                         <TextField className={classes.textField} label='Company' placeholder="Company" name="company" value={company} onChange={e => onChange(e)}>
@@ -298,91 +375,93 @@ const CreateProfile = ({ createProfile, history }) => {
                                     </Box>
                                 </Grid>
                                 <Grid item className={classes.formGrid2}>
-                                    <div className="my-2">
+                                <Grid  container direction="row" justify="space-around" alignItems="center">
+                                <Grid item>
                                         <Button color="primary" variant="outlined" onClick={() => toggleSocialInputs(!displaySocialInputs)} size="small" className={classes.buttonToggle}>
                                             <LanguageSharpIcon />Add Social Network Links
-          </Button>
+          </Button></Grid>
 
-                                        <Button color="primary" variant="outlined" onClick={() => toggleCodingInputs(!displayCodingInputs)} size="small" className={classes.buttonToggle}>
+          <Grid item> <Button color="primary" variant="outlined" onClick={() => toggleCodingInputs(!displayCodingInputs)} size="small" className={classes.buttonToggle}>
                                             <LanguageSharpIcon />Add Coding Profile Links
-          </Button>
+          </Button></Grid>
 
-                                        <span>Optional</span>
-                                    </div>
+                                        
+                                    </Grid>
 
-                                    {displaySocialInputs && <Fragment>
+                                    {displaySocialInputs && <div className={classes.urls}>
 
                                         <div className="form-group social-input">
-                                            <TwitterIcon fontSize="large" className={classes.Icons} />
+                                            <TwitterIcon fontSize="medium" className={classes.Icons} />
                                             <TextField className={classes.textFieldSocial} placeholder="Twitter URL" name="twitter" value={twitter} onChange={e => onChange(e)} ></TextField>
                                         </div>
 
                                         <div className="form-group social-input">
-                                            <FacebookIcon fontSize="large" className={classes.Icons} />
+                                            <FacebookIcon fontSize="medium" className={classes.Icons} />
                                             <TextField className={classes.textFieldSocial} placeholder="Facebook URL" name="facebook" value={facebook} onChange={e => onChange(e)} ></TextField>
                                         </div>
 
                                         <div className="form-group social-input">
-                                            <YouTubeIcon fontSize="large" className={classes.Icons} />
+                                            <YouTubeIcon fontSize="medium" className={classes.Icons} />
                                             <TextField className={classes.textFieldSocial} placeholder="YouTube URL" name="youtube" value={youtube} onChange={e => onChange(e)} ></TextField>
                                         </div>
 
                                         <div className="form-group social-input">
-                                            <LinkedInIcon fontSize="large" className={classes.Icons} />
+                                            <LinkedInIcon fontSize="medium" className={classes.Icons} />
                                             <TextField className={classes.textFieldSocial} placeholder="Linkedin URL" name="linkedin" value={linkedin} onChange={e => onChange(e)} ></TextField>
                                         </div>
 
                                         <div className="form-group social-input">
-                                            <InstagramIcon fontSize="large" className={classes.Icons} />
+                                            <InstagramIcon fontSize="medium" className={classes.Icons} />
                                             <TextField className={classes.textFieldSocial} placeholder="Instagram URL" name="instagram" value={instagram} onChange={e => onChange(e)} ></TextField>
-                                        </div></Fragment>
+                                        </div></div>
 
                                     }
 
-                                    {displayCodingInputs && <Fragment>
+                                    {displayCodingInputs && <div className={classes.urls}>
 
                                         <div className="form-group social-input">
-                                            <TwitterIcon fontSize="large" className={classes.Icons} />
+                                        <img className={classes.logo} src={g4glogo} alt=""/>
                                             <TextField className={classes.textFieldSocial} placeholder="geeksforgeeks URL" name="geeksforgeeks" value={geeksforgeeks} onChange={e => onChange(e)} ></TextField>
                                         </div>
 
                                         <div className="form-group social-input">
-                                            <FacebookIcon fontSize="large" className={classes.Icons} />
+                                        <img className={classes.logo} src={leetcodelogo} alt=""/>
                                             <TextField className={classes.textFieldSocial} placeholder="leetcode URL" name="leetcode" value={leetcode} onChange={e => onChange(e)} ></TextField>
                                         </div>
 
                                         <div className="form-group social-input">
-                                            <YouTubeIcon fontSize="large" className={classes.Icons} />
+                                        <img className={classes.logo} src={codeforceslogo} alt=""/>
                                             <TextField className={classes.textFieldSocial} placeholder="codeforces URL" name="codeforces" value={codeforces} onChange={e => onChange(e)} ></TextField>
                                         </div>
 
                                         <div className="form-group social-input">
-                                            <LinkedInIcon fontSize="large" className={classes.Icons} />
+                                        <img className={classes.logo} src={codecheflogo} alt=""/>
                                             <TextField className={classes.textFieldSocial} placeholder="codechef URL" name="codechef" value={codechef} onChange={e => onChange(e)} ></TextField>
                                         </div>
 
                                         <div className="form-group social-input">
-                                            <InstagramIcon fontSize="large" className={classes.Icons} />
+                                        <img className={classes.logo} src={kagglelogo} alt=""/>
                                             <TextField className={classes.textFieldSocial} placeholder="kaggle URL" name="kaggle" value={kaggle} onChange={e => onChange(e)} ></TextField>
-                                        </div></Fragment>
+                                        </div></div>
 
                                     }
 
                                 </Grid>
+</Grid>
+<Grid  container direction="row" justify="center"  className={classes.finalGrid}>
+<Grid item><Button variant="outlined" type="submit" className={classes.Bsubmit}>Save</Button>  </Grid>
+                            {/* <input type="submit" className="btn btn-primary my-1" /> */}
+                            
+                            <Grid item> <Button item variant="outlined" className={classes.Bback} > <Link  to="/dashboard">Go Back</Link></Button>  </Grid>
 
-
-                                <Button onSubmit={e =>onSubmit(e)}variant="outlined" type="submit" className={classes.Bsubmit}>Submit</Button>
-                                {/* <input type="submit" className="btn btn-primary my-1" /> */}
-                                <Button item variant="outlined" className={classes.Bback} > <Link className={classes.links} to="/dashboard">Go Back</Link></Button>
-
-
+                        </Grid>
+                                </FormControl>
 
                             </Paper>
-                        </form>
                     </Grid>
-                </Grid>
+                
             </Fragment >
-        </Fragment>
+        </MuiThemeProvider>
     )
 }
 
