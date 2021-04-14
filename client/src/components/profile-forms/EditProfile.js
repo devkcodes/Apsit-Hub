@@ -20,7 +20,7 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import { makeStyles, MuiThemeProvider } from '@material-ui/core/styles';
-
+import FormControl from '@material-ui/core/FormControl';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 
@@ -129,63 +129,89 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
       }});
       
     const useStyles = makeStyles((theme) => ({
-        root: {
-            height: '100vh',
-            color: 'white',
-            backgroundColor: "grey"
-        },
+    
         containerRoot: {
             margin: '100px',
+            ['@media (max-width:600px)']: {
+                margin:0,
+                backgroundColor:"# ",
+
+                    }
             
-            alignItems: 'center'
-
         },
-        formBox: {
-            marginTop: '20px',
-            marginBottom: '20px'
+        form: {
+            marginLeft:"15%",
+            marginRight:"15%",
+            width: '100%', 
+            ['@media (max-width:600px)']: {
+            }
+    
         },
 
-        formGrid: {
-
-        },
         formPaper: {
-            backgroundColor: "white",
+           margin:"0%",
             height: "100%",
-            padding: '60px',
-            width: '79%',
+            padding: '2%',
+            width: '60%',
             marginBottom: '10%',
-            marginLeft:0
-
-
+            marginLeft:0,
+            ['@media (max-width:600px)']: {
+                margin:0,
+                width:"94%"
+            }
+    
         },
         textField: {
-            width: '30vw',
-            margin: "0px",
+            width: '70%',
+            margin: "5px",
             height: "5vh",
+            ['@media (max-width:600px)']: {
+            }
+    
+        },
+        textFieldSelect:{
+            width: '70%',
+            margin: "5px",
+            height: "5vh",
+            marginBottom:"15px",
+            ['@media (max-width:600px)']: {
+            }
+    
         },
         formGrid1: {
-            margin: "10px",
-        },
+            margin: "0%",
+            // marginLeft:"-20%",
+            ['@media (max-width:600px)']: {
+            }
+    
+       },
         formGrid2: {
-            margin: "10px",
+            marginLeft: "-4%",
             marginTop: "70px",
+            width: "80%",
+            ['@media (max-width:600px)']: {
+            }
+    
         },
         buttonToggle: {
             marginTop: "10px",
             // marginLeft: '20%',
             color: 'black',
             border: '1px solid ',
-            width: '100%'
+            width: '100%',
+            ['@media (max-width:600px)']: {
+            }
+    
 
         },
         Bsubmit: {
-            // marginLeft: "2%",
+            marginLeft: "2%",
             backgroundColor: "green",
-            // marginRight: "7%",
+            marginRight: "7%",
             color: "white"
         },
         Bback: {
-            // marginRight: "7%",
+            marginRight: "7%",
             color: "black",
             width: "100%"
         },
@@ -193,27 +219,31 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
             backgroundColor: "red",
             color: "white"
         },
-        links: {
-            color: 'white',
-            textDecoration: 'none',
+        finalGrid:{
+            marginLeft:"-12%",
+            margin:"5%"
         },
+        // links: {
+        //     color: 'white',
+        //     textDecoration: 'none',
+        // },
         textFieldSocial: {
             width: '26vw',
             margin: "0px",
             height: "5vh",
         },
-        Icons: {
-            paddingRight: "5%"
-        },
-        h1:{
-            fontSize: "60px",
-            backgroundColor:"17242A",
-            float:"left"
-        },
-        lead:{
-            fontSize: "18px",
-            dispay:'block'
-        }
+        // Icons: {
+        //     paddingRight: "5%"
+        // },
+        // h1:{
+        //     fontSize: "60px",
+        //     backgroundColor:"17242A",
+        //     float:"left"
+        // },
+        // lead:{
+        //     fontSize: "18px",
+        //     dispay:'block'
+        // }
 
 
 
@@ -243,28 +273,32 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
     return (
         <MuiThemeProvider theme={editFont}>
         <Fragment>
-            <Grid container
-  direction="column"
-  justify="space-between"
-  alignItems="center" style={{backgroundColor:"#2B7A77"}} className={classes.containerRoot}>
-            <div>
-                    <Typography><h1 variant="h4" className={classes.h1}> Create Your Profile</h1></Typography>
+            <Grid container  direction="column" justify="space-between"  alignItems="center" style={{backgroundColor:"#2B7A77"}} className={classes.containerRoot}>
+            <Grid item>
+                    <Typography><h1 variant="h4" className={classes.h1}> Edit Your Profile</h1></Typography>
                        
       
-                    <Typography> <p className={classes.lead}>
+                    <Typography> 
                              Let's get some information to make your profile stand out
-      </p></Typography>
-      </div>
-                <Grid className={classes.formGrid} direction="column">
-                    <form className={classes.form} onSubmit={e => onSubmit(e)}>
-                        <Paper className={classes.formPaper}>
-
+                     </Typography>
+                      </Grid>
+                      <Paper className={classes.formPaper}>
+                    <FormControl className={classes.form} onSubmit={e => onSubmit(e)}>
+                        
+                    <Grid
+  container
+  direction="column"
+  justify="space-evenly"
+  alignItems="stretch"
+>
                             <Grid item className={classes.formGrid1}>
-                                <TextField className={classes.textField}
+                                
+                            <Box direction="column" className={classes.formBox} elevation={3}>
+                                <TextField className={classes.textFieldSelect}
                                     id="status"
                                     select
                                     name="status"
-                                    helperText='Currently in..'
+                                    label='Currently in..'
                                     value={status}
                                     onChange={e => onChange(e)}
 
@@ -275,6 +309,9 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
                                         </MenuItem>
                                     ))}
                                 </TextField>
+                                <p className="form-text"
+                                    >You're current Graduation Year</p>
+                                </Box>
 
                                 <Box direction="column" className={classes.formBox} elevation={3}>
                                     <TextField className={classes.textField} label='Company' placeholder="Company" name="company" value={company} onChange={e => onChange(e)}>
@@ -296,7 +333,7 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
                                     <TextField className={classes.textField} label='Skills' placeholder="* Skills" name="skills" value={skills} onChange={e => onChange(e)} ></TextField>
                                     <pre className="form-text"
                                     >Please use comma separated values (eg.
-            HTML,CSS,JavaScript,PHP)</pre>
+            HTML,CSS)</pre>
                                 </Box>
                                 <Box className={classes.formBox}>
                                     <TextField className={classes.textField} label='Github Username' placeholder="Github Username"
@@ -314,11 +351,8 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
                                 </Box>
                             </Grid>
                             <Grid item className={classes.formGrid2}>
-                                <div className="my-2">
-                                    <Grid  container
-  direction="row"
-  justify="space-around"
-  alignItems="center">
+                                
+                                    <Grid  container direction="row" justify="space-around" alignItems="center">
                                    <Grid item> <Button color="primary" variant="outlined" onClick={() => toggleSocialInputs(!displaySocialInputs)} size="small" className={classes.buttonToggle}>
                                         <LanguageSharpIcon />Add Social Network Links
           </Button></Grid>
@@ -328,7 +362,7 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
           </Button></Grid>
           </Grid>
                                    
-                                </div>
+                                
 
                                 {displaySocialInputs && <Fragment>
 
@@ -391,8 +425,8 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
                                 }
 
                             </Grid>
-
-<Grid  container direction="row" justify="space-around" alignItems="center">
+                            </Grid>
+<Grid  container direction="row" justify="center"  className={classes.finalGrid}>
 <Grid item><Button variant="outlined" type="submit" className={classes.Bsubmit}>Save</Button>  </Grid>
                             {/* <input type="submit" className="btn btn-primary my-1" /> */}
                             <Grid item> <Button variant="outlined" className={classes.Bdelete} onClick={() => deleteAccount()}>
@@ -400,12 +434,12 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
                         </Button>  </Grid>
                             <Grid item> <Button item variant="outlined" className={classes.Bback} > <Link  to="/dashboard">Go Back</Link></Button>  </Grid>
 
-                           
                         </Grid>
-                        </Paper>
-                    </form>
+                        
+                    </FormControl>
+                    </Paper>
                 </Grid>
-            </Grid>
+            
         </Fragment >
         </MuiThemeProvider>
     )
