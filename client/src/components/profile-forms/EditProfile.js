@@ -139,7 +139,7 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
         containerRoot: {
             margin: '100px',
             ['@media (max-width:600px)']: {
-                margin:0,
+                margin:100,
                 backgroundColor:"# ",
 
                     }
@@ -249,10 +249,20 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
             marginLeft:"-12%",
             margin:"5%"
         },
-        // links: {
-        //     color: 'white',
-        //     textDecoration: 'none',
-        // },
+        urls: {
+            marginLeft:"10%",
+            marginTop:"5%"
+        },
+        logo:{
+            maxWidth:'25px',
+            marginRight:'20px',
+            textDecoration:'none',
+            color:'black'
+          },
+          Icons:{
+            marginRight:'20px',
+          },
+
         textFieldSocial: {
             width: '26vw',
             margin: "0px",
@@ -309,7 +319,7 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
                      </Typography>
                       </Grid>
                       <Paper className={classes.formPaper}>
-                    <FormControl className={classes.form} onSubmit={e => onSubmit(e)}>
+                    <form className={classes.form} onSubmit={e => onSubmit(e)}>
                         
                     <Grid
   container
@@ -390,7 +400,8 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
                                    
                                 
 
-                                {displaySocialInputs && <Fragment>
+                                {displaySocialInputs &&<div className={classes.urls}>
+
 
                                     <div className="form-group social-input">
                                         <TwitterIcon fontSize="large" className={classes.Icons} />
@@ -415,13 +426,14 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
                                     <div className="form-group social-input">
                                         <InstagramIcon fontSize="large" className={classes.Icons} />
                                         <TextField className={classes.textFieldSocial} placeholder="Instagram URL" name="instagram" value={instagram} onChange={e => onChange(e)} ></TextField>
-                                    </div></Fragment>
+                                    </div></div>
 
                                 }
 
 
 
-                                {displayCodingInputs && <Fragment>
+                                {displayCodingInputs && <div className={classes.urls}>
+
 
                                     <div className="form-group social-input">
                                     <img className={classes.logo} src={g4glogo} alt=""/>
@@ -447,7 +459,7 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
                                     <div className="form-group social-input">
                                     <img className={classes.logo} src={kagglelogo} alt=""/>
                                         <TextField className={classes.textFieldSocial} placeholder="kaggle URL" name="kaggle" value={kaggle} onChange={e => onChange(e)} ></TextField>
-                                    </div></Fragment>
+                                    </div></div>
 
                                 }
 
@@ -463,7 +475,7 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
 
                         </Grid>
                         
-                    </FormControl>
+                    </form>
                     </Paper>
                 </Grid>
             

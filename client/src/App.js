@@ -61,9 +61,11 @@ const classes = useStyles();
                 <Fragment  >
                 <Landing  exact path="/"/>
                 <div className="navbar">
-                    <Navbar /> </div>
+                    <Navbar /> 
+                    </div>
                 <div className="drawer">
-                    <ResponsiveDrawer /></div>
+                    <ResponsiveDrawer />
+                    </div>
 
                     <Fragment className={classes.frag}>
                     <Alert />

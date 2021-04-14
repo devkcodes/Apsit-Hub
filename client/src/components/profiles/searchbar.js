@@ -1,4 +1,5 @@
   
+  
 import React, { Fragment, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import Spinner from "../layout/Spinner";
@@ -9,7 +10,7 @@ import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
-import './search.css'
+
 import { makeStyles } from '@material-ui/core/styles';
 import { Search } from '@geist-ui/react-icons'
 
@@ -19,16 +20,20 @@ cardSearch:{
 	margin:"50px",
 	width:'320px',
 	marginBottom:0,
+	display:'flex'
+
 
 },
 searchInput:{
 	border:'none',
-	width:'73.75%',
-	padding:'10px'
+	width:'90%',
+	padding:'10px',
 },
 searchbtn:{
 
-	backgroundColor:'#2B7A78'
+	backgroundColor:'#2B7A78',
+	width:'10%',
+	float:'right'
 }
 
 }));
