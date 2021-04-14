@@ -1,11 +1,4 @@
-*{
-  margin:0
-}
-body, html {
-    margin: 0;
-    padding: 0;
-    background: #f5f5f5;
-}
+
 
 .section-wrapper {
     width: 100%;
@@ -35,9 +28,7 @@ div.svelte-1424rrd {
 }
 p.svelte-1424rrd {
     max-width: 900px;
-}
-p {
-    color: #27363b;
+        color: #27363b;
     font-size: 1em;
     font-family: canada-type-gibson, sans-serif;
     font-weight: 400;
@@ -45,7 +36,9 @@ p {
     opacity: 0.7;
     margin: 0;
 }
-h1 {
+
+
+.heading1 {
     font-family: grad, serif;
     font-weight: 700;
     font-size: 2.5em;
@@ -148,21 +141,18 @@ svg:not(:root) {
 
 @import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700");
 
-footer {
+.footer {
 
   --col-deepblue: #3aafa9;
+    width:100vw;
+  bottom:0px;
+  height:200px;
+  margin-top:0px;
 }
 a {
   color:#fff;
   text-decoration:none;
 }
-footer {
-  width:100vw;
-  bottom:0px;
-  height:200px;
-  margin-top:0px;
-}
-
 svg {
   width:100%;
   overflow:visible;
@@ -247,14 +237,12 @@ svg {
 /* ************************************************************ *//* ************************************************************ *//* ************************************************************ *//* ************************************************************ *//* ************************************************************ *//* ************************************************************ */
 
 @media (max-width: 767px){
-h1 {
+.heading1 {
     font-size: 1.5em;
 }
 p.svelte-1424rrd {
     max-width: 60%;
-}
-p {
-    color: #27363b;
+        color: #27363b;
     font-size: 0.5em;
     font-family: canada-type-gibson, sans-serif;
     font-weight: 400;
@@ -262,7 +250,8 @@ p {
     opacity: 0.7;
     margin: 0;
 }
-button:not(.notdefault) {
+
+.btn-land:not(.notdefault) {
     border-radius: 9999px;
     padding: 10px;
     min-width: 100px;

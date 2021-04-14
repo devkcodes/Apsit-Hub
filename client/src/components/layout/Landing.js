@@ -4,9 +4,15 @@ import waveSVG from './wave.svg'
 import blobs from '../../img/blobs-01.svg'
 import hero from '../../img/hero.svg'
 import logo from '../../img/APSIT-HUB.svg'
+import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import Login from "../auth/Login";
+import PropTypes from "prop-types";
 
-
-function Landing() {
+function Landing({ isAuthenticated }) {
+  	if (isAuthenticated) {
+		return <Redirect to="/posts" />;
+	}
   return (
     <div>
 
@@ -18,7 +24,7 @@ function Landing() {
 
       <section class="section-content hero svelte-1424rrd">
         <div class="content svelte-1424rrd">
-          <h1>
+          <h1 class ="heading">
             <span class="grey">
 					Connecting
 					<br/>
@@ -61,12 +67,11 @@ function Landing() {
 
 
 
-    <footer>
+    <footer class="footer">
  <waveSVG/>
 <svg viewBox="0 0 120 28">
   <defs> 
     <filter id="goo"/>
-      
       <path id="wave" d="M 0,10 C 30,10 30,15 60,15 90,15 90,10 120,10 150,10 150,15 180,15 210,15 210,10 240,10 v 10 h -240 z" />
   </defs> 
 
@@ -106,5 +111,11 @@ function Landing() {
     </div>
   )
 }
+Landing.propTypes = {
+	isAuthenticated: PropTypes.bool,
+};
 
-export default Landing
+const mapStateToProps = (state) => ({
+	isAuthenticated: state.auth.isAuthenticated,
+});
+export default connect(mapStateToProps)(Landing);
