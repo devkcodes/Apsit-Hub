@@ -78,13 +78,26 @@ const useStyles = makeStyles((theme) => ({
         minHeight:'10px'
     },
     cardmain:{
-        maxWidth:"100%",
+        width:"100%",
         display:'flex',
         // border:"5px solid #F1304D",
         backgroundColor:"#2B7A78",
         justifyContent:'space-between',
-        flexDirection:'column',
-        borderRadius:"5px",
+         flexDirection:'column',
+         borderRadius:"5px",
+         ['@media (max-width:1000px)']: {
+           
+                },
+                ['@media (max-width:600px)']: {
+                   width:"50%",
+            // overflow:"hidden"
+                }
+    },
+    card:{
+        ['@media (max-width:600px)']: {
+            backgroundColor:"#17252A",
+     // overflow:"hidden"
+         }
     }
 
 }));
@@ -104,8 +117,8 @@ const ProfileGithub = ({ username, getGithubRepos, repos }) => {
     return (
         <MuiThemeProvider theme={light}>
             <Typography>
-        
-            <Card style={{border: '1px solid #000'}}>
+        <Grid item sm={12}>
+            <Card style={{border: '1px solid #000'}} className={classes.card}>
                 <Card.Content className={classes.cardmain} >
                 <div className={classes.h4repo}>
                     <span><Text size={20} style={{color: '#17242A'}} b>Github Repositories</Text></span>
@@ -151,7 +164,7 @@ const ProfileGithub = ({ username, getGithubRepos, repos }) => {
                 </div> 
                 </Card.Content>
                 </Card>
-        
+                </Grid>
         </Typography>
         </MuiThemeProvider>
     )

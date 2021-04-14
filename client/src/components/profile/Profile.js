@@ -18,6 +18,7 @@ import {Card, Text, Divider,Code} from '@geist-ui/react'
 import { makeStyles } from '@material-ui/core/styles';
 import {Grid} from '@material-ui/core'
 import CreateProfile from "../profile-forms/CreateProfile";
+import Container from '@material-ui/core/Container'
 
 
 
@@ -25,7 +26,8 @@ import CreateProfile from "../profile-forms/CreateProfile";
 const useStyles = makeStyles((theme) => ({
     root: {
         height: '100vh',
-        color: 'white'
+        color: 'white',
+		backgroundColor:"#17252A"
     },
     containerRoot: {
         marginTop:"80px",

@@ -71,6 +71,9 @@ const useStyles = makeStyles((theme) => ({
       textDecoration:'none',
       color:'black'
     },
+    icons:{
+      marginRight:'20px',
+    },
     spanBio:{
       margin:'10px',
       marginRight:'50px',
@@ -134,7 +137,7 @@ console.log(coding)
                             
                             <div className={classes.CardOneText}>
                             <span>
-                            <Typography className={classes.name} >{name}</Typography>
+                            <Typography className={classes.name} variant="h6" >{name}</Typography>
                             </span>
                             <span>
                               {status}
