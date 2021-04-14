@@ -100,6 +100,7 @@ return(
                         <Button iconRight={<MessageSquare/>} type="secondary" ghost auto size="small" >
                         </Button>
                     </Link>
+                    
                     {!auth.loading && user === auth.user._id && (
 				    <Button iconRight={<XSquare/>} onClick={() => deletePost(_id)} type="error" ghost auto size="small"/>
 			)}
