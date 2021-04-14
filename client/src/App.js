@@ -3,7 +3,7 @@ import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ResponsiveDrawer from './components/layout/Navbar2';
 import Navbar from './components/layout/Navbar';
-
+import Landing from './components/layout/Landing'
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
@@ -59,15 +59,15 @@ const classes = useStyles();
         <Provider  store={store} >
             <Router >
                 <Fragment  >
+                <Landing  exact path="/"/>
                 <div className="navbar">
-                     <Navbar /> </div>
-                   
-                   <div className="drawer">
+                    <Navbar /> </div>
+                <div className="drawer">
                     <ResponsiveDrawer /></div>
 
                     <Fragment className={classes.frag}>
                     <Alert />
-                    <Route exact path="/" component={Login} />
+                    <Route exact path="/login" component={Login} />
 
                     <section className="container">
 
