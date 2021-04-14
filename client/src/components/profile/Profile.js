@@ -3,11 +3,10 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Spinner from "../layout/Spinner";
-import ProfileTop from "./ProfileTop";
+
 import ProfileGithub from './ProfileGithub';
 import ProfileAbout from "./ProfileAbout";
 import ProfileLeft from "./ProfileLeft";
-import ProfileRight from "./ProfileRight";
 import { getProfileById } from "../../actions/profile";
 import Alert from "../layout/Alert"
 
@@ -34,8 +33,6 @@ const useStyles = makeStyles((theme) => ({
         marginTop:"80px",
 				width:'90vw',
 				display:'flex',
-
-
     },
 	
 
@@ -66,8 +63,8 @@ console.log(auth)
 				{ profile === null || loading ? (
 					<Spinner />
 				) : (
-						<Container>
-							<div className={classes.root}>
+						<Fragment>
+							{/* <div className={classes.root}> */}
 							
 								<Grid container 
 								direction="row"
@@ -75,15 +72,15 @@ console.log(auth)
 									alignContent="center"
 								  className={classes.containerRoot}>
 										<Grid item xs={12} md={5}>
-									<ProfileLeft profile ={profile}/>
+									<ProfileLeft  profile ={profile}/>
 									</Grid>
-									<Grid item xs={12} md={6}>
-									<ProfileRight profile ={profile}/>
+									<Grid style={{backgroundColor:'black'}} item xs={12} md={6}>
+									<ProfileGithub username={profile.githubusername}/>
 									</Grid>
 									
 								</Grid>
-							</div>
-						</Container>
+							{/* </div> */}
+						</Fragment>
 					)}
 					</Fragment>
 }
