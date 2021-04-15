@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addPost } from '../../actions/post';
@@ -15,6 +15,7 @@ import {Card, Button,Icon,TextField,FormControl, Typography} from '@material-ui/
 // import { ThemeProvider } from '@material-ui/core/styles';
 import { makeStyles,MuiThemeProvider,createMuiTheme } from '@material-ui/core/styles';
 import SendIcon from '@material-ui/icons/Send';
+import { setAlert } from '../../actions/alert';
 
 const formFont = createMuiTheme({
     palette: {
@@ -104,7 +105,9 @@ const defaultTheme = createMuiTheme()
 
 const PostForm = ({ addPost }) => {
     const classes = useStyles();
-    const [text, setText] = useState('');
+    const [text, setText] = useState("");
+    useEffect(() => {
+    }, [text])
     return (
             <div className={classes.divClass} >
                 <FormControl  className={classes.text}>
@@ -133,8 +136,11 @@ const PostForm = ({ addPost }) => {
                     className={classes.buttonSend}
                     onClick={e => {
                         e.preventDefault();
+                        if(text==null||text==" ")
+                        setAlert('Please enter something!')
                         addPost({ text });
-                        setText(' ');
+                        setText("");
+                        
                     }}
                     variant="contained"
                     endIcon={<SendIcon />}
