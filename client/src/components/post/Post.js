@@ -9,7 +9,7 @@ import CommentForm from '../post/CommentForm';
 import CommentItem from '../post/CommentItem';
 
 import { Grid, makeStyles } from '@material-ui/core'
-import {Button} from '@geist-ui/react'
+import {Button} from '@material-ui/core'
 import { ArrowLeft } from '@geist-ui/react-icons'
 
 
@@ -28,8 +28,14 @@ containerRoot: {
         },
     },
     backButton:{
-        padding:'50px',
-        margin:"2%"
+        padding:'10',
+        margin:"2%",
+        marginLeft:"0",
+        backgroundColor:"#2B7A78",
+        color:'white'
+    },
+    postcontainer:{
+        padding:'0'
     }
 }
 const useStyles = makeStyles(styles)
@@ -46,10 +52,10 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
     return loading || post === null ? <Spinner /> : <Fragment>
         <div className={classes.containerRoot}>
             <Link to='/posts' className='btn'>
-            <Button className={classes.backButton} size="mini" shadow type="secondary"><ArrowLeft/>Back To Posts</Button></Link>
-            
+            <Button className={classes.backButton} size="medium" shadow type="secondary">Back To Posts</Button></Link>
+            <div  className={classes.postcontainer}>
         <PostItem post={post} postPage ={true}  />
-
+        </div>
         <CommentForm postId={post._id} />
         <div className='comments'>
             {post.comments.map(comment => (

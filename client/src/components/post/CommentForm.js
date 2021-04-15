@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import { addComment } from '../../actions/post';
 import {Textarea,Card} from '@geist-ui/react'
-import { Grid, makeStyles } from '@material-ui/core'
+import { Grid, makeStyles,Button } from '@material-ui/core'
 
 
 const styles = {
@@ -26,30 +26,40 @@ const styles = {
         },
         textarea:{
             marginBottom:'30px',
+            height: '170px',
             ['@media (max-width:1000px)']: {
-
+                height: '170px',
             margin: '0',
-            padding: '0'
+            padding: '0',
+            
         },
         ['@media (max-width:600px)']: {
             margin: '0',
             padding: '0',
-            width:'100%'
+            width:'100%',
+            height: '170px',
+
         },
         },
         submitbtn:{
             backgroundColor:'black',
-            padding:'5px',
+            padding:'10',
             color:'white',
             border:'none',
             borderRadius:"4px",
-            marginTop:'3px',
-            
+            margin:'5px',
+            // marginLeft:'95%',
+            float: 'right',
+            '&:hover':{
+                color:'black',
+            }
+
         
 
         },
         postForm:{
-            marginBottom:"10px"
+            marginBottom:"10px",
+            
         }
 }
 const useStyles = makeStyles(styles)
@@ -66,12 +76,12 @@ const CommentForm = ({ postId, addComment }) => {
                 addComment(postId, { text });
                 setText('');
             }}>
-                <Textarea width="90%" 
+                <Textarea width="100%" 
                 value={text}
 				onChange={(e) => setText(e.target.value)}
 				required
-                placeholder="You are here! comment ?" />
-                <input  type="submit"className={classes.submitbtn} value="Submit" />
+                placeholder="You are here! Leave a comment ?" />
+                <Button  type="submit"className={classes.submitbtn} value="Submit" >Comment</Button>
             </form>
             </Card>
             

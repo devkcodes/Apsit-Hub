@@ -139,7 +139,9 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
         containerRoot: {
             margin: '100px',
             ['@media (max-width:600px)']: {
-                margin:100,
+                margin:10,
+                marginRight:20,
+                width:"400px",
                 backgroundColor:"# ",
 
                     }
@@ -163,7 +165,9 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
             marginLeft:0,
             ['@media (max-width:600px)']: {
                 margin:0,
-                width:"94%"
+                width:"100%",
+                padding:'2%',
+                marginBottom: '20%',
             },
             ['@media (max-width:1024px)']: {
                 margin:0,
@@ -177,6 +181,9 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
             height: "5vh",
             textOverflow:"ellipsis0",
             ['@media (max-width:600px)']: {
+                width:"200px",
+                marginBottom: "15px",
+
             }
     
         },
@@ -186,7 +193,7 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
             height: "5vh",
             marginBottom:"15px",
             ['@media (max-width:600px)']: {
-            
+                width:"200px"
             },
             ['@media (max-width:1024)']: {
             
@@ -235,16 +242,25 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
             marginLeft: "2%",
             backgroundColor: "green",
             marginRight: "7%",
-            color: "white"
+            color: "white",
+            '&:hover':{
+                color:"black",
+            },
         },
         Bback: {
-            marginRight: "7%",
+            // marginRight: "7%",
             color: "black",
-            width: "100%"
+            width: "100%",
+            '&:hover':{
+                color:"black",
+            },
         },
         Bdelete: {
             backgroundColor: "red",
-            color: "white"
+            color: "white",
+            '&:hover':{
+                color:"black",
+            },
         },
         finalGrid:{
             marginLeft:"-12%",
@@ -252,10 +268,16 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
         },
         urls: {
             marginLeft:"10%",
-            marginTop:"5%"
+            marginTop:"5%",
+        
+            ['@media (max-width:600px)']: {
+            width:"250px",
+            marginLeft:"0"
+            },
+
         },
         logo:{
-            maxWidth:'25px',
+            maxWidth:'23px',
             marginRight:'20px',
             textDecoration:'none',
             color:'black'
@@ -268,21 +290,50 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
             width: '26vw',
             margin: "0px",
             height: "5vh",
+            ['@media (max-width:600px)']: {
+                width:"180px"
+                },
         },
+
+        textFieldCoding: {
+            width: '26vw',
+            margin: "0px",
+            height: "5vh",
+            ['@media (max-width:600px)']: {
+                width:"180px"
+                },
+        },
+        
+
         Icons: {
             marginRight:'20px',
         },
-        // h1:{
-        //     fontSize: "60px",
-        //     backgroundColor:"17242A",
-        //     float:"left"
-        // },
+       heading:{
+        ['@media (max-width:600px)']: {
+            margin:"10px",
+            marginTop:0,
+            justifyText:"center"
+        },
+          
+       },
         // lead:{
         //     fontSize: "18px",
         //     dispay:'block'
         // }
-
-
+formText:{
+    marginTop:"10px",
+    ['@media (max-width:600px)']: {
+          fontSize:"10px",
+          margin:"10px"
+    },
+    
+    },
+    formBox:{
+        marginTop:"20px",
+        ['@media (max-width:600px)']: {
+            maxWidth:"200px"  
+      },
+}
 
 
     }));
@@ -310,9 +361,9 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
     return (
         <MuiThemeProvider theme={editFont}>
         <Fragment>
-            <Grid container  direction="column" justify="space-between"  alignItems="center" style={{backgroundColor:"#2B7A77"}} className={classes.containerRoot}>
-            <Grid item>
-                    <Typography><h1 variant="h4" className={classes.h1}> Edit Your Profile</h1></Typography>
+            <Grid container  direction="column" justify="space-between"  alignItems="center" style={{backgroundColor:"#75C7C3"}} className={classes.containerRoot}>
+            <Grid item className={classes.heading}>
+                    <Typography><h1 variant="h4" align="center" > Edit Your Profile</h1></Typography>
                        
       
                     <Typography> 
@@ -330,7 +381,7 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
 >
                             <Grid item className={classes.formGrid1}>
                                 
-                            <Box direction="column" className={classes.formBox} elevation={3}>
+                            <Box  className={classes.formBox}  elevation={10}>
                                 <TextField className={classes.textFieldSelect}
                                     id="status"
                                     select
@@ -346,31 +397,30 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
                                         </MenuItem>
                                     ))}
                                 </TextField>
-                                <p className="form-text"
-                                    >You're current Graduation Year</p>
+                                <Typography className={classes.formText}
+                                    >You're current Graduation Year</Typography>
                                 </Box>
 
                                 <Box direction="column" className={classes.formBox} elevation={3}>
                                     <TextField className={classes.textField} label='Company' placeholder="Company" name="company" value={company} onChange={e => onChange(e)}>
                                     </TextField>
-                                    <p className="form-text"
-                                    >Could be your own company or one you work for</p>
+                                    <Typography className={classes.formText}
+                                    >Company you're intern at</Typography>
                                 </Box>
                                 <Box className={classes.formBox}>
                                     <TextField className={classes.textField} label='Website' placeholder="Website" name="website" value={website} onChange={e => onChange(e)} ></TextField>
-                                    <p className="form-text">Could be your own or a company website</p>
+                                    <Typography className={classes.formText}>Could be your own or a company website</Typography>
                                 </Box>
                                 <Box className={classes.formBox}>
                                     <TextField className={classes.textField} label='city' type="text" placeholder="Location" name="location" value={location} onChange={e => onChange(e)} ></TextField>
-                                    <p className="form-text"
-                                    >City & state suggested (eg. Boston, MA)</p
+                                    <Typography className={classes.formText}
+                                    >City & state suggested</Typography
                                     >
                                 </Box>
                                 <Box className={classes.formBox}>
                                     <TextField className={classes.textField} label='Skills' placeholder="* Skills" name="skills" value={skills} onChange={e => onChange(e)} ></TextField>
-                                    <pre className="form-text"
-                                    >Please use comma separated values (eg.
-            HTML,CSS)</pre>
+                                    <Typography className={classes.formText}
+                                    >Please use comma separated values</Typography>
                                 </Box>
                                 <Box className={classes.formBox}>
                                     <TextField className={classes.textField} label='Github Username' placeholder="Github Username"
@@ -378,7 +428,7 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
                                         placeholder="Github Username"
                                         name="githubusername" value={githubusername} onChange={e => onChange(e)} ></TextField>
 
-                                    <p className="form-text">If you want your latest repos and a Github link, include your Github</p>
+                                    <Typography className={classes.formText}>To display GIthub Repos</Typography>
                                 </Box>
                                 <Box className={classes.formBox}>
                                     <TextField className={classes.textField} label="Multiline"
@@ -405,27 +455,27 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
 
 
                                     <div className="form-group social-input">
-                                        <TwitterIcon fontSize="large" className={classes.Icons} />
+                                        <TwitterIcon fontSize="medium" className={classes.Icons} />
                                         <TextField className={classes.textFieldSocial} placeholder="Twitter URL" name="twitter" value={twitter} onChange={e => onChange(e)} ></TextField>
                                     </div>
 
                                     <div className="form-group social-input">
-                                        <FacebookIcon fontSize="large" className={classes.Icons} />
+                                        <FacebookIcon fontSize="medium" className={classes.Icons} />
                                         <TextField className={classes.textFieldSocial} placeholder="Facebook URL" name="facebook" value={facebook} onChange={e => onChange(e)} ></TextField>
                                     </div>
 
                                     <div className="form-group social-input">
-                                        <YouTubeIcon fontSize="large" className={classes.Icons} />
+                                        <YouTubeIcon fontSize="medium" className={classes.Icons} />
                                         <TextField className={classes.textFieldSocial} placeholder="YouTube URL" name="youtube" value={youtube} onChange={e => onChange(e)} ></TextField>
                                     </div>
 
                                     <div className="form-group social-input">
-                                        <LinkedInIcon fontSize="large" className={classes.Icons} />
+                                        <LinkedInIcon fontSize="medium" className={classes.Icons} />
                                         <TextField className={classes.textFieldSocial} placeholder="Linkedin URL" name="linkedin" value={linkedin} onChange={e => onChange(e)} ></TextField>
                                     </div>
 
                                     <div className="form-group social-input">
-                                        <InstagramIcon fontSize="large" className={classes.Icons} />
+                                        <InstagramIcon fontSize="medium" className={classes.Icons} />
                                         <TextField className={classes.textFieldSocial} placeholder="Instagram URL" name="instagram" value={instagram} onChange={e => onChange(e)} ></TextField>
                                     </div></div>
 
@@ -439,40 +489,45 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
                                     <div className="form-group social-input">
                                     <img className={classes.logo} src={g4glogo} alt=""/>
                                         
-                                        <TextField className={classes.textFieldSocial} placeholder="geeksforgeeks URL" name="geeksforgeeks" value={geeksforgeeks} onChange={e => onChange(e)} ></TextField>
+                                        <TextField className={classes.textFieldCoding} placeholder="geeksforgeeks URL" name="geeksforgeeks" value={geeksforgeeks} onChange={e => onChange(e)} ></TextField>
                                     </div>
 
                                     <div className="form-group social-input">
                                     <img className={classes.logo} src={leetcodelogo} alt=""/>
-                                        <TextField className={classes.textFieldSocial} placeholder="leetcode URL" name="leetcode" value={leetcode} onChange={e => onChange(e)} ></TextField>
+                                        <TextField className={classes.textFieldCoding} placeholder="leetcode URL" name="leetcode" value={leetcode} onChange={e => onChange(e)} ></TextField>
                                     </div>
 
                                     <div className="form-group social-input">
                                     <img className={classes.logo} src={codeforceslogo} alt=""/>
-                                        <TextField className={classes.textFieldSocial} placeholder="codeforces URL" name="codeforces" value={codeforces} onChange={e => onChange(e)} ></TextField>
+                                        <TextField className={classes.textFieldCoding} placeholder="codeforces URL" name="codeforces" value={codeforces} onChange={e => onChange(e)} ></TextField>
                                     </div>
 
                                     <div className="form-group social-input">
                                     <img className={classes.logo} src={codecheflogo} alt=""/>
-                                        <TextField className={classes.textFieldSocial} placeholder="codechef URL" name="codechef" value={codechef} onChange={e => onChange(e)} ></TextField>
+                                        <TextField className={classes.textFieldCoding} placeholder="codechef URL" name="codechef" value={codechef} onChange={e => onChange(e)} ></TextField>
                                     </div>
 
                                     <div className="form-group social-input">
                                     <img className={classes.logo} src={kagglelogo} alt=""/>
-                                        <TextField className={classes.textFieldSocial} placeholder="kaggle URL" name="kaggle" value={kaggle} onChange={e => onChange(e)} ></TextField>
+                                        <TextField className={classes.textFieldCoding} placeholder="kaggle URL" name="kaggle" value={kaggle} onChange={e => onChange(e)} ></TextField>
                                     </div></div>
 
                                 }
 
                             </Grid>
                             </Grid>
-<Grid  container direction="row" justify="center"  className={classes.finalGrid}>
+<Grid  container
+  direction="row"
+  justify="space-evenly"
+  alignItems="flex-end"  className={classes.finalGrid}>
 <Grid item><Button variant="outlined" type="submit" className={classes.Bsubmit}>Save</Button>  </Grid>
                             {/* <input type="submit" className="btn btn-primary my-1" /> */}
                             <Grid item> <Button variant="outlined" className={classes.Bdelete} onClick={() => deleteAccount()}>
                                 <DeleteForeverIcon />  Delete Account
                         </Button>  </Grid>
-                            <Grid item> <Button item variant="outlined" className={classes.Bback} > <Link  to="/dashboard">Go Back</Link></Button>  </Grid>
+                        <Grid item> <Button variant="outlined" className={classes.bBack}><Link to="/dashboard"></Link>
+                                Back
+                        </Button>  </Grid>
 
                         </Grid>
                         

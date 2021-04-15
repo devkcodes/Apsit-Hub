@@ -97,11 +97,14 @@ const CreateProfile = ({ createProfile, history }) => {
           Fontcolor:"#F1304D"
       }});
 
-    const useStyles = makeStyles((theme) => ({
+      const useStyles = makeStyles((theme) => ({
+    
         containerRoot: {
             margin: '100px',
             ['@media (max-width:600px)']: {
-                margin:0,
+                margin:10,
+                marginRight:20,
+                width:"400px",
                 backgroundColor:"# ",
 
                     }
@@ -125,7 +128,9 @@ const CreateProfile = ({ createProfile, history }) => {
             marginLeft:0,
             ['@media (max-width:600px)']: {
                 margin:0,
-                width:"94%"
+                width:"100%",
+                padding:'2%',
+                marginBottom: '20%',
             },
             ['@media (max-width:1024px)']: {
                 margin:0,
@@ -138,16 +143,19 @@ const CreateProfile = ({ createProfile, history }) => {
             margin: "5px",
             height: "5vh",
             ['@media (max-width:600px)']: {
+                width:"200px",
+                marginBottom: "15px",
+
             }
     
         },
-        textFieldSocial:{
+        textFieldSelect:{
             width: '70%',
             margin: "5px",
             height: "5vh",
             marginBottom:"15px",
             ['@media (max-width:600px)']: {
-            
+                width:"200px"
             },
             ['@media (max-width:1024)']: {
             
@@ -194,12 +202,18 @@ const CreateProfile = ({ createProfile, history }) => {
         },
         Bsubmit: {
             marginLeft: "2%",
-            backgroundColor: "green",
+           
+backgroundColor:"#2B7A78",
+
             marginRight: "7%",
-            color: "white"
+            color: "white",
+            width:"100%",
+            '&:hover':{
+                backgroundColor: "green",
+            },
         },
         Bback: {
-            marginRight: "7%",
+            // marginRight: "7%",
             color: "black",
             width: "100%"
         },
@@ -213,22 +227,86 @@ const CreateProfile = ({ createProfile, history }) => {
         },
         urls: {
             marginLeft:"10%",
-            marginTop:"5%"
-        },
-        textFieldSocial: {
-            width: '26vw',
-            margin: "0px",
-            height: "5vh",
+            marginTop:"5%",
+        
+            ['@media (max-width:600px)']: {
+            width:"250px",
+            marginLeft:"0"
+            },
+
         },
         logo:{
-            maxWidth:'25px',
+            maxWidth:'23px',
             marginRight:'20px',
             textDecoration:'none',
             color:'black'
           },
           Icons:{
             marginRight:'20px',
-          }
+          },
+
+        textFieldSocial: {
+            width: '26vw',
+            margin: "0px",
+            height: "5vh",
+            ['@media (max-width:600px)']: {
+                width:"180px"
+                },
+        },
+
+        textFieldCoding: {
+            width: '26vw',
+            margin: "0px",
+            height: "5vh",
+            ['@media (max-width:600px)']: {
+                width:"180px"
+                },
+        },
+        
+
+        Icons: {
+            marginRight:'20px',
+        },
+       heading:{
+           fontSize:"25px",
+        ['@media (max-width:600px)']: {
+            margin:"10px",
+            marginTop:0,
+            justifyText:"center"
+        },
+    },
+        heading1:{
+            variant:"h1",
+         ['@media (max-width:600px)']: {
+            
+         },
+       },
+        // lead:{
+        //     fontSize: "18px",
+        //     dispay:'block'
+        // }
+formText:{
+    marginTop:"10px",
+    ['@media (max-width:600px)']: {
+          fontSize:"10px",
+          margin:"10px"
+    },
+    
+    },
+    formBox:{
+        marginTop:"20px",
+        ['@media (max-width:600px)']: {
+            maxWidth:"200px"  
+      },
+      gender:{
+        marginTop:"20px",
+        width:"71%",
+        ['@media (max-width:600px)']: {
+            width:"500px"  
+      },
+      }
+}
+
 
     }));
     const classes = useStyles();
@@ -267,16 +345,16 @@ const CreateProfile = ({ createProfile, history }) => {
     
         <MuiThemeProvider theme={editFont}>
             <Fragment>
-                <Grid container direction="column" justify="space-between"  alignItems="center" style={{backgroundColor:"#2B7A77"}} className={classes.containerRoot}>
-                    <Grid item> 
-                    <Typography><h1 variant="h4" className={classes.h1}> Create Your Profile</h1></Typography>
+                <Grid container  direction="column" justify="space-between"  alignItems="center" style={{backgroundColor:"#75C7C3"}} className={classes.containerRoot}>
+                    <Grid item className={classes.heading}> 
+                    <Typography><h1 className={classes.heading1} variant="h4" align="center"> Create Your Profile</h1></Typography>
                        
       
                        <Typography> 
                                 Let's get some information to make your profile stand out
                         </Typography></Grid>
                         <Paper className={classes.formPaper}>
-                        <FormControl className={classes.form} onSubmit={e => onSubmit(e)}>
+                        <form className={classes.form} onSubmit={e => onSubmit(e)}>
                         <Grid
   container
   direction="column"
@@ -288,8 +366,11 @@ const CreateProfile = ({ createProfile, history }) => {
 
 
 
-                                <Box direction="column" className={classes.formBox} elevation={3}><FormControl  style={{width:"71%",}}>
-                                <InputLabel  className={classes.textFieldSocial} shrink id="demo-simple-select-placeholder-label-label">
+                                <Box direction="column" className={classes.formBox} elevation={3}><FormControl style={{width:"71%", ['@media (max-width:600px)']: {
+                                    width:"600px",
+            width:"500px"  
+      },}} >
+                                <InputLabel   shrink id="demo-simple-select-placeholder-label-label">
                                     Gender
                                 </InputLabel>
 
@@ -335,29 +416,30 @@ const CreateProfile = ({ createProfile, history }) => {
                                                 {option.value}
                                             </MenuItem>
                                         ))}
-                                    </TextField></Box>
+                                    </TextField>
+                                    <Typography className={classes.formText}
+                                    >You're current Graduation Year</Typography></Box>
 
                                     <Box direction="column" className={classes.formBox} elevation={3}>
                                         <TextField className={classes.textField} label='Company' placeholder="Company" name="company" value={company} onChange={e => onChange(e)}>
                                         </TextField>
-                                        <p className="form-text"
-                                        >Could be your own company or one you work for</p>
+                                        <Typography className={classes.formText}
+                                    >Company you're intern at</Typography>
                                     </Box>
                                     <Box className={classes.formBox}>
                                         <TextField className={classes.textField} label='Website' placeholder="Website" name="website" value={website} onChange={e => onChange(e)} ></TextField>
-                                        <p className="form-text">Could be your own or a company website</p>
+                                        <Typography className={classes.formText}>Could be your own or a company website</Typography>
                                     </Box>
                                     <Box className={classes.formBox}>
                                         <TextField className={classes.textField} label='city' type="text" placeholder="Location" name="location" value={location} onChange={e => onChange(e)} ></TextField>
-                                        <p className="form-text"
-                                        >City & state suggested (eg. Boston, MA)</p
-                                        >
+                                        <Typography className={classes.formText}
+                                    >City & state suggested</Typography
+                                    >
                                     </Box>
                                     <Box className={classes.formBox}>
                                         <TextField className={classes.textField} label='Skills' placeholder="* Skills" name="skills" value={skills} onChange={e => onChange(e)} ></TextField>
-                                        <pre className="form-text"
-                                        >Please use comma separated values (eg.
-            HTML,CSS,JavaScript,PHP)</pre>
+                                        <Typography className={classes.formText}
+                                    >Please use comma separated values</Typography>
                                     </Box>
                                     <Box className={classes.formBox}>
                                         <TextField className={classes.textField} label='Github Username' placeholder="Github Username"
@@ -365,7 +447,7 @@ const CreateProfile = ({ createProfile, history }) => {
                                             placeholder="Github Username"
                                             name="githubusername" value={githubusername} onChange={e => onChange(e)} ></TextField>
 
-                                        <p className="form-text">If you want your latest repos and a Github link, include your Github</p>
+<Typography className={classes.formText}>To display GIthub Repos</Typography>
                                     </Box>
                                     <Box className={classes.formBox}>
                                         <TextField className={classes.textField} label="Multiline"
@@ -448,20 +530,22 @@ const CreateProfile = ({ createProfile, history }) => {
 
                                 </Grid>
 </Grid>
-<Grid  container direction="row" justify="center"  className={classes.finalGrid}>
-<Grid item><Button variant="outlined" type="submit" className={classes.Bsubmit}>Save</Button>  </Grid>
+<Grid  container direction="row"
+  justify="space-evenly"
+  alignItems="flex-end"  className={classes.finalGrid}>
+
                             {/* <input type="submit" className="btn btn-primary my-1" /> */}
                             
-                            <Grid item> <Button item variant="outlined" className={classes.Bback} > <Link  to="/dashboard">Go Back</Link></Button>  </Grid>
+                           
 
 
-                                <Button onSubmit={e =>onSubmit(e)}variant="outlined" type="submit" className={classes.Bsubmit}>Submit</Button>
-                                {/* <input type="submit" className="btn btn-primary my-1" /> */}
-                                <Button item variant="outlined" className={classes.Bback} > <Link className={classes.links} to="/posts">Go Back</Link></Button>
+                                <Button onSubmit={e =>onSubmit(e)}variant="outlined" type="submit" className={classes.Bsubmit}>Let's Go!</Button>
+                               
+                                
 
 
                         </Grid>
-                                </FormControl>
+                                </form>
 
                             </Paper>
                     </Grid>

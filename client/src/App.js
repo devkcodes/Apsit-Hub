@@ -59,15 +59,17 @@ const classes = useStyles();
         <Provider  store={store} >
             <Router >
                 <Fragment  >
-                <Landing  exact path="/"/>
+                {/* <Landing  exact path="/"/> */}
                 <div className="navbar">
-                    <Navbar /> </div>
+                    <Navbar /> 
+                    </div>
                 <div className="drawer">
-                    <ResponsiveDrawer /></div>
+                    <ResponsiveDrawer />
+                    </div>
 
                     <Fragment className={classes.frag}>
                     <Alert />
-                    <Route exact path="/login" component={Login} />
+                    <Route exact path="/" component={Landing} />
 
                     <section className="container">
 

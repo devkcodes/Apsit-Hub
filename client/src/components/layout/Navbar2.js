@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from 'react'
 import PropTypes from "prop-types";
 import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -145,6 +145,8 @@ function ResponsiveDrawer({ auth: { isAuthenticated, loading ,user}, logout }) {
   );
 
   return (
+  <Fragment>
+    {!loading && isAuthenticated  &&
     <div className={classes.root}>
       <CssBaseline />
       <AppBar position="fixed" style={{ backgroundColor:"#2B7A78",
@@ -204,7 +206,9 @@ function ResponsiveDrawer({ auth: { isAuthenticated, loading ,user}, logout }) {
         </Hidden>
       </nav>
     </div>
-  );
+          }
+          </Fragment>
+   );
 }
 
 ResponsiveDrawer.propTypes = {

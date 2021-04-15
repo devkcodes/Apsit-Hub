@@ -13,6 +13,7 @@
 .section-content {
     width: 80%;
     margin: auto;
+
 }
 img.svelte-1p7dm5a {
     top: 0px;
@@ -53,7 +54,11 @@ p.svelte-1424rrd {
     background-size: contain;
     background-position: right;
     background-repeat: no-repeat;
+    margin-top:10%;
+    float:right;
 }
+
+
 
 .btn-land:not(.notdefault) {
     border-radius: 9999px;
@@ -85,6 +90,7 @@ p.svelte-1424rrd {
 .section-content.svelte-yoh1v8.svelte-yoh1v8 {
     display: flex;
     justify-content: space-between;
+    padding:0
 }
 .logo.svelte-yoh1v8.svelte-yoh1v8 {
     transition: all 0.5s;
@@ -236,7 +242,7 @@ a {
 
 /* ************************************************************ *//* ************************************************************ *//* ************************************************************ *//* ************************************************************ *//* ************************************************************ *//* ************************************************************ */
 
-@media (max-width: 767px){
+@media (max-width:600px){
 .heading1 {
     font-size: 1.5em;
 }
@@ -257,9 +263,19 @@ p.svelte-1424rrd {
     min-width: 100px;
     background: #27363b;
     margin-top: 20px;
+   
+}
+.btn-land:hover{
+    cursor: pointer;
 }
 .image-wrapper.svelte-1424rrd{
     display: none;
+    
+}
+
+.image-wrapper.svelte-1424rrd.mob{
+    display: inline-block;
+    width:300px
 }
 
 

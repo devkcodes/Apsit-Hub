@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
     CardOneText:{
       display:'flex',
       flexDirection:'column',
-      marginTop:'0.5rem',
+      marginTop:'',
       marginLeft:'1rem',
       lineHeight:'1.5rem'
     },
@@ -79,8 +79,9 @@ const useStyles = makeStyles((theme) => ({
       marginRight:'50px',
     },
     name:{
-      marginBottom:"20px",
-      fontSize:'2rem'
+      marginBottom:"0px",
+      fontSize:'2rem',
+      marginTop:"0"
     },
     BasicProfile:{
       display:'flex',
@@ -139,9 +140,11 @@ console.log(coding)
                             <span>
                             <Typography className={classes.name} variant="h6" >{name}</Typography>
                             </span>
+                            
                             <span>
-                              {status}
+                              {status} Student
                             </span>
+                            {company&& <span>Intern at {company}</span>}
                             </div>
                         </Card.Content>
                         <Divider y={0} />

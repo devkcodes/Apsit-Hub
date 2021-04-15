@@ -68,6 +68,10 @@ const useStyles = makeStyles(() => ({
     StatusAndSkills:{
         display:'flex',flexDirection:'column',
         fontWeight:'900'
+    },
+    links:{
+       color:'black',
+       fontWeight:'900' 
     }
 
 
@@ -111,7 +115,7 @@ const Profileitem = ({
                 
                 <Fieldset.Footer style={{backgroundColor:"#75C7C3",color:"white"}}>
                     <Fieldset.Footer.Actions>
-                    <Button style={{backgroundColor:"#75C7C3",color:"white"}} auto size="mini"><Link to={`/profile/${_id}`}> View</Link></Button>
+                    <Button style={{backgroundColor:"#75C7C3",color:"white"}} auto size="mini"><Link className={classes.links} to={`/profile/${_id}`}> View</Link></Button>
                     </Fieldset.Footer.Actions>
                 </Fieldset.Footer>
             </Fieldset>

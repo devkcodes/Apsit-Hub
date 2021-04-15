@@ -1,0 +1,9 @@
+.cardrepo{
+    padding:1rem;background-color:"#fff";width:500px
+}
+    @media only screen and (max-width: 600px) {
+        .cardrepo{
+            width:250px;
+            
+      } 
+}
