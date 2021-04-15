@@ -91,7 +91,7 @@ function ResponsiveDrawer({ auth: { isAuthenticated, loading ,user}, logout }) {
 
       } */}
       <List>
-       <Link  to={`profiles`} className={classes.links}> <ListItem button >
+       <Link  to={`/profiles`} className={classes.links}> <ListItem button >
             <ListItemIcon>
                <PeopleIcon />
             </ListItemIcon> 

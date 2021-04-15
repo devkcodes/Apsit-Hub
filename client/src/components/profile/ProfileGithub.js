@@ -96,6 +96,7 @@ const useStyles = makeStyles((theme) => ({
     card:{
         ['@media (max-width:600px)']: {
             backgroundColor:"#17252A",
+            width:'50px'
      // overflow:"hidden"
          }
     }
