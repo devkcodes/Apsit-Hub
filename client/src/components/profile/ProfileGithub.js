@@ -4,11 +4,13 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import { getGithubRepos } from '../../actions/profile';
 import Spinner from '../layout/Spinner';
+import './github.css';
 
 //Geist UI
 // import {Card,Divider} from '@geist-ui/react'
-import {Card, Text, Divider,Button,Avatar,Fieldset,Badge,Tooltip } from '@geist-ui/react' 
+import {Card,Text, Divider,Button,Avatar,Fieldset,Badge,Tooltip } from '@geist-ui/react' 
 import { Globe,Smile,Code,Facebook,Twitter,Linkedin,Instagram,Youtube,MessageCircle   } from '@geist-ui/react-icons'
+import useMediaQuery from "@geist-ui/react/dist/use-media-query"
 
 
 //Material UI
@@ -17,6 +19,7 @@ import {Grid} from '@material-ui/core'
 import {  MuiThemeProvider } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+// import Card from '@material-ui/core/Card'
 
 
 
@@ -49,7 +52,11 @@ const useStyles = makeStyles((theme) => ({
     gitcard:{
         marginTop:'2rem',
         wordWrap:'break-word',
-        border: '1px solid #17242A'
+        border: '1px solid #17242A',
+        ['@media (max-width:600px)']:{
+           
+            
+        }
     },
     list:{
         marginTop:'10px',
@@ -62,6 +69,7 @@ const useStyles = makeStyles((theme) => ({
     cardcontainer:{
         marginTop:'1rem',
         display:'flex',
+
         flexDirection:'column',
         width:'100%',
         height:'69vh',
@@ -69,7 +77,10 @@ const useStyles = makeStyles((theme) => ({
         overflowX:'hidden',
         // border:"5px solid #F1304D",
 
-        alignItems:'center'
+        alignItems:'center',
+        ['@media (max-width:600px)']:{
+            display:'inline-block',
+        }
     },
     h4repo:{
         paddingBottom:'20px'
@@ -80,7 +91,6 @@ const useStyles = makeStyles((theme) => ({
     cardmain:{
         width:"100%",
         display:'flex',
-        // border:"5px solid #F1304D",
         backgroundColor:"#2B7A78",
         justifyContent:'space-between',
          flexDirection:'column',
@@ -88,8 +98,9 @@ const useStyles = makeStyles((theme) => ({
          ['@media (max-width:1000px)']: {
            
                 },
+
                 ['@media (max-width:600px)']: {
-                   width:"50%",
+                   
             // overflow:"hidden"
                 }
     },
@@ -98,6 +109,18 @@ const useStyles = makeStyles((theme) => ({
             backgroundColor:"#17252A",
      // overflow:"hidden"
          }
+    },
+    gitmain:{
+        ['@media (max-width:600px)']:{
+            marginTop:'50px',
+        }
+    },
+    cardrepo:{
+        width:"500px",
+        ['@media (max-width:600px)']:{
+            
+            width:"400px"
+        }
     }
 
 }));
@@ -112,12 +135,13 @@ const ProfileGithub = ({ username, getGithubRepos, repos }) => {
         [getGithubRepos]
 
     );
+ 
 
 
     return (
         <MuiThemeProvider theme={light}>
             <Typography>
-        <Grid item sm={12}>
+        <Grid container sm={12} className={classes.gitmain}>
             <Card style={{border: '1px solid #000'}} className={classes.card}>
                 <Card.Content className={classes.cardmain} >
                 <div className={classes.h4repo}>
@@ -132,8 +156,8 @@ const ProfileGithub = ({ username, getGithubRepos, repos }) => {
             {
                 repos === null ? <Spinner /> : (
                     repos.map(repo => (
-                        <Grid xs={12} md = {12} item key={repo.id} className={classes.gitcard}>
-                        <Card style={{padding:'1rem',backgroundColor:"#DEF2F1"}}  width="500px" margin="0">
+                        <Grid xs={4} md = {12} item key={repo.id} className={classes.gitcard}>
+                        <Card  width="500px">
     <h4>{repo.name}</h4>
     {repo.description?<p>{repo.description}</p>:<p>No description</p> }
     
@@ -155,6 +179,13 @@ const ProfileGithub = ({ username, getGithubRepos, repos }) => {
 							</ul>
     </Card.Footer>
     </Card>
+
+
+    
+
+
+
+
     </Grid>
 
                         )

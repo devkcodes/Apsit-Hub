@@ -31,15 +31,17 @@ function Landing({ isAuthenticated }) {
         </span>
 				APSIT peers
 			</h1> 
+
       <br/>
+
       <p class="svelte-1424rrd">A platform for anybody who has knack for programming apsit hub apsit hub apsit hub apsit hub apsit hub apsit hub  </p>
-          <button className="btn-land">Sign In</button>
-          <button className="btn-land">Sign Up</button>
+          <button className="btn-land"><a href='login'>Sign In</a></button>
+          <button className="btn-land"><a href='register'>Sign Up</a></button>
         </div> 
         
 
         
-        <img class="image-wrapper svelte-1424rrd"  src={hero} alt=""/>
+        <img class="image-wrapper svelte-1424rrd"  src={hero} alt="hero"/>
      
       </section>
 
@@ -48,9 +50,9 @@ function Landing({ isAuthenticated }) {
           <div class="logo svelte-yoh1v8">
             <img src={logo} alt="serio verify logo" class="svelte-yoh1v8"/>
           </div>
-            <div class="links svelte-yoh1v8"><a href="#suite" class="svelte-yoh1v8">Students</a> 
+            <div class="links svelte-yoh1v8"><a href="profiles" class="svelte-yoh1v8">Students</a> 
 				<a href="https://www.apsit.edu.in/home" target="_blank" class="svelte-yoh1v8">APSIT</a> 
-				<a href="#contact" class="svelte-yoh1v8">Feedback</a> 
+				<a href="https://www.github.com/devkcodes" class="svelte-yoh1v8">Feedback</a> 
 </div>
 </div>
 </div>
