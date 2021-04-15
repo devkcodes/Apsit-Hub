@@ -1,6 +1,6 @@
 import React from 'react'
 import './Landing.css'
-import waveSVG from './wave.svg'
+import Wavepng from '../../img/wave.png'
 import blobs from '../../img/blobs-01.svg'
 import hero from '../../img/hero.svg'
 import logo from '../../img/APSIT-HUB.svg'
@@ -70,7 +70,7 @@ function Landing({ isAuthenticated }) {
 
 
     <footer class="footer">
- <waveSVG/>
+ {/* <waveSVG/>
 <svg class="svg-class" viewBox="0 0 120 28">
   <defs> 
     <filter id="goo"/>
@@ -79,7 +79,9 @@ function Landing({ isAuthenticated }) {
 
     <use id="wave3" class="wave" xlinkhref="#wave" x="0" y="0"></use> 
     <use id="wave2" class="wave" xlinkhref="#wave" x="0" y="0" ></use>
-</svg>
+</svg> */}
+<img src={Wavepng} class="wavepng"></img>
+
 
 <div class="footer-content">
   <div class="footer-row-1">
