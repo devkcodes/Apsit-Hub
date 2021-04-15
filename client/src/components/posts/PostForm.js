@@ -134,7 +134,7 @@ const PostForm = ({ addPost }) => {
                     onClick={e => {
                         e.preventDefault();
                         addPost({ text });
-                        setText(' ');
+                        setText('null');
                     }}
                     variant="contained"
                     endIcon={<SendIcon />}

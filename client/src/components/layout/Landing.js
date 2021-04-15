@@ -1,6 +1,6 @@
 import React from 'react'
 import './Landing.css'
-import waveSVG from './wave.svg'
+import wave from '../../img/wave.png'
 import blobs from '../../img/blobs-01.svg'
 import hero from '../../img/hero.svg'
 import logo from '../../img/APSIT-HUB.svg'
@@ -8,13 +8,14 @@ import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import Login from "../auth/Login";
 import PropTypes from "prop-types";
+import './footer.css'
 
 function Landing({ isAuthenticated }) {
   	if (isAuthenticated) {
 		return <Redirect to="/posts" />;
 	}
   return (
-    <div>
+    <div className='maindev'>
 
 
 
@@ -67,48 +68,98 @@ function Landing({ isAuthenticated }) {
     </main>
 
 
-
-
+    <img src={wave} class="waves" alt="wave"/>
+   
     <footer class="footer">
- <waveSVG/>
-<svg class="svg-class" viewBox="0 0 120 28">
-  <defs> 
-    <filter id="goo"/>
-      <path id="wave" d="M 0,10 C 30,10 30,15 60,15 90,15 90,10 120,10 150,10 150,15 180,15 210,15 210,10 240,10 v 10 h -240 z" />
-  </defs> 
-
-    <use id="wave3" class="wave" xlinkhref="#wave" x="0" y="0"></use> 
-    <use id="wave2" class="wave" xlinkhref="#wave" x="0" y="0" ></use>
-</svg>
-
-<div class="footer-content">
-  <div class="footer-row-1">
-   <div class="logo svelte-yoh1v8">
-            <img src={logo} alt="serio verify logo" class="svelte-yoh1v8"/>
-          </div>
-
-    <div class="follow">
-      <span>Follow Apsit: </span>
-      <i class="fa fa-instagram"></i>
-      <i class="fa fa-linkedin"></i>
-      <i class="fa fa-twitter"></i>
-      <i class="fa fa-facebook"></i>
-    </div>
-
-  </div>  
-    <div class="footer-row-2">
-    Made by  @devansh
+      
+  <div class="footer__addr">
+    <h1 class="footer__logo">Something</h1>
+        
+    <h2>Contact</h2>
+    
+    <address>
+      5534 Somewhere In. The World 22193-10212
+          
+      <a class="footer__btn" href="mailto:example@gmail.com">Email Us</a>
+    </address>
   </div>
-
   
+  <ul class="footer__nav">
+    <li class="nav__item">
+      <h2 class="nav__title">Media</h2>
 
-</div>
+      <ul class="nav__ul">
+        <li>
+          <a href="#">Online</a>
+        </li>
+
+        <li>
+          <a href="#">Print</a>
+        </li>
+            
+        <li>
+          <a href="#">Alternative Ads</a>
+        </li>
+      </ul>
+    </li>
+    
+    <li class="nav__item nav__item--extra">
+      <h2 class="nav__title">Technology</h2>
+      
+      <ul class="nav__ul nav__ul--extra">
+        <li>
+          <a href="#">Hardware Design</a>
+        </li>
+        
+        <li>
+          <a href="#">Software Design</a>
+        </li>
+        
+        <li>
+          <a href="#">Digital Signage</a>
+        </li>
+        
+        <li>
+          <a href="#">Automation</a>
+        </li>
+        
+        <li>
+          <a href="#">Artificial Intelligence</a>
+        </li>
+        
+        <li>
+          <a href="#">IoT</a>
+        </li>
+      </ul>
+    </li>
+    
+    <li class="nav__item">
+      <h2 class="nav__title">Legal</h2>
+      
+      <ul class="nav__ul">
+        <li>
+          <a href="#">Privacy Policy</a>
+        </li>
+        
+        <li>
+          <a href="#">Terms of Use</a>
+        </li>
+        
+        <li>
+          <a href="#">Sitemap</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
   
-
-
-
+  <div class="legal">
+    <p>&copy; 2019 Something. All rights reserved.</p>
+    
+    <div class="legal__links">
+      <span>Made with <span class="heart">♥</span> remotely from Anywhere</span>
+    </div>
+  </div>
 </footer>
-
 
     </div>
   )
