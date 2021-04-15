@@ -53,6 +53,7 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
     const classes = useStyles()
     useEffect(() => {
         getPosts();
+
     }, [getPosts]);
 
 

@@ -65,11 +65,11 @@ const PostItem = ({ addLike, deletePost, removeLike, auth, post: { _id, text, na
 
 
     let styled_text = stateToHTML((convertFromRaw(JSON.parse(text))))
-
+    console.log(_id)
 
 
 return(
-    <Fragment className={classes.colorcorrect}>
+    <Fragment >
         {showActions&&
             
             <Fieldset className={classes.Card}   
@@ -96,10 +96,13 @@ return(
 
                         <Button className={classes.btnclass} iconRight={<ThumbsDown/>} onClick={() => removeLike(_id)} type="secondary" ghost auto size="small" >
                         </Button>
-                    <Link className={classes.btnclass}  to={`/posts/${_id}`}>
+
+                        <Link className={classes.btnclass}  to={`/posts/${_id}`}>
                         <Button iconRight={<MessageSquare/>} type="secondary" ghost auto size="small" >
                         </Button>
                     </Link>
+
+
                     
                     {!auth.loading && user === auth.user._id && (
 				    <Button iconRight={<XSquare/>} onClick={() => deletePost(_id)} type="error" ghost auto size="small"/>
