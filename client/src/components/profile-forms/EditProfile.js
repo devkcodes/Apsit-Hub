@@ -524,9 +524,9 @@ formText:{
                             <Grid item> <Button variant="outlined" className={classes.Bdelete} onClick={() => deleteAccount()}>
                                 <DeleteForeverIcon />  Delete Account
                         </Button>  </Grid>
-                        <Grid item> <Button variant="outlined" className={classes.bBack}><Link to="/dashboard"></Link>
+                        <Grid item><Link to="posts"> <Button variant="outlined" className={classes.bBack}>
                                 Back
-                        </Button>  </Grid>
+                        </Button></Link>  </Grid>
 
                         </Grid>
                         
