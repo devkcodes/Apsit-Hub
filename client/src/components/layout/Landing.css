@@ -46,7 +46,7 @@ p.svelte-1424rrd {
 .heading1 {
     font-family: grad, serif;
     font-weight: 700;
-    font-size: 2.5em;
+    font-size: 10em;
     font-style: normal;
 }
 .image-wrapper.svelte-1424rrd {
@@ -225,7 +225,9 @@ a {
     color:white;
 }
 
-
+.wavepng{
+    margin-bottom: 10px;
+}
 
 
 
@@ -246,7 +248,7 @@ a {
 
 @media (max-width:600px){
 .heading1 {
-    font-size: 1.5em;
+    font-size: 3em;
 }
 p.svelte-1424rrd {
     max-width: 60%;

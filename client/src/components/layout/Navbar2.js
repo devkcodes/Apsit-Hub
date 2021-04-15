@@ -1,21 +1,14 @@
 import React, { Fragment } from 'react'
 import PropTypes from "prop-types";
-import AppBar from "@material-ui/core/AppBar";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Divider from "@material-ui/core/Divider";
-import Drawer from "@material-ui/core/Drawer";
-import Hidden from "@material-ui/core/Hidden";
-import IconButton from "@material-ui/core/IconButton";
+
+
+import {AppBar,CssBaseline,Divider,Drawer,Hidden,IconButton,List,ListItem,ListItemIcon,ListItemText,Toolbar,Typography} from '@material-ui/core'
+
+
+
 import InboxIcon from "@material-ui/icons/MoveToInbox";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
 import {MailIcon} from '@material-ui/icons';
 import MenuIcon from '@material-ui/icons/Menu'
-
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import PeopleIcon from '@material-ui/icons/People';
 import RateReviewIcon from '@material-ui/icons/RateReview';
@@ -79,26 +72,87 @@ function ResponsiveDrawer({ auth: { isAuthenticated, loading ,user}, logout }) {
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
+
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-
-  const drawer = (
+    let param = window.location.href;
+  const Guestdrawer = (
     <div>
       <div className={classes.toolbar} />
       <Divider  />
-      {/* {isAuthenticated?
-
-      } */}
       <List>
-       <Link  to={`/profiles`} className={classes.links}> <ListItem button >
+               <Link  to={`/login`} className={classes.links}> <ListItem button >
             <ListItemIcon>
-               <PeopleIcon />
+               <EditIcon />
+            </ListItemIcon> 
+            <ListItemText primary={"Sign In"} />
+          </ListItem></Link>
+        
+        <Link  to={`/register`} className={classes.links}> <ListItem button >
+            <ListItemIcon>
+              <RateReviewIcon />
+            </ListItemIcon> 
+            <ListItemText primary={"Register"} />
+          </ListItem></Link>
+
+      </List>
+      <Divider />
+
+
+      <List>
+
+
+          <Link  to={`/profiles`} className={classes.links}> <ListItem button >
+            <ListItemIcon>
+              <PeopleIcon />
             </ListItemIcon> 
             <ListItemText primary={"Students"} />
           </ListItem></Link>
          
-         <Link  to={`/posts`} className={classes.links}> <ListItem button >
+         <Link  to={`/`} onClick={logout}  className={classes.links}> <ListItem button >
+            <ListItemIcon>
+               <ExitToAppIcon /> 
+            </ListItemIcon> 
+            <ListItemText primary={"Logout"} />
+          </ListItem></Link>
+          
+          <a  href="https://www.apsit.edu.in/home" className={classes.links}> <ListItem button >
+            <ListItemIcon>
+               <ContactMailIcon />
+            </ListItemIcon> 
+            <ListItemText primary={"APSIT"} />
+          </ListItem></a>
+          <a  href="https://github.com/devkcodes" className={classes.links}> <ListItem button >
+            <ListItemIcon>
+               <ContactMailIcon />
+            </ListItemIcon> 
+            <ListItemText primary={"FeedBack"} />
+          </ListItem></a>
+          
+       
+      </List>
+    </div>
+  );
+
+
+
+
+
+
+    const Authdrawer = (
+    <div>
+      <div className={classes.toolbar} />
+      <Divider  />
+      <List>
+        <Link  to={`/profiles`} className={classes.links}> <ListItem button >
+            <ListItemIcon>
+              <PeopleIcon />
+            </ListItemIcon> 
+            <ListItemText primary={"Students"} />
+          </ListItem></Link>
+        
+        <Link  to={`/posts`} className={classes.links}> <ListItem button >
             <ListItemIcon>
                <RateReviewIcon />
             </ListItemIcon> 
@@ -146,7 +200,7 @@ function ResponsiveDrawer({ auth: { isAuthenticated, loading ,user}, logout }) {
 
   return (
   <Fragment>
-    {!loading && isAuthenticated  &&
+    {!loading   &&
     <div className={classes.root}>
       <CssBaseline />
       <AppBar position="fixed" style={{ backgroundColor:"#2B7A78",
@@ -175,7 +229,7 @@ function ResponsiveDrawer({ auth: { isAuthenticated, loading ,user}, logout }) {
 
        
       </AppBar>
-      <nav className={classes.drawer} aria-label="mailbox folders">
+      {(!loading && !isAuthenticated &&!(param === 'http://localhost:3000/')) ?<nav className={classes.drawer} aria-label="mailbox folders">
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Hidden smUp implementation="css">
           <Drawer
@@ -190,7 +244,7 @@ function ResponsiveDrawer({ auth: { isAuthenticated, loading ,user}, logout }) {
               keepMounted: true // Better open performance on mobile.
             }}
           >
-            {drawer}
+            {Guestdrawer}
           </Drawer>
         </Hidden>
         <Hidden xsDown implementation="css">
@@ -201,10 +255,40 @@ function ResponsiveDrawer({ auth: { isAuthenticated, loading ,user}, logout }) {
             variant="permanent"
             open
           >
-            {drawer}
+            {Guestdrawer}
           </Drawer>
         </Hidden>
-      </nav>
+      </nav>: isAuthenticated&&!loading&&<nav className={classes.drawer} aria-label="mailbox folders">
+        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+        <Hidden smUp implementation="css">
+          <Drawer
+            variant="temporary"
+            anchor={theme.direction === "rtl" ? "right" : "left"}
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            classes={{
+              paper: classes.drawerPaper
+            }}
+            ModalProps={{
+              keepMounted: true // Better open performance on mobile.
+            }}
+          >
+            {Authdrawer}
+          </Drawer>
+        </Hidden>
+        <Hidden xsDown implementation="css">
+          <Drawer
+            classes={{
+              paper: classes.drawerPaper
+            }}
+            variant="permanent"
+            open
+          >
+            {Authdrawer}
+          </Drawer>
+        </Hidden>
+      </nav>}
+      
     </div>
           }
           </Fragment>
@@ -228,3 +312,6 @@ ResponsiveDrawer.propTypes = {
 const mapStatetoprops = state => ({ auth: state.auth });
 
 export default connect(mapStatetoprops, { logout })(ResponsiveDrawer);
+
+
+
