@@ -179,6 +179,7 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
             width: '70%',
             margin: "5px",
             height: "5vh",
+            textOverflow:"ellipsis0",
             ['@media (max-width:600px)']: {
                 width:"200px",
                 marginBottom: "15px",
