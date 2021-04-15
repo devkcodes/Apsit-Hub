@@ -21,6 +21,7 @@ import leetcodelogo from '../../img/leetcode-logo.png'
 import codeforceslogo from '../../img/codeforces-logo.jpg'
 import codecheflogo from '../../img/codechef-logo.png'
 import kagglelogo from '../../img/kaggle.png'
+import auth from '../../reducers/auth';
 
 
 const light = createMuiTheme({
@@ -111,9 +112,14 @@ function ProfileLeft({ profile: {
     user,
     skills,
     bio
-},auth:{user:{_id}}}) {
+}}) {
 
   const classes = useStyles();
+  let _id;
+  if(auth.user){
+    _id = user._id
+  }
+  else _id = -1;
 
 
   const name = user.name;
