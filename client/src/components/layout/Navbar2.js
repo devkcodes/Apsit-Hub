@@ -200,12 +200,13 @@ function ResponsiveDrawer({ auth: { isAuthenticated, loading ,user}, logout }) {
 
   return (
   <Fragment>
-    {!loading   &&
-    <div className={classes.root}>
+    
+
+      {(!loading && !isAuthenticated &&!(param === 'http://localhost:3000/')) ?
+          <div className={classes.root}>
       <CssBaseline />
       <AppBar position="fixed" style={{ backgroundColor:"#2B7A78",
       height:"83px",padding:"3%"}} className={classes.appBar}>
-         
         <Toolbar>
         <Grid container direction="row" justify="space-between" alignItems="center" >
         <Grid item>
@@ -226,10 +227,8 @@ function ResponsiveDrawer({ auth: { isAuthenticated, loading ,user}, logout }) {
           </Grid>
           </Grid>
         </Toolbar>
-
-       
       </AppBar>
-      {(!loading && !isAuthenticated &&!(param === 'http://localhost:3000/')) ?<nav className={classes.drawer} aria-label="mailbox folders">
+      <nav className={classes.drawer} aria-label="mailbox folders">
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Hidden smUp implementation="css">
           <Drawer
@@ -258,7 +257,35 @@ function ResponsiveDrawer({ auth: { isAuthenticated, loading ,user}, logout }) {
             {Guestdrawer}
           </Drawer>
         </Hidden>
-      </nav>: isAuthenticated&&!loading&&<nav className={classes.drawer} aria-label="mailbox folders">
+      </nav>
+      </div>
+      : isAuthenticated&&!loading&&
+      <div className={classes.root}>
+      <CssBaseline />
+      <AppBar position="fixed" style={{ backgroundColor:"#2B7A78",
+      height:"83px",padding:"3%"}} className={classes.appBar}>
+        <Toolbar>
+        <Grid container direction="row" justify="space-between" alignItems="center" >
+        <Grid item>
+          <IconButton
+            color="#2B7A78"
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            className={classes.menuButton}
+          >
+            <MenuIcon />
+          </IconButton>
+          </Grid>
+          <Grid item>
+          <Typography variant="h5" noWrap>
+            APSIT HUB
+          </Typography>
+          </Grid>
+          </Grid>
+        </Toolbar>
+      </AppBar>
+      <nav className={classes.drawer} aria-label="mailbox folders">
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Hidden smUp implementation="css">
           <Drawer
@@ -287,10 +314,11 @@ function ResponsiveDrawer({ auth: { isAuthenticated, loading ,user}, logout }) {
             {Authdrawer}
           </Drawer>
         </Hidden>
-      </nav>}
+      </nav>
+      </div>
+      }
       
-    </div>
-          }
+          
           </Fragment>
    );
 }
