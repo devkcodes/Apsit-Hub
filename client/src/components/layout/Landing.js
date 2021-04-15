@@ -15,7 +15,7 @@ function Landing({ isAuthenticated }) {
 		return <Redirect to="/posts" />;
 	}
   return (
-    <div className='maindev'>
+    <div>
 
 
 
@@ -35,7 +35,7 @@ function Landing({ isAuthenticated }) {
 
       <br/>
 
-      <p class="svelte-1424rrd">A platform for anybody who has knack for programming apsit hub apsit hub apsit hub apsit hub apsit hub apsit hub  </p>
+      <p class="para svelte-1424rrd">A platform for anybody who has knack for programming apsit hub apsit hub apsit hub apsit hub apsit hub apsit hub  </p>
           <button className="btn-land"><a href='login'>Sign In</a></button>
           <button className="btn-land"><a href='register'>Sign Up</a></button>
         </div> 
@@ -51,9 +51,9 @@ function Landing({ isAuthenticated }) {
           <div class="logo svelte-yoh1v8">
             <img src={logo} alt="serio verify logo" class="svelte-yoh1v8"/>
           </div>
-            <div class="links svelte-yoh1v8"><a href="profiles" class="svelte-yoh1v8">Students</a> 
-				<a href="https://www.apsit.edu.in/home" target="_blank" class="svelte-yoh1v8">APSIT</a> 
-				<a href="https://www.github.com/devkcodes" class="svelte-yoh1v8">Feedback</a> 
+            <div class="links svelte-yoh1v8"><a href="profiles" class="link svelte-yoh1v8">Students</a> 
+				<a href="https://www.apsit.edu.in/home" target="_blank" class="link svelte-yoh1v8">APSIT</a> 
+				<a href="https://www.github.com/devkcodes" class="link svelte-yoh1v8">Feedback</a> 
 </div>
 </div>
 </div>
@@ -68,99 +68,10 @@ function Landing({ isAuthenticated }) {
     </main>
 
 
+    
     <img src={wave} class="waves" alt="wave"/>
    
-    <footer class="footer">
-      
-  <div class="footer__addr">
-    <h1 class="footer__logo">Something</h1>
-        
-    <h2>Contact</h2>
     
-    <address>
-      5534 Somewhere In. The World 22193-10212
-          
-      <a class="footer__btn" href="mailto:example@gmail.com">Email Us</a>
-    </address>
-  </div>
-  
-  <ul class="footer__nav">
-    <li class="nav__item">
-      <h2 class="nav__title">Media</h2>
-
-      <ul class="nav__ul">
-        <li>
-          <a href="#">Online</a>
-        </li>
-
-        <li>
-          <a href="#">Print</a>
-        </li>
-            
-        <li>
-          <a href="#">Alternative Ads</a>
-        </li>
-      </ul>
-    </li>
-    
-    <li class="nav__item nav__item--extra">
-      <h2 class="nav__title">Technology</h2>
-      
-      <ul class="nav__ul nav__ul--extra">
-        <li>
-          <a href="#">Hardware Design</a>
-        </li>
-        
-        <li>
-          <a href="#">Software Design</a>
-        </li>
-        
-        <li>
-          <a href="#">Digital Signage</a>
-        </li>
-        
-        <li>
-          <a href="#">Automation</a>
-        </li>
-        
-        <li>
-          <a href="#">Artificial Intelligence</a>
-        </li>
-        
-        <li>
-          <a href="#">IoT</a>
-        </li>
-      </ul>
-    </li>
-    
-    <li class="nav__item">
-      <h2 class="nav__title">Legal</h2>
-      
-      <ul class="nav__ul">
-        <li>
-          <a href="#">Privacy Policy</a>
-        </li>
-        
-        <li>
-          <a href="#">Terms of Use</a>
-        </li>
-        
-        <li>
-          <a href="#">Sitemap</a>
-        </li>
-      </ul>
-    </li>
-  </ul>
-  
-  <div class="legal">
-    <p>&copy; 2019 Something. All rights reserved.</p>
-    
-    <div class="legal__links">
-      <span>Made with <span class="heart">♥</span> remotely from Anywhere</span>
-    </div>
-  </div>
-</footer>
-
     </div>
   )
 }
