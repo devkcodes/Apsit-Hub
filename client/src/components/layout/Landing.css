@@ -3,6 +3,11 @@
 h1{
     font-family: 'Share Tech', sans-serif;
     font-size: 30px;
+    display:inline-block;
+}
+
+.h1mob{
+    display:none
 }
 
 .link{
@@ -13,6 +18,10 @@ h1{
 .para{
     font-family: 'Share Tech', sans-serif;
     font-size: 15px;
+    
+}
+.mob{
+    display:none
 }
 
 .section-wrapper {
@@ -117,6 +126,9 @@ p.svelte-1424rrd {
     margin-left:-80px;
     margin-top:-80px;
 }
+.mlogo{
+    display:none;
+}
 a {
     color: rgb(0,100,200);
     text-decoration: none;
@@ -206,45 +218,14 @@ a {
 
 /* ************************************************************ *//* ************************************************************ *//* ************************************************************ *//* ************************************************************ *//* ************************************************************ *//* ************************************************************ */
 
-.footer-content{
-    margin-top: -110px;
-    width:100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #3aafa9;
-}
-.footer-row-2{
-    font-weight: 700;
-    color: wheat;
-    font-style: italic;
-    align-items: center;
-}
-.footer-row-1{
-    width:90%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-.follow{
-    color:wheat;
-    display: flex;
-    width:250px;
-    justify-content: space-evenly;
-    align-items: center;
-    font-size: 20px;
-}
-.footer-row-1 i{
-    color:white;
-}
-
-.wavepng{
-    margin-bottom: 10px;
+.spans{
+    display:none
 }
 
 
-
-
+.waves{
+    max-width: 100%;
+  }
 
 
 
@@ -264,23 +245,34 @@ a {
     font-size: 3em;
 }
 p.svelte-1424rrd {
-    max-width: 60%;
+    max-width: 100%;
         color: #27363b;
-    font-size: 0.5em;
-    font-family: canada-type-gibson, sans-serif;
-    font-weight: 400;
+    font-size: 15px;
+    font-family: share tech, sans-serif;
+    font-weight: 600;
     font-style: normal;
     opacity: 0.7;
     margin: 0;
+    text-align: justify;
+    margin-bottom: 35px;
 }
 
 .btn-land:not(.notdefault) {
     border-radius: 9999px;
     padding: 10px;
-    min-width: 100px;
+    min-width: 280px;
     background: #27363b;
     margin-top: 20px;
+    
    
+}
+.spans{
+    display:inline-block;
+    margin-top:10px;
+    text-align: center;
+    margin-left:50px;
+    font-family: share tech, sans-serif;
+font-weight: 700;
 }
 .btn-land:hover{
     cursor: pointer;
@@ -289,11 +281,12 @@ p.svelte-1424rrd {
     display: none;
     
 }
-
+/* 
 .image-wrapper.svelte-1424rrd.mob{
     display: inline-block;
-    width:300px
-}
+    width:300px;
+    margin:-200px;
+} */
 
 
 .svelte-1p7dm5a{
@@ -306,6 +299,50 @@ p.svelte-1424rrd {
     flex-direction: column;
     align-items: center;
     background-color: #3aafa9;
+}
+
+.links{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    min-width: 2px;
+    
+}
+
+.logo{
+display:none
+}
+
+.mob{
+    width: 100%;
+    height: 400px;
+    max-height: 250px;
+    min-width: 250px;
+  display:inline-block;
+    margin:0;
+
+   
+}
+.content.svelte-1424rrd {
+    margin-top: 50px;
+    
+}
+h1{
+    display:none;
+}
+.h1mob{
+display:inline-block;
+font-size: 20px;
+
+}
+
+.waves{
+    max-width: 100%;
+    margin-top: 50px;
+  }
+
+.topbutton{
+margin-top:50px;
 }
 
 }

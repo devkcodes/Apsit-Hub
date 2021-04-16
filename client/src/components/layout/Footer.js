@@ -1,149 +1,158 @@
-import React, { Fragment } from 'react'
-
+import React, { useState,Fragment ,} from 'react'
+import { Link,  } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
-import { Grid, Button, AppBar, Toolbar, Typography, MenuItem, Menu, Avatar } from "@material-ui/core"
+import { Drawer,Grid, Button, AppBar, Toolbar, Typography, MenuItem, Menu, Avatar, Divider } from "@material-ui/core"
 import { makeStyles, MuiThemeProvider } from '@material-ui/core/styles';
 import "../../App.css";
-import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import { Divider } from '@material-ui/core';
-import { Box } from '@material-ui/core'
-import temp from './../../img/temp.PNG';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import InstagramIcon from '@material-ui/icons/Instagram';
-import FacebookIcon from '@material-ui/icons/Facebook';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import ListItemText from '@material-ui/core/ListItemText';
-import Link from '@material-ui/core/Link';
-import { url } from 'gravatar';
-import "./footer.css"
+import {createMuiTheme } from '@material-ui/core/styles'
+import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 
-// import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 
-// import 'bootstrap/dist/css/bootstrap.min.css';
 
-const footFont = createMuiTheme({
-  palette: {
-    primary: {
-      main:"#fff",
-    }},
+const navFont = createMuiTheme({
   typography: {
     fontFamily: [
       'Share Tech', 'san-serif',
     ].join(','),
-    fontSize:"1px",
-    Fontcolor:"#F1304D"
-}});
+    fontSize:"1px"
+},});
 
 
 const styles = ({
  
-  
+  row: {
+    flexGrow: 1
+  },
+  grow: {
+    flexGrow: 1,
+    padding: '0px',
+  },
+  container: {
+    width: 1170,
+    margin: "auto"
+  },
+  buttonFontSize: {
+    fontSize: "20px",
+    marginRight:"7px",
+    marginLeft:"7px",
+    ['@media (max-width:600px)']: {
+display: "none"      }
+  },
   links: {
     color: 'white',
     textDecoration: 'none'
   },
+  AppBar: {
+    //height:400,
+    //background: `url("http://lorempixel.com/1920/1080/nature") no-repeat center center`,
+    backgroundColor: "#2B7A78",
+    backgroundSize: "cover",
+    padding: "0px",
+    marginBottom: "",
+    textDecoration: 'none',
+    
+  ['@media (max-width:600px)']: {
+    
+    }
+    
 
-  footer: {
-      colour:"white",
-      backgroundColor:"#20242B",
-      padding:"30px",
-      margin:"0px",
-      marginBottom:"0px",
-      // backgroundImage:"url(https://res.cloudinary.com/dsph4eptm/image/upload/v1617971458/heyy_clkr5c.jpg)",
   },
-  footerLinks:{
-      marginTop:"5vh"
-  },
-  mission:{
-      margin:"10px",
-  },
-  box:{
-      backgroundColor: "#20252B",
-      width:"70%"
-  },
-  subLinks:{
-      
-  },
- 
+  mainLogo: {
+    color: "#a1a1a1",
 
+    '&:hover': {
+      background: "transparent"
+    }
+  },
+
+  avatar: {
+    height: "100%",
+    borderRadius: 0,
+
+
+  },
+
+  loginButton: {
+    background: "#e91e63",
+    color: "#fff",
+    borderRadius: "25px",
+    padding: "0px 25px",
+
+    '&:hover': {
+      background: 'blue',
+      boxShadow: "0px 2px 10px #888888"
+    }
+  }
+  ,
+  footer:{
+    fontFamily: [
+        'Share Tech', 'san-serif',
+      ].join(','),
+  }
 
 });
 const useStyles = makeStyles(styles);
 
-const Footer = () => {
+export const Footer = ({ auth: { isAuthenticated, loading ,user}, logout }) => {
   const classes = useStyles();
-
+  
+  
 
   return (
-    <Fragment>
-      <MuiThemeProvider theme={footFont}>
-      
-
-    <Grid  >
-      <div fluid >
-        <Grid container className={classes.footer} >
-          <Grid item md="3" className="mobile"  className={classes.footer}>
-            
-            <img src={"https://res.cloudinary.com/dsph4eptm/image/upload/c_scale,w_240/v1617975621/ApSIt_Hub_n2dvbf.jpg"}></img>
-          </Grid >
-          <Grid item md="3" className={classes.mobile}  className={classes.footerLinks} >
-          <Box  className={classes.box}float="left"><Typography color="primary" style={{ fontSize: 25 }} className="title">Our Mission</Typography>
-          <Typography color="primary" variant="body1"  align="justify" className={classes.mission}>Contrary to popular belief, Lorem Ipsum is not simply rand
-          om text. It has roots in a piece of classical Latin literature fr
-          om 45 BC, making it over 2000 years old. Richard McClintock</Typography>
-          </Box>
-           
-          </Grid >
-          <Grid item md="2" className="mobileno"  className={classes.footerLinks}>
-          <Box  className={classes.box} color="primary"> <Typography color="primary" style={{ fontSize: 25 }} className="title">Apsit  Hub</Typography>
-          <List dense="true">
-              <ListItem><Typography color="primary" variant="caption" className={classes.subLink}><Link href="#" color="primary" > License</Link></Typography></ListItem>
-              <ListItem><Typography color="primary" variant="caption" className={classes.subLink}><Link href="#" color="primary" > FeedBack</Link></Typography></ListItem>
-              <ListItem><Typography color="primary" variant="caption" className={classes.subLink}><Link href="#" color="primary" > License</Link></Typography></ListItem>
-              <ListItem><Typography color="primary" variant="caption" className={classes.subLink}><Link href="#" color="primary" > License</Link></Typography></ListItem>
-          </List>
-          </Box>
-           
-          </Grid >
-         
-          <Grid item  className="mobileno" style={{['@media (max-width:600px)']: {
-           display: 'none',}
-}}  className={classes.footerLinks}>
-          <Box  className={classes.box}> <Typography color="primary" color="primary" style={{ fontSize: 25 }} className="title">About APSIT</Typography>
-          <List dense="true" >
-              <ListItem><Typography color="primary" variant="caption" className={classes.subLink}><Link href="https://www.apsit.edu.in/home" color="primary" > About Us</Link></Typography></ListItem>
-              <ListItem><Typography color="primary" variant="caption" className={classes.subLink}><Link href="https://www.apsit.edu.in/admission-notification-2020-21" color="primary" > Admissions</Link></Typography></ListItem>
-              <ListItem><Typography color="primary" variant="caption" className={classes.subLink}><Link href="https://www.apsit.edu.in/our-recruiters" color="primary" > Recruiters</Link></Typography></ListItem>
-              <ListItem><Typography color="primary" variant="caption" className={classes.subLink}><Link href="https://www.apsit.edu.in/reach-us" color="primary" > Reach Us</Link></Typography></ListItem>
-          </List>
-          </Box>
-          </Grid ><Divider/>
-          <Grid item md="2" className={classes.footerLinks} className="mobile" >
-          <Box  className={classes.box}> <Typography color="primary" style={{ fontSize: 25 }} className="title">Follow Apsit</Typography>
-          <List dense="false">
-              <ListItem><Typography color="primary" variant="caption" className={classes.subLink}><ListItemIcon><Link href="https://www.instagram.com/ojus_apsit"><InstagramIcon color="primary" style={{ fontSize: 30 }}/></Link></ListItemIcon></Typography></ListItem>
-              <ListItem><Typography color="primary" variant="caption" className={classes.subLink}><ListItemIcon><Link href="http://ojus.eventsapsit.org/#"><TwitterIcon color="primary" style={{ fontSize: 30 }}/></Link></ListItemIcon></Typography></ListItem>
-              <ListItem><Typography color="primary" variant="caption" className={classes.subLink}><ListItemIcon><Link href="https://www.facebook.com/ojusapsit/"><FacebookIcon color="primary" style={{ fontSize: 30 }}/></Link></ListItemIcon></Typography></ListItem>
-              
-          </List>
-          </Box>
-           
-          </Grid >
-        </Grid>
+    
+    
+      <MDBFooter color="blue" className="font-small pt-4 mt-4">
+      <MDBContainer fluid className="text-center text-md-left">
+        <MDBRow>
+          <MDBCol md="6">
+            <h5 className="title">Footer Content</h5>
+            <p>
+              Here you can use rows and columns here to organize your footer
+              content.
+            </p>
+          </MDBCol>
+          <MDBCol md="6">
+            <h5 className="title">Links</h5>
+            <ul>
+              <li className="list-unstyled">
+                <a href="#!">Link 1</a>
+              </li>
+              <li className="list-unstyled">
+                <a href="#!">Link 2</a>
+              </li>
+              <li className="list-unstyled">
+                <a href="#!">Link 3</a>
+              </li>
+              <li className="list-unstyled">
+                <a href="#!">Link 4</a>
+              </li>
+            </ul>
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
+      <div className="footer-copyright text-center py-3">
+        <MDBContainer fluid>
+          &copy; {new Date().getFullYear()} Copyright: <a href="https://www.mdbootstrap.com"> MDBootstrap.com </a>
+        </MDBContainer>
       </div>
-     
-    </Grid>
+    </MDBFooter>
 
-</MuiThemeProvider>
-    </Fragment>
 
   )
 };
+Footer.propTypes = {
+  logout: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+}
+
+const mapStatetoprops = state => ({ auth: state.auth });
+
+export default connect(mapStatetoprops, { logout })(Footer);
 
 
-export default Footer;
+
+
+
+

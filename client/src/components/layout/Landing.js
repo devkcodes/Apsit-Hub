@@ -33,10 +33,22 @@ function Landing({ isAuthenticated }) {
 				APSIT peers
 			</h1> 
 
-      <br/>
+     
 
+      <img class="mob  svelte-1424rrd"  src={hero} alt="hero"/>
+      <br/>
+  
+      <h1 class ="h1mob">
+        <span>Apsit Hub</span><span> </span>
+            <span class="grey">
+					Connecting
+				
+        </span><span> </span>
+				  APSIT peers
+			</h1> 
       <p class="para svelte-1424rrd">A platform for anybody who has knack for programming apsit hub apsit hub apsit hub apsit hub apsit hub apsit hub  </p>
-          <button className="btn-land"><a href='login'>Sign In</a></button>
+          <button className=" btn-land"><a href='login'>Sign In</a></button>
+          <span class="spans">Not a member yet? Join Us!</span>
           <button className="btn-land"><a href='register'>Sign Up</a></button>
         </div> 
         

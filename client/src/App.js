@@ -16,7 +16,7 @@ import Profiles from './components/profiles/Profiles';
 import Profile from './components/profile/Profile';
 import Posts from './components/posts/Posts';
 import Post from './components/post/Post';
-import Footer from './components/layout/Footer';
+import Footer from './components/layout/footer';
 import './components/layout/Alert.css';
 
 import { makeStyles } from '@material-ui/core/styles'
@@ -90,6 +90,7 @@ const classes = useStyles();
 
                         </Switch>
                     </section>
+                    <Footer/>
 </Fragment>
                 </Fragment > </Router></Provider>
     )
