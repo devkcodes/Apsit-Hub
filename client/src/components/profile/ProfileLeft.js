@@ -111,21 +111,24 @@ function ProfileLeft({ profile: {
     coding,
     user,
     skills,
-    bio
-}}) {
+    bio,
+},auth}) {
 
   const classes = useStyles();
   let _id;
-  if(auth.user){
+
+  if(auth.user!=null){
     _id = user._id
   }
   else _id = -1;
 
 
+
   const name = user.name;
   const user_id = user._id;
   const skillarray = skills.toString().split(/[\s,]+/);
-console.log(coding)
+  console.log(`id: ${_id}`)
+  console.log(user_id)
   return (
     <MuiThemeProvider theme={light}>
        <Typography>

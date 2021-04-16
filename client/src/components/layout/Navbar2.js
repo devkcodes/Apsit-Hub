@@ -110,12 +110,7 @@ function ResponsiveDrawer({ auth: { isAuthenticated, loading ,user}, logout }) {
             <ListItemText primary={"Students"} />
           </ListItem></Link>
          
-         <Link  to={`/`} onClick={logout}  className={classes.links}> <ListItem button >
-            <ListItemIcon>
-               <ExitToAppIcon /> 
-            </ListItemIcon> 
-            <ListItemText primary={"Logout"} />
-          </ListItem></Link>
+         
           
           <a  href="https://www.apsit.edu.in/home" className={classes.links}> <ListItem button >
             <ListItemIcon>
@@ -221,9 +216,11 @@ function ResponsiveDrawer({ auth: { isAuthenticated, loading ,user}, logout }) {
           </IconButton>
           </Grid>
           <Grid item>
+            <Link to="/">
           <Typography variant="h5" noWrap>
             APSIT HUB
           </Typography>
+          </Link>
           </Grid>
           </Grid>
         </Toolbar>
@@ -278,9 +275,11 @@ function ResponsiveDrawer({ auth: { isAuthenticated, loading ,user}, logout }) {
           </IconButton>
           </Grid>
           <Grid item>
+            <Link to="/posts">
           <Typography variant="h5" noWrap>
             APSIT HUB
           </Typography>
+          </Link>
           </Grid>
           </Grid>
         </Toolbar>
