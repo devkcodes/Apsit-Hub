@@ -5,7 +5,7 @@
     "main": "server.js",
     "engines": {
         "node": "14.x"
-      },
+    },
     "scripts": {
         "start": "node server",
         "server": "nodemon server",
@@ -16,8 +16,6 @@
     "author": "Devansh Katheria",
     "license": "MIT",
     "dependencies": {
-        "@geist-ui/react": "^2.1.4",
-        "@material-ui/lab": "^4.0.0-alpha.57",
         "axios": "^0.21.1",
         "bcryptjs": "^2.4.3",
         "body-parser": "^1.19.0",
@@ -25,13 +23,9 @@
         "express": "^4.17.1",
         "express-validator": "^6.7.0",
         "gravatar": "^1.8.1",
-        "install": "^0.13.0",
         "jsonwebtoken": "^8.5.1",
         "mongoose": "^5.11.3",
-        "npm": "^7.8.0",
         "react": "^17.0.2",
-        "react-bootstrap": "^1.5.1",
-        "rebass": "^2.1.0",
         "request": "^2.88.2"
     },
     "devDependencies": {
