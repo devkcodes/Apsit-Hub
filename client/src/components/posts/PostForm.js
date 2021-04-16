@@ -6,8 +6,10 @@ import "../../styles/PostForm.css"
 
 //Rich text editor
 import MUIRichTextEditor from 'mui-rte'
-import { convertToRaw } from 'draft-js'
+import { convertFromRaw, convertToRaw } from 'draft-js'
+import { EditorState, ContentState } from 'draft-js';
 import Divider from '@material-ui/core/Divider'
+
 
 import {Card, Button,Icon,TextField,FormControl, Typography} from '@material-ui/core'
 
@@ -108,15 +110,20 @@ const PostForm = ({ addPost }) => {
     const [text, setText] = useState("");
     useEffect(() => {
     }, [text])
+
+    const [editorState, setEditorState] = useState()
+
+
     return (
             <div className={classes.divClass} >
                 <FormControl  className={classes.text}>
-                <MuiThemeProvider theme={formFont}><Typography variant="h5" style={{margin:"5%",['@media (max-width:600px)']:{fontSize:"50px"}}} > Create a post!</Typography></MuiThemeProvider>
+                <MuiThemeProvider theme={formFont}><h3  style={{margin:"5%",}} > Create a post!</h3></MuiThemeProvider>
 
                     <MuiThemeProvider theme={defaultTheme}>
                         <Divider/>
                     <MUIRichTextEditor 
                     label="Type your requirements here..."
+                    
                     text={text}
                     onChange={(editorState)=>{
                         let contentState = editorState.getCurrentContent();
@@ -124,6 +131,7 @@ const PostForm = ({ addPost }) => {
                         setText(JSON.stringify(convertToRaw(contentState)))
 
                     }}
+                    
 				            required
                             className={classes.rte}
                     />
@@ -136,11 +144,12 @@ const PostForm = ({ addPost }) => {
                     className={classes.buttonSend}
                     onClick={e => {
                         e.preventDefault();
-                        if(text==null||text==" ")
-                        setAlert('Please enter something!')
-                        setText("");
+                        if(text==null||text==""){
+                            setAlert('Please enter something!')
+                        }
+                        else
                         addPost({ text });
-                        
+                        setText("");       
                         
                     }}
                     variant="contained"

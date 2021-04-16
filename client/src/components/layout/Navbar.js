@@ -15,7 +15,7 @@ const navFont = createMuiTheme({
     fontFamily: [
       'Share Tech', 'san-serif',
     ].join(','),
-    fontSize:"1px"
+   
 },});
 
 
@@ -142,7 +142,7 @@ export const NavbarComponent = ({ auth: { isAuthenticated, loading ,user}, logou
               <Button color="inherit" component={Link} className={classes.buttonFontSize}><Link to="/profiles" className={classes.links}>Students</Link></Button>
               <Button color="inherit" className={classes.buttonFontSize}><Link to="/posts" className={classes.links}>Posts</Link></Button>
               <Button color="inherit" className={classes.buttonFontSize} >
-                <Link className={classes.links} onClick={logout} href="http://localhost:3000/login">
+                <Link className={classes.links} onClick={logout} href="http://localhost:3000/">
               
                   Logout</Link>
               </Button>
