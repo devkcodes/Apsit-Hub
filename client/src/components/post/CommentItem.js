@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom';
+ 
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
 import { deleteComment } from '../../actions/post';
-import { CardContent, CardHeader,Avatar, makeStyles,Grid, CardActions, IconButton, Icon} from '@material-ui/core'
-import {Fieldset,Badge,Button} from '@geist-ui/react'
+import {  Avatar, makeStyles } from '@material-ui/core'
+import {Fieldset ,Button} from '@geist-ui/react'
 import { XSquare } from '@geist-ui/react-icons'
 
 

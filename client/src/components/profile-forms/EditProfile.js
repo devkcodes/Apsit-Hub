@@ -1,15 +1,15 @@
 //ui imports
-import Avatar from '@material-ui/core/Avatar';
+ 
 import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
+ 
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+ 
+ 
 // import Paper from '@material-ui/core/Paper';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+ 
 import Typography from '@material-ui/core/Typography';
 import MenuItem from '@material-ui/core/MenuItem'
 import LanguageSharpIcon from '@material-ui/icons/LanguageSharp';
@@ -20,8 +20,8 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import { makeStyles, MuiThemeProvider } from '@material-ui/core/styles';
-import FormControl from '@material-ui/core/FormControl';
-import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+ 
+import { createMuiTheme } from '@material-ui/core/styles';
 import g4glogo from '../../img/gfgicon.png'
 import leetcodelogo from '../../img/leetcode-logo.png'
 import codeforceslogo from '../../img/codeforces-logo.jpg'

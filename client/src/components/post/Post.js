@@ -8,9 +8,9 @@ import { Link } from 'react-router-dom';
 import CommentForm from '../post/CommentForm';
 import CommentItem from '../post/CommentItem';
 
-import { Grid, makeStyles } from '@material-ui/core'
+import {   makeStyles } from '@material-ui/core'
 import {Button} from '@material-ui/core'
-import { ArrowLeft } from '@geist-ui/react-icons'
+ 
 
 
 const styles = {

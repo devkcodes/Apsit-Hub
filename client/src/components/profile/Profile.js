@@ -1,24 +1,24 @@
 import React, { Fragment, useEffect } from "react";
-import { Link } from "react-router-dom";
+ 
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Spinner from "../layout/Spinner";
 
 import ProfileGithub from './ProfileGithub';
-import ProfileAbout from "./ProfileAbout";
+ 
 import ProfileLeft from "./ProfileLeft";
 import { getProfileById } from "../../actions/profile";
-import Alert from "../layout/Alert"
+ 
 
 
 //Geist UI
-import {Card, Text, Divider,Code} from '@geist-ui/react' 
+ 
 
 //Material UI
 import { makeStyles } from '@material-ui/core/styles';
 import {Grid} from '@material-ui/core'
 import CreateProfile from "../profile-forms/CreateProfile";
-import Container from '@material-ui/core/Container'
+ 
 
 
 

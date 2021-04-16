@@ -1,9 +1,9 @@
-import React, { useState,Fragment ,} from 'react'
+import React, { Fragment ,} from 'react'
 import { Link,  } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
-import { Drawer,Grid, Button, AppBar, Toolbar, Typography, MenuItem, Menu, Avatar, Divider } from "@material-ui/core"
+import { Drawer,Grid, Button, AppBar, Toolbar, Divider } from "@material-ui/core"
 import { makeStyles, MuiThemeProvider } from '@material-ui/core/styles';
 import "../../App.css";
 import {createMuiTheme } from '@material-ui/core/styles'

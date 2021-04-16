@@ -11,7 +11,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import PrivateRoute from './components/routing/PrivateRoute';
 import CreateProfile from './components/profile-forms/CreateProfile';
 import EditProfile from './components/profile-forms/EditProfile';
-import AddExperience from './components/profile-forms/AddExperience';
+
 import Profiles from './components/profiles/Profiles';
 import Profile from './components/profile/Profile';
 import Posts from './components/posts/Posts';
@@ -26,7 +26,7 @@ import { Provider } from 'react-redux';
 import store from './storee';
 import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
-var bodyParser = require('body-parser');
+
 
 
 const useStyles = makeStyles((theme) => ({

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import { addComment } from '../../actions/post';
 import {Textarea,Card} from '@geist-ui/react'
-import { Grid, makeStyles,Button } from '@material-ui/core'
+import {  makeStyles,Button } from '@material-ui/core'
 
 
 const styles = {

@@ -8,10 +8,8 @@ import './github.css';
 
 //Geist UI
 // import {Card,Divider} from '@geist-ui/react'
-import {Card,Text, Divider,Button,Avatar,Fieldset,Badge,Tooltip } from '@geist-ui/react' 
-import { Globe,Smile,Code,Facebook,Twitter,Linkedin,Instagram,Youtube,MessageCircle   } from '@geist-ui/react-icons'
-import useMediaQuery from "@geist-ui/react/dist/use-media-query"
-
+import {Card,Text, Divider  } from '@geist-ui/react' 
+ 
 
 //Material UI
 import { makeStyles } from '@material-ui/core/styles';

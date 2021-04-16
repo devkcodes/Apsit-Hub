@@ -2,9 +2,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import InputLabel from '@material-ui/core/InputLabel'
-import Checkbox from '@material-ui/core/Checkbox';
+
 // import Paper from '@material-ui/core/Paper';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
@@ -15,19 +13,19 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import Container from '@material-ui/core/Container'
 // import Form from '@material-ui/core/Form';
-import { Text, Divider,Fieldset,Badge,Tooltip } from '@geist-ui/react' 
+import { Text} from '@geist-ui/react' 
 
 
 
 //other
 import React, { Fragment, useState } from 'react';
 import '../../App.css';
-import axios from 'axios';
+ 
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { login } from '../../actions/auth';
 import PropTypes from 'prop-types';
-import Navbar from '../layout/Navbar';
+ 
 
 
 const useStyles = makeStyles((theme) => ({
@@ -37,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
         height: '100vh',
         color: 'white',
         backgroundImage: 'url(https://res.cloudinary.com/dsph4eptm/image/upload/v1617973085/3_dudhhs.png)',
-        height: "100vh",
+         
         // marginBottom: "200px"
         ['@media (max-width:1024px)']: {
 backgroundImage: 'none',
