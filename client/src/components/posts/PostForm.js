@@ -111,7 +111,7 @@ const PostForm = ({ addPost }) => {
     return (
             <div className={classes.divClass} >
                 <FormControl  className={classes.text}>
-                <MuiThemeProvider theme={formFont}><Typography style={{margin:"5%"}} variant='h3'> Create a post!</Typography></MuiThemeProvider>
+                <MuiThemeProvider theme={formFont}><Typography variant="h5" style={{margin:"5%",['@media (max-width:600px)']:{fontSize:"50px"}}} > Create a post!</Typography></MuiThemeProvider>
 
                     <MuiThemeProvider theme={defaultTheme}>
                         <Divider/>
@@ -138,8 +138,9 @@ const PostForm = ({ addPost }) => {
                         e.preventDefault();
                         if(text==null||text==" ")
                         setAlert('Please enter something!')
-                        addPost({ text });
                         setText("");
+                        addPost({ text });
+                        
                         
                     }}
                     variant="contained"

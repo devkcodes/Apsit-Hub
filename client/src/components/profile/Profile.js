@@ -74,7 +74,7 @@ console.log(auth)
 										<Grid item xs={12} md={5}>
 									<ProfileLeft  profile ={profile}/>
 									</Grid>
-									<Grid style={{backgroundColor:'black'}} item xs={12} md={6}>
+									<Grid style={{backgroundColor:'#17252A'}} item xs={12} md={6}>
 									<ProfileGithub username={profile.githubusername}/>
 									</Grid>
 									

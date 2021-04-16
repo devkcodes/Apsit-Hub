@@ -112,6 +112,8 @@ const useStyles = makeStyles((theme) => ({
          }
     },
     gitmain:{
+        backgroundColor:"#17252A",
+        marginBottom:"50px",
         ['@media (max-width:600px)']:{
             marginTop:'50px',
         }

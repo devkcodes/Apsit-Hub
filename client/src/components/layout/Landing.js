@@ -48,8 +48,9 @@ function Landing({ isAuthenticated }) {
 			</h1> 
       <p class="para svelte-1424rrd">A platform for anybody who has knack for programming apsit hub apsit hub apsit hub apsit hub apsit hub apsit hub  </p>
           <button className=" btn-land"><a href='login'>Sign In</a></button>
-          <span class="spans">Not a member yet? Join Us!</span>
+         
           <button className="btn-land"><a href='register'>Sign Up</a></button>
+          <span class="spans">Not a member yet? Join Us!</span>
         </div> 
         
 

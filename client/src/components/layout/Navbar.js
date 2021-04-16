@@ -59,7 +59,7 @@ display: "none"      }
 
   },
   mainLogo: {
-    color: "#a1a1a1",
+    color: "#17252A",
 
     '&:hover': {
       background: "transparent"
@@ -101,13 +101,13 @@ export const NavbarComponent = ({ auth: { isAuthenticated, loading ,user}, logou
           
             <Toolbar >
               <Grid className={classes.grow}>
-                <Button container className={[classes.mainLogo]}>
+                <Button container className={classes.mainLogo}>
                   <h2>ApsitHub</h2>
                 </Button>
               </Grid>
               <Grid item>
               
-              <Button color="inherit" component={Link} className={classes.buttonFontSize}><Link to="/profiles" className={classes.links}>Students</Link></Button>
+              {/* <Button color="inherit" component={Link} className={classes.buttonFontSize}><Link to="/profiles" className={classes.links}>Students</Link></Button> */}
               <Button color="inherit" component={Link} className={classes.buttonFontSize}><Link to="/login" className={classes.links}>Sign In</Link></Button>
               <Button color="inherit" component={Link} className={classes.buttonFontSize}><Link to="/register" className={classes.links}>Register</Link></Button>
               <Button color="inherit" component={Link} className={classes.buttonFontSize}><Link to="/profiles" className={classes.links}>Students</Link></Button>

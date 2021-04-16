@@ -20,18 +20,21 @@ const styles = {
         borderTop: 'none',
         marginLeft: '20%',
         marginRight: '20%',
+        marginBottom: '20px',
         borderBottom: 'none',
         backgroundColor:"#DEF2F1",
         ['@media (max-width:1000px)']: {
 
             margin: '0',
             marginTop:'15px',
-            padding: '0'
+            padding: '0',
+            marginBottom: '20px'
         },
         ['@media (max-width:600px)']: {
             margin: '0',
             marginTop:'45px',
-            padding: '0'
+            padding: '0',
+            marginBottom: '20px'
         }
 
     },

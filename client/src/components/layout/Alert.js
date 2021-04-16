@@ -16,12 +16,16 @@ const useStyles = makeStyles((theme) => ({
         color:"#721C24",
         backgroundColor:"#F8D7DA",
         height:"60px",
-        padding:"1px"
+        padding:"1px",
+        position:'sticky'
     },
     success:{
-        marginTop:"80px",
+       
         color:"#155724",
-        backgroundColor:"#D4EDDA"
+        backgroundColor:"#D4EDDA",
+        height:"60px",
+        padding:"1px",
+        position:'sticky'
     }
     
 }));
