@@ -142,9 +142,9 @@ export const NavbarComponent = ({ auth: { isAuthenticated, loading ,user}, logou
               <Button color="inherit" component={Link} className={classes.buttonFontSize}><Link to="/profiles" className={classes.links}>Students</Link></Button>
               <Button color="inherit" className={classes.buttonFontSize}><Link to="/posts" className={classes.links}>Posts</Link></Button>
               <Button color="inherit" className={classes.buttonFontSize} >
-                <a className={classes.links} onClick={logout} href="http://localhost:3000/login">
+                <Link className={classes.links} onClick={logout} href="http://localhost:3000/login">
               
-                  Logout</a>
+                  Logout</Link>
               </Button>
               <Drawer
         className={classes.drawer}

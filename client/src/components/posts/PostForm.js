@@ -145,7 +145,7 @@ const PostForm = ({ addPost }) => {
                     }}
                     variant="contained"
                     endIcon={<SendIcon />}
-
+                    disabled={text=== ''}
 
                     >Post!</Button>
             </div>

@@ -106,13 +106,13 @@ const useStyles = makeStyles((theme) => ({
     },
     card:{
         ['@media (max-width:600px)']: {
-            backgroundColor:"#17252A",
+            backgroundColor:"#17252a",
             width:'50px'
      // overflow:"hidden"
          }
     },
     gitmain:{
-        backgroundColor:"#17252A",
+        backgroundColor:"#17252a",
         marginBottom:"50px",
         ['@media (max-width:600px)']:{
             marginTop:'50px',

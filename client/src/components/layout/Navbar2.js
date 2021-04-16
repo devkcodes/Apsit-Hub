@@ -16,11 +16,21 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import EditIcon from '@material-ui/icons/Edit';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import ContactMailIcon from '@material-ui/icons/ContactMail';
+import SchoolIcon from '@material-ui/icons/School';
 import {Link} from 'react-router-dom';
 import { logout } from '../../actions/auth';
 import Grid from '@material-ui/core/Grid'
 import { connect } from 'react-redux';
+import {createMuiTheme } from '@material-ui/core/styles'
+import { MuiThemeProvider } from '@material-ui/core/styles';
 
+const navFont = createMuiTheme({
+  typography: {
+    fontFamily: [
+      'Share Tech', 'san-serif',
+    ].join(','),
+    fontSize:"1px"
+},});
 
 
 const drawerWidth = 240;
@@ -119,7 +129,7 @@ function ResponsiveDrawer({ auth: { isAuthenticated, loading ,user}, logout }) {
           
           <a  href="https://www.apsit.edu.in/home" className={classes.links}> <ListItem button >
             <ListItemIcon>
-               <ContactMailIcon />
+            <SchoolIcon/>
             </ListItemIcon> 
             <ListItemText primary={"APSIT"} />
           </ListItem></a>
@@ -199,7 +209,9 @@ function ResponsiveDrawer({ auth: { isAuthenticated, loading ,user}, logout }) {
   );
 
   return (
-  <Fragment>
+    
+  <Fragment >
+    <MuiThemeProvider theme={navFont}>
     
 
       {(!loading && !isAuthenticated &&!(param === 'http://localhost:3000/')) ?
@@ -318,7 +330,7 @@ function ResponsiveDrawer({ auth: { isAuthenticated, loading ,user}, logout }) {
       </div>
       }
       
-          
+      </MuiThemeProvider>
           </Fragment>
    );
 }
