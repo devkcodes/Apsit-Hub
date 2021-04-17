@@ -300,7 +300,7 @@ export const Register = ({ setAlert, register, isAuthenticated }) => {
                                     required
                                     fullWidth
                                     name="password2"
-                                    label="Confirm sPassword"
+                                    label="Confirm Password"
                                     type="password"
                                     id="password"
                                     value={password2}

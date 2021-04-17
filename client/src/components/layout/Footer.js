@@ -22,8 +22,8 @@ function Footer() {
 			</div>
       
 			<div className="made__by">
-				Created and maintained by <a href="https://github.com/reeticodes" target="_blank" rel="noopener noreferrer"><span className="made__by_name">Reeti</span></a>{" and  "}
-				<a href="https://github.com/devkcodes/" target="_blank" rel="noopener noreferrer"><span className="made__by_name">Devansh Katheria</span></a> 
+				Created and maintained by 
+				<a href="https://github.com/devkcodes/" target="_blank" rel="noopener noreferrer"><span className="made__by_name"> Devansh Katheria</span></a> 
 			
 			</div>
 		</div>

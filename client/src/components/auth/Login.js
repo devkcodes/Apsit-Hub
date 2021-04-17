@@ -84,7 +84,7 @@ backgroundImage: 'none',
             padding: '5%',
             width: '90%',
             marginBottom: '15%',
-        height: '80%'        }
+        height: '60%'        }
 
     },
     avatar: {

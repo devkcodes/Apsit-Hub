@@ -139,7 +139,7 @@ const EditProfile = ({ profile: { profile, loading }, deleteAccount, createProfi
         containerRoot: {
             margin: '100px',
             ['@media (max-width:600px)']: {
-                margin:10,
+                margin:'100px',
                 marginRight:20,
                 width:"400px",
                 backgroundColor:"# ",
@@ -363,7 +363,7 @@ formText:{
         <Fragment>
             <Grid container  direction="column" justify="space-between"  alignItems="center" style={{backgroundColor:"#75C7C3"}} className={classes.containerRoot}>
             <Grid item className={classes.heading}>
-                    <Typography><h1 variant="h4" align="center" > Edit Your Profile</h1></Typography>
+                    <Typography><h1 align="center" > Edit Your Profile</h1></Typography>
                        
       
                     <Typography> 

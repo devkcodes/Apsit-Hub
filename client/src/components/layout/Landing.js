@@ -46,10 +46,10 @@ function Landing({ isAuthenticated }) {
         </span><span> </span>
 				  APSIT peers
 			</h1> 
-      <p class="para svelte-1424rrd">A platform for anybody who has knack for programming apsit hub apsit hub apsit hub apsit hub apsit hub apsit hub  </p>
-          <button className=" btn-land"><a href='login'>Sign In</a></button>
+      <p class="para svelte-1424rrd">A platform for anybody who has knack for programming. We are a Community of programmers and students who share doubts, knowledge and learn stuff together here on Apsit Hub </p>
+      <a href='login'> <button className=" btn-land">Sign In</button></a>
          
-          <button className="btn-land"><a href='register'>Sign Up</a></button>
+          <a href='register'>  <button className="btn-land">Sign Up</button></a>
           <span class="spans">Not a member yet? Join Us!</span>
         </div> 
         
