@@ -209,7 +209,7 @@ function ResponsiveDrawer({ auth: { isAuthenticated, loading ,user}, logout }) {
     <MuiThemeProvider theme={navFont}>
     
 
-      {(!loading && !isAuthenticated &&!(param === 'http://localhost:3000/'|| param === 'https://pacific-wildwood-50444.herokuapp.com/')) ?
+      {(!loading && !isAuthenticated &&!(param === 'http://localhost:3000/'|| param === 'https://apsit-hub.herokuapp.com/')) ?
           <div className={classes.root}>
       <CssBaseline />
       <AppBar position="fixed" style={{ backgroundColor:"#2B7A78",

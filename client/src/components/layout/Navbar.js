@@ -1,4 +1,4 @@
-import React, { Fragment ,} from 'react'
+import React, { Fragment} from 'react'
 import { Link,  } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -97,7 +97,7 @@ export const NavbarComponent = ({ auth: { isAuthenticated, loading ,user}, logou
     
     <Fragment>
       <MuiThemeProvider theme={navFont}>
-        {(!loading && !isAuthenticated &&!(param === 'http://localhost:3000/'||param === 'https://pacific-wildwood-50444.herokuapp.com/')) ? <AppBar position="fixed" color="#2D3548" className={classes.AppBar}>
+        {(!loading && !isAuthenticated &&!(param === 'http://localhost:3000/'||param === 'https://apsit-hub.herokuapp.com/')) ? <AppBar position="fixed" color="#2D3548" className={classes.AppBar}>
           
             <Toolbar >
               <Grid className={classes.grow}>
